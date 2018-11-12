@@ -41,7 +41,7 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./tables.html">
+            <a class="nav-link" href="../data.html">
               <i class="material-icons">content_paste</i>
               <p>Data</p>
             </a>
@@ -55,7 +55,7 @@
           <li class="nav-item ">
             <a class="nav-link" href="./user.html">
               <i class="material-icons">person</i>
-              <p>User Profile</p>
+              <p>Profile</p>
             </a>
           </li>
         </ul>
@@ -568,7 +568,7 @@
             <script>
               document.write(new Date().getFullYear())
             </script>, made with <i class="material-icons">favorite</i> by
-            Aufal Marom for a better web.
+            Aufal Marom.
           </div>
         </div>
       </footer>
