@@ -71,15 +71,15 @@
                                     <td>{{$data_kelerengan_view->daerah}}</td>
                                     <td>{{$data_kelerengan_view->nilai}}</td>
                                     <td class="td-actions text-right">
-                                        <button type="button" rel="tooltip" class="btn btn-info">
+                                        <button type="button" rel="tooltip" title="Info" class="btn btn-primary btn-link btn-sm">
                                             <i class="material-icons">info</i>
                                         </button>
-                                        <button type="button" rel="tooltip" class="btn btn-success" data-target="#update-form">
+                                        <button type="button" rel="tooltip" title="Edit" class="btn btn-primary btn-link btn-sm">
                                             <i class="material-icons">edit</i>
                                         </button>
-                                        <a href="{{route('deletedata.admin', $data_kelerengan_view->id)}}" class="btn btn-danger">
+                                        <button href="{{route('deletedata.admin', $data_kelerengan_view->id)}}" rel="tooltip" type="button" title="Remove" class="btn btn-danger btn-link btn-sm">
                                             <i class="material-icons">clear</i>
-                                        </a>
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach

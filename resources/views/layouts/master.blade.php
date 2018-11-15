@@ -26,15 +26,53 @@
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+    <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
       <div class="logo">
       <a href="{{route('dashboard.admin')}}" class="simple-text logo-normal">
           SIG-TPA
         </a>
       </div>
       <div class="sidebar-wrapper">
+        <div class="user">
+            <div class="photo">
+                <img src="../assets/img/faces/marc.jpg">
+            </div>
+            <div class="user-info">
+                <a href="#user" data-toggle="collapse" class="username">
+                    <span>
+                        Mas Yudi
+                        <b class="caret"></b>
+                    </span>
+                </a>
+                <div class="collapse" id="user" style>
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a href="{{route('profile.admin')}}" class="nav-link">
+                                <span class="sidebar-mini">MP</span>
+                                <span class="sidebar-normal">My Profile</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('profile.admin')}}" class="nav-link">
+                                <span class="sidebar-mini">MP</span>
+                                <span class="sidebar-normal">My Profile</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{route('profile.admin')}}" class="nav-link">
+                                <span class="sidebar-mini">MP</span>
+                                <span class="sidebar-normal">My Profile</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
         <ul class="nav">
-        <li class="nav-item {{ Request::segment(2) === 'dashboard' ? 'active' : null}}">
+        <li class="nav-item">
             <a class="nav-link" href="{{route('dashboard.admin')}}">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
@@ -42,31 +80,130 @@
           </li>
 
         </li>
-          <li class="nav-item {{ Request::segment(2) === 'data' ? 'active' : null}}">
-          <a class="nav-link" href="{{route('data.admin')}}">
-              <i class="material-icons">content_paste</i>
-              <p>Data</p>
-            </a>
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" data-toggle="collapse" href="#data" aria-expanded="false">
+            <i class="material-icons">grid_on</i>
+            <p>Data
+                <b class="caret"></b>
+            </p>
+        </a>
+            <div class="collapse" id="data" style>
+                <ul class="nav">
+                        <li class="nav-item">
+                                <a class="nav-link " href="{{route('data.admin')}}">
+                                    <span class="sidebar-mini">DK</span>
+                                    <span class="sidebar-normal">Data Kelerengan</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('data.admin')}}">
+                                    <span class="sidebar-mini">DPL</span>
+                                    <span class="sidebar-normal">Data Penggunaan Lahan</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('data.admin')}}">
+                                    <span class="sidebar-mini">DG</span>
+                                    <span class="sidebar-normal">Data Geologi</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('data.admin')}}">
+                                    <span class="sidebar-mini">DRB</span>
+                                    <span class="sidebar-normal">Data Rawan Bencana</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('data.admin')}}">
+                                    <span class="sidebar-mini">DH</span>
+                                    <span class="sidebar-normal">Data Hidrologi</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('data.admin')}}">
+                                    <span class="sidebar-mini">DCH</span>
+                                    <span class="sidebar-normal">Data Curah Hujan</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('data.admin')}}">
+                                    <span class="sidebar-mini">DJT</span>
+                                    <span class="sidebar-normal">Data Jenis Tanah</span>
+                                </a>
+                            </li>
+                </ul>
+
+            </div>
           </li>
-          <li class="nav-item {{ Request::segment(2) === 'maps' ? 'active' : null}}">
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-toggle="collapse" href="#smart" aria-expanded="false">
+                <i class="material-icons">widgets</i>
+                <p>SMART
+                    <b class="caret"></b>
+                </p>
+            </a>
+                <div class="collapse" id="smart" style>
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('data.admin')}}">
+                                <span class="sidebar-mini">PD</span>
+                                <span class="sidebar-normal">Parameter dan Data</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('data.admin')}}">
+                                <span class="sidebar-mini">BP</span>
+                                <span class="sidebar-normal">Bobot Parameter</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('data.admin')}}">
+                                <span class="sidebar-mini">BR</span>
+                                <span class="sidebar-normal">Bobot Relatif</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('data.admin')}}">
+                                <span class="sidebar-mini">FE</span>
+                                <span class="sidebar-normal">Faktor Evaluasi</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('data.admin')}}">
+                                <span class="sidebar-mini">BE</span>
+                                <span class="sidebar-normal">Bobot Evaluasi</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('data.admin')}}">
+                                <span class="sidebar-mini">DCH</span>
+                                <span class="sidebar-normal">Ranking</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('data.admin')}}">
+                                <span class="sidebar-mini">DJT</span>
+                                <span class="sidebar-normal">Data Jenis Tanah</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </li>
+          <li class="nav-item ">
             <a class="nav-link" href="{{route('maps.admin')}}">
               <i class="material-icons">location_ons</i>
               <p>Maps</p>
             </a>
           </li>
-            <li class="nav-item {{ Request::segment(2) === 'user' ? 'active' : null}}">
+            <li class="nav-item">
                 <a class="nav-link" href="{{route('user.admin')}}">
                     <i class="material-icons">people</i>
                     <p>Users</p>
                 </a>
             </li>
-          <li class="nav-item {{ Request::segment(2) === 'profile' ? 'active' : null}}">
-            <a class="nav-link"  href="{{route('profile.admin')}}">
-              <i class="material-icons">person</i>
-              <p>Profile</p>
-            </a>
-          </li>
-
         </ul>
       </div>
     </div>
@@ -153,12 +290,11 @@
   <script src="../assets/js/plugins/chartist.min.js"></script>
   <!--  Notifications Plugin    -->
   <script src="../assets/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  //Control Center for Material Dashboard: parallax effects, scripts for the example pages etc
   <script src="../assets/js/material-dashboard.min.js?v=2.1.0" type="text/javascript"></script>
   <script src="../assets/js/style.js" type="text/javascript"></script>
 
 </script>
-
 
 </body>
 
