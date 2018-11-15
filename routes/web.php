@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 
-
+// Administrator
 //create
 Route::post('/data/insert','Data@create')->name('insertdata.admin');
 
@@ -27,9 +27,9 @@ Route::get('/administrator/maps','Maps@index')->name('maps.admin');
 Route::get('/administrator/profile','Profile@index')->name('profile.admin');
 Route::get('/administrator/user','User@index')->name('user.admin');
 
-
 //update
 
 //delete
 Route::get('/data/delete/{id}', 'Data@delete')->name('deletedata.admin');
+
 

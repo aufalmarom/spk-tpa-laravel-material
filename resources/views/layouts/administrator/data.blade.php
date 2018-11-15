@@ -13,25 +13,25 @@
 
     <div class="col">
         <div class="row">
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#create-form" aria-expanded="false" aria-controls="collapseExample">
-                create
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#create-data" aria-expanded="false" aria-controls="collapseExample">
+                create data
             </button>
         </div>
 
         <div class="row">
             <div class="col">
-                <div class="collapse" id="create-form">
+                <div class="collapse" id="create-data">
                     <div class="card card-body">
                         <form method="POST" action="{{route('insertdata.admin')}}">
                             {{csrf_field()}}
                             <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="inputEmail4">Daerah</label>
-                                <input type="text" name="daerah" class="form-control">
+                                <label for="inputEmail4" class="bmd-label-floating">Daerah</label>
+                                <input type="text" name="daerah" class="form-control" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label for="inputPassword4">Nilai</label>
-                                <input type="number" name="nilai" class="form-control">
+                                <label for="inputPassword4"class="bmd-label-floating">Nilai</label>
+                                <input type="number" name="nilai" class="form-control" required>
                             </div>
                             </div>
                             <button type="submit" class="btn btn-primary">CREATE</button>
@@ -112,8 +112,5 @@
                 </div>
             </div>
         </div>
-
-
-
     </div>
 @endsection

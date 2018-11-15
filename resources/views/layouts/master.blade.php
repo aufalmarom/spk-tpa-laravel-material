@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- CSS Files -->
   <link href="../assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+  <link href="../assets/css/style.css" rel="stylesheet" />
+
+
 
 </head>
 
@@ -37,6 +40,8 @@
               <p>Dashboard</p>
             </a>
           </li>
+
+        </li>
           <li class="nav-item {{ Request::segment(2) === 'data' ? 'active' : null}}">
           <a class="nav-link" href="{{route('data.admin')}}">
               <i class="material-icons">content_paste</i>
@@ -56,7 +61,7 @@
                 </a>
             </li>
           <li class="nav-item {{ Request::segment(2) === 'profile' ? 'active' : null}}">
-            <a class="nav-link" href="{{route('profile.admin')}}">
+            <a class="nav-link"  href="{{route('profile.admin')}}">
               <i class="material-icons">person</i>
               <p>Profile</p>
             </a>
@@ -81,13 +86,16 @@
           <div class="collapse navbar-collapse justify-content-end">
 
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="#">
+              <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
                   <i class="material-icons">person</i>
                   <p class="d-lg-none d-md-block">
                     Account
                   </p>
                 </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#">Log Out</a>
+                </div>
               </li>
             </ul>
           </div>
@@ -141,22 +149,17 @@
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Chartist JS -->
   <script src="../assets/js/plugins/chartist.min.js"></script>
   <!--  Notifications Plugin    -->
   <script src="../assets/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/material-dashboard.min.js?v=2.1.0" type="text/javascript"></script>
+  <script src="../assets/js/style.js" type="text/javascript"></script>
 
-  <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      md.initDashboardPageCharts();
+</script>
 
-    });
-  </script>
+
 </body>
 
 </html>
