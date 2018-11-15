@@ -13,7 +13,7 @@
 
     <div class="col">
         <div class="row">
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#create-data" aria-expanded="false" aria-controls="collapseExample">
+            <button class="btn btn-rose" type="button" data-toggle="collapse" data-target="#create-data" aria-expanded="false" aria-controls="collapseExample">
                 create data
             </button>
         </div>
@@ -34,22 +34,24 @@
                                 <input type="number" name="nilai" class="form-control" required>
                             </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">CREATE</button>
+                            <button type="submit" class="btn btn-rose">CREATE</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
 
-
-
-
-
         <div class="row">
             <div class="card">
-                <div class="card-header card-header-rose">
-                    <h4 class="card-title">CRUD biasa</h4>
-                    <p class="category">iki data percobaan</p>
+                <div class="card-header card-header-icon card-header-rose">
+                    <div class="card-icon">
+                        <i class="material-icons">perm_identity</i>
+
+                    </div>
+                    <h4 class="card-title">CRUD biasa -
+                            <small class="category">iki data percobaan</small>
+                    </h4>
+
                 </div>
                 <div class="card-body">
                     <table class="table">

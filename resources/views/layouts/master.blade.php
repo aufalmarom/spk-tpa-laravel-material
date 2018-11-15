@@ -40,24 +40,12 @@
             <div class="user-info">
                 <a href="#user" data-toggle="collapse" class="username">
                     <span>
-                        Mas Yudi
+                        Aufal Marom
                         <b class="caret"></b>
                     </span>
                 </a>
                 <div class="collapse" id="user" style>
                     <ul class="nav">
-                        <li class="nav-item">
-                            <a href="{{route('profile.admin')}}" class="nav-link">
-                                <span class="sidebar-mini">MP</span>
-                                <span class="sidebar-normal">My Profile</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('profile.admin')}}" class="nav-link">
-                                <span class="sidebar-mini">MP</span>
-                                <span class="sidebar-normal">My Profile</span>
-                            </a>
-                        </li>
                         <li class="nav-item">
                             <a href="{{route('profile.admin')}}" class="nav-link">
                                 <span class="sidebar-mini">MP</span>
@@ -209,26 +197,25 @@
     </div>
     <div class="main-panel">
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top">
         <div class="container-fluid">
           <div class="navbar-wrapper">
           <a class="navbar-brand">{{$title}}</a>
           </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler toggled" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
+
           </button>
           <div class="collapse navbar-collapse justify-content-end">
 
-            <ul class="navbar-nav">
-              <li class="nav-item dropdown">
+
+            <ul class="navbar-nav ">
+              <li class=" nav-item dropdown ">
                 <a class="nav-link" data-toggle="dropdown" href="#">
                   <i class="material-icons">person</i>
-                  <p class="d-lg-none d-md-block">
-                    Account
-                  </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="#">Log Out</a>

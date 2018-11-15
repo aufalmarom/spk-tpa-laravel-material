@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="row">
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#change-password" aria-expanded="false" aria-controls="collapseExample">
+        <button class="btn btn-rose" type="button" data-toggle="collapse" data-target="#change-password" aria-expanded="false" aria-controls="collapseExample">
             change password
         </button>
     </div>
@@ -23,7 +23,7 @@
                             </div>
 
                             </div>
-                            <button type="submit" class="btn btn-primary">CREATE</button>
+                            <button type="submit" class="btn btn-rose">CREATE</button>
                         </form>
                     </div>
                 </div>
@@ -34,9 +34,15 @@
     <div class="row">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header card-header-primary">
-          <h4 class="card-title">Edit Profile</h4>
-          <p class="card-category">Editen profilmu</p>
+        <div class="card-header card-header-icon card-header-rose">
+            <div class="card-icon">
+                <i class="material-icons">perm_identity</i>
+
+            </div>
+            <h4 class="card-title">Edit Profile -
+                    <small class="category">Editen Profilmu!</small>
+            </h4>
+
         </div>
         <div class="card-body">
           <form>
@@ -96,7 +102,7 @@
                 </div>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+            <button type="submit" class="btn btn-rose pull-right">Update Profile</button>
             <div class="clearfix"></div>
           </form>
         </div>
@@ -115,7 +121,7 @@
           <p class="card-description">
             Kuat ga kuat, opo-opo koe kudu ngomong karo Gusti-Mu
           </p>
-          <a href="#" class="btn btn-primary btn-round">full information</a>
+          <a href="#" class="btn btn-rose btn-round">full information</a>
         </div>
       </div>
     </div>
