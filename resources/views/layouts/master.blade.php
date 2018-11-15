@@ -170,12 +170,6 @@
                                 <span class="sidebar-normal">Ranking</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('data.admin')}}">
-                                <span class="sidebar-mini">DJT</span>
-                                <span class="sidebar-normal">Data Jenis Tanah</span>
-                            </a>
-                        </li>
                     </ul>
 
                 </div>
