@@ -54,7 +54,7 @@
 
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th class="text-center">No.</th>
@@ -73,15 +73,34 @@
                                     <td>{{$data_kelerengan_view->daerah}}</td>
                                     <td>{{$data_kelerengan_view->nilai}}</td>
                                     <td class="td-actions text-right">
-                                        <button type="button" rel="tooltip" title="Info" class="btn btn-primary btn-link btn-sm">
+                                        <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">info</i>
                                         </button>
-                                        <button type="button" rel="tooltip" title="Edit" class="btn btn-primary btn-link btn-sm">
+                                        <button type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">edit</i>
                                         </button>
-                                        <button href="{{route('deletedata.admin', $data_kelerengan_view->id)}}" rel="tooltip" type="button" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                        <button rel="tooltip" type="button" title="Remove" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-delete1">
                                             <i class="material-icons">clear</i>
+                                            <div class="ripple-container"></div>
                                         </button>
+                                        <div class="modal fade modal-mini modal-rose" id="modal-delete1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+                                            <div class="modal-dialog modal-small">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Are you sure you want to do this?</p>
+                                                    </div>
+                                                    <div class="modal-footer justify-content-center">
+                                                        <button type="button" class="btn btn-link" data-dismiss="modal">Never mind</button>
+                                                        <a href="{{route('deletedata.admin', $data_kelerengan_view->id)}}" class="btn btn-success btn-link">Yes
+                                                        <div class="ripple-container"></div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
                                     </td>
                                 </tr>
                             @endforeach

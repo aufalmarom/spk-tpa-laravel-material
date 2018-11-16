@@ -36,7 +36,7 @@
       <div class="card">
         <div class="card-header card-header-icon card-header-rose">
             <div class="card-icon">
-                <i class="material-icons">perm_identity</i>
+                <i class="material-icons">contacts</i>
 
             </div>
             <h4 class="card-title">Edit Profile -
@@ -111,7 +111,7 @@
     <div class="col-md-4">
       <div class="card card-profile">
         <div class="card-avatar">
-          <a href="#pablo">
+          <a href="#">
             <img class="img" src="../assets/img/faces/marc.jpg" />
           </a>
         </div>

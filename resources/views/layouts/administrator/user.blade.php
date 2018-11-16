@@ -72,7 +72,7 @@
 
                 </div>
                 <div class="card-body">
-                    <table class="table">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th class="text-center">No.</th>
@@ -93,13 +93,13 @@
                                     <td>{{$data_kelerengan_view->daerah}}</td>
                                     <td>{{$data_kelerengan_view->nilai}}</td>
                                     <td class="td-actions text-right">
-                                        <button type="button" rel="tooltip" title="Info" class="btn btn-primary btn-link btn-sm">
+                                        <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">info</i>
                                         </button>
-                                        <button type="button" rel="tooltip" title="Edit" class="btn btn-primary btn-link btn-sm">
+                                        <button type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">edit</i>
                                         </button>
-                                        <button href="{{route('deletedata.admin', $data_kelerengan_view->id)}}" rel="tooltip" type="button" title="Remove" class="btn btn-danger btn-link btn-sm">
+                                        <button href="{{route('deletedata.admin', $data_kelerengan_view->id)}}" rel="tooltip" type="button" title="Remove" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">clear</i>
                                         </button>
                                     </td>

@@ -28,7 +28,10 @@
   <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
       <div class="logo">
-      <a href="{{route('dashboard.admin')}}" class="simple-text logo-normal">
+        <a href="{{route('dashboard.admin')}}" class="simple-text logo-mini">
+          ST
+        </a>
+        <a href="{{route('dashboard.admin')}}" class="simple-text logo-normal text-left">
           SIG-TPA
         </a>
       </div>
@@ -194,6 +197,13 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top">
         <div class="container-fluid">
           <div class="navbar-wrapper">
+              <div class="navbar-minimize">
+                  <button class="btn btn-just-icon btn-white btn-fab btn-round" id="minimizeSidebar">
+                      <i class="material-icons text_align-center visible-on-sidebar-regular">more_vert</i>
+                      <i class="material-icons design_bullet-list-67 visible-on-sidebar-mini">view_list</i>
+                      <div class="ripple-container"></div>
+                  </button>
+              </div>
           <a class="navbar-brand">{{$title}}</a>
           </div>
           <button class="navbar-toggler toggled" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -201,7 +211,6 @@
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
             <span class="navbar-toggler-icon icon-bar"></span>
-
           </button>
           <div class="collapse navbar-collapse justify-content-end">
 
@@ -269,9 +278,9 @@
   <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!-- Chartist JS -->
   <script src="../assets/js/plugins/chartist.min.js"></script>
-  <!--  Notifications Plugin    -->
+  <!-- Notifications Plugin -->
   <script src="../assets/js/plugins/bootstrap-notify.js"></script>
-  //Control Center for Material Dashboard: parallax effects, scripts for the example pages etc
+  <!-- Material Dashboard -->
   <script src="../assets/js/material-dashboard.min.js?v=2.1.0" type="text/javascript"></script>
   <script src="../assets/js/style.js" type="text/javascript"></script>
 
