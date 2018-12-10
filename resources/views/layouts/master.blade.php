@@ -57,9 +57,7 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
-
         </div>
 
         <ul class="nav">
@@ -204,7 +202,7 @@
                       <div class="ripple-container"></div>
                   </button>
               </div>
-          <a class="navbar-brand">{{$title}}</a>
+          <a class="navbar-brand"></a>
           </div>
           <button class="navbar-toggler toggled" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>

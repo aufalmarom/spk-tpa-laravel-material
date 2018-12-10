@@ -67,7 +67,7 @@
                             @php
                                 $no = 1;
                             @endphp
-                            @foreach ($data_kelerengan as $data_kelerengan_view)
+                            @foreach ($atributs as $data_kelerengan_view)
                                 <tr>
                                     <td class="text-center">{{$no++}}</td>
                                     <td>{{$data_kelerengan_view->daerah}}</td>
@@ -76,21 +76,22 @@
                                         <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">info</i>
                                         </button>
-                                        <button type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm">
+                                        <a href="{{url('/administrator/data')}}{{"/".$data_kelerengan_view->id}}" type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">edit</i>
-                                        </button>
-                                        <button rel="tooltip" type="button" title="Remove" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-delete1">
+                                        </a>
+                                        <button rel="tooltip" type="button" title="Remove" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-delete{{$data_kelerengan_view->id}}">
                                             <i class="material-icons">clear</i>
                                             <div class="ripple-container"></div>
                                         </button>
-                                        <div class="modal fade modal-mini modal-rose" id="modal-delete1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+
+                                        <div class="modal fade modal-mini modal-rose" id="modal-delete{{$data_kelerengan_view->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
                                             <div class="modal-dialog modal-small">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <p>Are you sure you want to do this?</p>
+                                                    <p>Are you sure you want to do this?</p>
                                                     </div>
                                                     <div class="modal-footer justify-content-center">
                                                         <button type="button" class="btn btn-link" data-dismiss="modal">Never mind</button>
@@ -100,33 +101,12 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
 
-                            <div class="row">
-                                <div class="col">
-                                    <div class="collapse" id="update-form">
-                                        <div class="card card-body">
-                                            <form>
-                                                {{csrf_field()}}
-                                                <div class="form-row">
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputEmail4">Daerah</label>
-                                                    <input type="text" name="daerah" class="form-control">
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                    <label for="inputPassword4">Nilai</label>
-                                                    <input type="number" name="nilai" class="form-control">
-                                                </div>
-                                                </div>
-                                                <button type="submit" class="btn btn-primary">update</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
 
                         </tbody>
                     </table>

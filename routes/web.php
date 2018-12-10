@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('layouts/login');
 });
 
 
@@ -28,8 +28,12 @@ Route::get('/administrator/profile','Profile@index')->name('profile.admin');
 Route::get('/administrator/user','User@index')->name('user.admin');
 
 //update
+Route::get('/administrator/data/{id}','Data@updatepage')->name('updatedata.admin');
 
 //delete
 Route::get('/data/delete/{id}', 'Data@delete')->name('deletedata.admin');
+
+//login
+Route::post('/login','ActorController@login')->name('login');
 
 
