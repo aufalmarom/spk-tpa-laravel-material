@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAtributsTable extends Migration
+class CreateActorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateAtributsTable extends Migration
      */
     public function up()
     {
-        Schema::create('atributs', function (Blueprint $table) {
+        Schema::create('actors', function (Blueprint $table) {
             $table->increments('id');
-            $table->String('daerah');
-            $table->Integer('nilai')->unsigned();
+            $table->String('username');
+            $table->String('password');
+            $table->String('fullname');
+            $table->String('access_level');
         });
     }
 
@@ -27,6 +29,6 @@ class CreateAtributsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('atributs');
+        Schema::dropIfExists('actors');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateDataRawanBencanaBanjirsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('actors', function (Blueprint $table) {
+        Schema::create('data_rawan_bencana_banjirs', function (Blueprint $table) {
             $table->increments('id');
-            $table->String('username');
-            $table->String('password');
-            $table->String('fullname');
-            $table->String('access_level');
+            $table->String('daerah');
+            $table->unsignedInteger('nilai_klasifikasi');
+            $table->String('nilai_parameter');
         });
     }
 
@@ -29,6 +28,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('data_rawan_bencana_banjirs');
     }
 }
