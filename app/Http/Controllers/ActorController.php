@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Actor;
@@ -35,4 +36,12 @@ class ActorController extends Controller
             return redirect()->back()->with('Gagal', 'Username Salah');
         }
     }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        return redirect('/login');
+    }
+
+
 }
