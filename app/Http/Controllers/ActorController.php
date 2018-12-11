@@ -21,7 +21,7 @@ class ActorController extends Controller
                         'username' => $request['username'],
                         'fullname' => $key->fullname
                     ]);
-                    if ($key ->access_level== 'Admin') {
+                    if ($key ->access_level== 'Administrator') {
                         return redirect('/administrator/dashboard');
                     }elseif ($key ->access_level == 'Manager') {
                         return redirect('/manager/dashboard');

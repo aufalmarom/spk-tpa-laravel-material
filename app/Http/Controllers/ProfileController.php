@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Dashboard extends Controller
+class ProfileController extends Controller
 {
     public function index(){
-        $title = 'Dashboard';
-        return view('layouts/administrator/dashboard', [
+        $title = 'Profile';
+        return view('layouts/administrator/profile', [
             'title'=> $title
         ]);
     }

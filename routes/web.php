@@ -18,13 +18,11 @@ Route::get('/', function () {
 
 // Administrator
 //create
-Route::post('/data/insert','Data@create')->name('insertdata.admin');
 Route::post('/data/insert','DataKelerenganController@create')->name('insertdatakelerengan.admin');
 
 //read
 //administrator
-Route::get('/administrator/dashboard','Dashboard@index')->name('dashboard.admin');
-Route::get('/administrator/data','Data@index')->name('data.admin');
+Route::get('/administrator/dashboard','DashboardController@index')->name('dashboard.admin');
 Route::get('/administrator/datakelerengan','DataKelerenganController@index')->name('datakelerengan.admin');
 Route::get('/administrator/datapenggunaanlahan','DataPenggunaanLahanController@index')->name('datapenggunaanlahan.admin');
 Route::get('/administrator/datarawanbencanalongsor','DataRawanBencanaLongsorController@index')->name('datarawanbencanalongsor.admin');
@@ -32,18 +30,23 @@ Route::get('/administrator/datacurahhujan','DataCurahHujanController@index')->na
 Route::get('/administrator/datahidrogeologi','DataHidrogeologiController@index')->name('datahidrogeologi.admin');
 Route::get('/administrator/datajenistanah','DataJenisTanahController@index')->name('datajenistanah.admin');
 Route::get('/administrator/datarawanbencanabanjir','DataRawanBencanaBanjirController@index')->name('datarawanbencanabanjir.admin');
-Route::get('/administrator/maps','Maps@index')->name('maps.admin');
-Route::get('/administrator/profile','Profile@index')->name('profile.admin');
-Route::get('/administrator/user','User@index')->name('user.admin');
+Route::get('/administrator/bobotparameter','BobotParameterController@index')->name('bobotparameter.admin');
+Route::get('/administrator/parameterdata','ParameterDataController@index')->name('parameterdata.admin');
+Route::get('/administrator/bobotrelatif','BobotRelatifController@index')->name('bobotrelatif.admin');
+Route::get('/administrator/faktorevaluasi','FaktorEvaluasiController@index')->name('faktorevaluasi.admin');
+Route::get('/administrator/bobotevaluasi','BobotEvaluasiController@index')->name('bobotevaluasi.admin');
+Route::get('/administrator/ranking','RankingController@index')->name('ranking.admin');
+Route::get('/administrator/maps','MapsController@index')->name('maps.admin');
+Route::get('/administrator/profile','ProfileController@index')->name('profile.admin');
+Route::get('/administrator/user','UserController@index')->name('user.admin');
 
 //general
-Route::get('/bobotparameter','BobotParameterController@index')->name('bobotparameter');
+
 
 //update
-Route::get('/administrator/data/{id}','Data@updatepage')->name('updatedata.admin');
+Route::get('/administrator/data/{id}','DataKelerenganController@updatepage')->name('updatedatakelerengan.admin');
 
 //delete
-Route::get('/data/delete/{id}', 'Data@delete')->name('deletedata.admin');
 Route::get('/data/delete/{id}', 'DataKelerenganController@delete')->name('deletedatakelerengan.admin');
 
 //login

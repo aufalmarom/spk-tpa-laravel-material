@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\BobotParameter;
+use App\Actor;
 
-class BobotParameterController extends Controller
+class UserController extends Controller
 {
     public function index(){
 
@@ -13,14 +13,15 @@ class BobotParameterController extends Controller
         // $db = DB::table('atributs')->get();
 
         //Eloquent ORM
-        $db = BobotParameter::get();
+        $db = Actor::get();
 
         $data =[
             'data' => 'iki data',
             'title' => 'Data',
-            'bobot_parameter' => $db
+            'user' => $db
         ];
 
-        return view('layouts/administrator/bobotparameter', $data);
+        return view('layouts/administrator/user', $data);
     }
+
 }

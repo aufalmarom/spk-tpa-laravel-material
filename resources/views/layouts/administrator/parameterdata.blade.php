@@ -52,15 +52,15 @@
                         <i class="material-icons">perm_identity</i>
 
                     </div>
-                    <h4 class="card-title">Data Rawan Bencana Longsor</h4>
+                    <h4 class="card-title">Parameter Data</h4>
                 </div>
                 <div class="card-body">
                     <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th class="text-center">No.</th>
+                                <th>Daerah</th>
                                 <th>Parameter</th>
-                                <th>Bobot</th>
                                 {{-- <th class="text-right">Actions</th> --}}
                             </tr>
                         </thead>

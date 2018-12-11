@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Maps extends Controller
+class MapsController extends Controller
 {
     public function index(){
         $title = 'Maps';

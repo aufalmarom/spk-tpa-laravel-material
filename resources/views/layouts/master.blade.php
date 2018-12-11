@@ -136,37 +136,37 @@
                 <div class="collapse" id="smart" style>
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{route('parameterdata.admin')}}">
                                 <span class="sidebar-mini">PD</span>
                                 <span class="sidebar-normal">Parameter dan Data</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{route('bobotparameter.admin')}}">
                                 <span class="sidebar-mini">BP</span>
                                 <span class="sidebar-normal">Bobot Parameter</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route('bobotrelatif.admin')}}">
                                 <span class="sidebar-mini">BR</span>
                                 <span class="sidebar-normal">Bobot Relatif</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route('faktorevaluasi.admin')}}">
                                 <span class="sidebar-mini">FE</span>
                                 <span class="sidebar-normal">Faktor Evaluasi</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route('bobotevaluasi.admin')}}">
                                 <span class="sidebar-mini">BE</span>
                                 <span class="sidebar-normal">Bobot Evaluasi</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route('ranking.admin')}}">
                                 <span class="sidebar-mini">DCH</span>
                                 <span class="sidebar-normal">Ranking</span>
                             </a>

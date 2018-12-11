@@ -66,8 +66,7 @@
                         <i class="material-icons">perm_identity</i>
 
                     </div>
-                    <h4 class="card-title">CRUD biasa -
-                            <small class="category">iki data percobaan</small>
+                    <h4 class="card-title">Data User
                     </h4>
 
                 </div>
@@ -79,19 +78,21 @@
                                 <th>Username</th>
                                 <th>Password</th>
                                 <th>Full Name</th>
-                                <th>ID Card</th>
+                                <th>Level Akses</th>
                                 <th class="text-right">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @php
+                            @php
                                 $no = 1;
                             @endphp
-                            @foreach ($data_kelerengan as $data_kelerengan_view)
+                            @foreach ($user as $u_view)
                                 <tr>
                                     <td class="text-center">{{$no++}}</td>
-                                    <td>{{$data_kelerengan_view->daerah}}</td>
-                                    <td>{{$data_kelerengan_view->nilai}}</td>
+                                    <td>{{$u_view->username}}</td>
+                                    <td>{{$u_view->password}}</td>
+                                    <td>{{$u_view->fullname}}</td>
+                                    <td>{{$u_view->access_level}}</td>
                                     <td class="td-actions text-right">
                                         <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">info</i>
@@ -99,12 +100,15 @@
                                         <button type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">edit</i>
                                         </button>
-                                        <button href="{{route('deletedata.admin', $data_kelerengan_view->id)}}" rel="tooltip" type="button" title="Remove" class="btn btn-rose btn-link btn-sm">
+                                        <button  rel="tooltip" type="button" title="Remove" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">clear</i>
                                         </button>
+
+                                        {{-- href="{{route('deletedata.admin', $u_view->id)}}" --}}
+
                                     </td>
                                 </tr>
-                            @endforeach --}}
+                            @endforeach
 
                             <div class="row">
                                 <div class="col">
