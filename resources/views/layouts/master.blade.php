@@ -24,7 +24,7 @@
 
 </head>
 
-<body class="">
+<body>
   <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
       <div class="logo">
@@ -232,6 +232,7 @@
             @yield('content')
         </div>
       </div>
+      <div>
       <footer class="footer">
         <div class="container-fluid">
           <nav class="float-left">
@@ -260,9 +261,7 @@
           </nav>
           <div class="copyright float-right">
             &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>, made with <i class="material-icons">favorite</i> by
+            2018 made with <i class="material-icons">favorite</i> by
             Aufal Marom.
           </div>
         </div>

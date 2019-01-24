@@ -46,7 +46,7 @@
         </div> --}}
 
         <div class="row">
-            <div class="card">
+            <div class="col-sm-8 card">
                 <div class="card-header card-header-icon card-header-rose">
                     <div class="card-icon">
                         <i class="material-icons">perm_identity</i>
@@ -61,8 +61,8 @@
                             <tr>
                                 <th class="text-center">No.</th>
                                 <th>Daerah</th>
-                                <th>Nilai Klasifikasi</th>
-                                <th>Nilai Parameter</th>
+                                <th class="text-center">Nilai Klasifikasi</th>
+                                <th class="text-center">Nilai Parameter</th>
                                 {{-- <th class="text-right">Actions</th> --}}
                             </tr>
                         </thead>
@@ -73,9 +73,9 @@
                             @foreach ($data_penggunaan_lahans as $dpl_view)
                                 <tr>
                                     <td class="text-center">{{$no++}}</td>
-                                    <td>{{$dpl_view->daerah}}</td>
-                                    <td>{{$dpl_view->nilai_klasifikasi}}</td>
-                                    <td>{{$dpl_view->nilai_parameter}}</td>
+                                    <td >{{$dpl_view->daerah}}</td>
+                                    <td class="text-center">{{$dpl_view->nilai_klasifikasi}}</td>
+                                    <td class="text-center">{{$dpl_view->nilai_parameter}}</td>
                                     {{-- <td class="td-actions text-right">
                                         <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">info</i>

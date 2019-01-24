@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\BobotParameter;
+use App\BobotRelatif;
 use App\DataKelerengan;
 use App\DataPenggunaanLahan;
 use App\DataRawanBencanaLongsor;
@@ -15,8 +16,8 @@ use App\DataRawanBencanaBanjir;
 
 class DataController extends Controller
 {
-    //Moco(re:Read)
-    public function MocoBobotParameter(){
+    //Maos(re:Read)
+    public function MaosBobotParameter(){
 
         //Query Builder
         // $db = DB::table('atributs')->get();
@@ -32,8 +33,26 @@ class DataController extends Controller
 
         return view('layouts/administrator/bobotparameter', $data);
     }
+    public function MaosBobotRelatif(){
 
-    public function MocoKelerengan(){
+        //Query Builder
+        // $db = DB::table('atributs')->get();
+
+        //Eloquent ORM
+        $db = BobotParameter::get();
+
+        $data =[
+            'data' => 'iki data',
+            'title' => 'Data',
+            'bobot_parameter' => $db
+        ];
+
+        return view('layouts/administrator/bobotrelatif', $data);
+    }
+
+
+
+    public function MaosKelerengan(){
 
         //Query Builder
         // $db = DB::table('atributs')->get();
@@ -50,7 +69,7 @@ class DataController extends Controller
         return view('layouts/administrator/datakelerengan', $data);
     }
 
-    public function MocoPenggunaanLahan(){
+    public function MaosPenggunaanLahan(){
 
 
         $db = DataPenggunaanLahan::get();
@@ -64,7 +83,7 @@ class DataController extends Controller
         return view('layouts/administrator/datapenggunaanlahan', $data);
     }
 
-    public function MocoRawanBencanaLongsor(){
+    public function MaosRawanBencanaLongsor(){
 
         //Query Builder
         // $db = DB::table('atributs')->get();
@@ -81,7 +100,7 @@ class DataController extends Controller
         return view('layouts/administrator/datarawanbencanalongsor', $data);
     }
 
-    public function MocoCurahHujan(){
+    public function MaosCurahHujan(){
 
         //Query Builder
         // $db = DB::table('atributs')->get();
@@ -98,7 +117,7 @@ class DataController extends Controller
         return view('layouts/administrator/datacurahhujan', $data);
     }
 
-    public function MocoHidrogeologi(){
+    public function MaosHidrogeologi(){
 
         //Query Builder
         // $db = DB::table('atributs')->get();
@@ -115,7 +134,7 @@ class DataController extends Controller
         return view('layouts/administrator/datahidrogeologi', $data);
     }
 
-    public function MocoJenisTanah(){
+    public function MaosJenisTanah(){
 
         //Query Builder
         // $db = DB::table('atributs')->get();
@@ -132,7 +151,7 @@ class DataController extends Controller
         return view('layouts/administrator/datajenistanah', $data);
     }
 
-    public function MocoRawanBencanaBanjir(){
+    public function MaosRawanBencanaBanjir(){
 
         //Query Builder
         // $db = DB::table('atributs')->get();

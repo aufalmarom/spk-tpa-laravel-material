@@ -46,11 +46,10 @@
         </div> --}}
 
         <div class="row">
-            <div class="card">
+            <div class="col-sm-6 card">
                 <div class="card-header card-header-icon card-header-rose">
                     <div class="card-icon">
                         <i class="material-icons">perm_identity</i>
-
                     </div>
                     <h4 class="card-title">Data Rawan Bencana Longsor</h4>
                 </div>
@@ -60,7 +59,7 @@
                             <tr>
                                 <th class="text-center">No.</th>
                                 <th>Parameter</th>
-                                <th>Bobot</th>
+                                <th class="text-center">Bobot</th>
                                 {{-- <th class="text-right">Actions</th> --}}
                             </tr>
                         </thead>
@@ -72,7 +71,7 @@
                                 <tr>
                                     <td class="text-center">{{$no++}}</td>
                                     <td>{{$bp_view->parameter}}</td>
-                                    <td>{{$bp_view->bobot}}</td>
+                                    <td class="text-center">{{$bp_view->bobot}}</td>
                                     {{-- <td class="td-actions text-right">
                                         <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">info</i>

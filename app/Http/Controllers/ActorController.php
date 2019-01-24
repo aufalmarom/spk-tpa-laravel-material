@@ -37,10 +37,15 @@ class ActorController extends Controller
         }
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
-        Auth::logout();
-        return redirect('/login');
+        $session = array(
+            'nama'  => session('nama'),
+            'user'  => session('user'),
+        );
+        $hancur = session()->flush();
+        // dd($hancur);
+        return redirect('/bukanwp-admin')->with('sukses','Anda berhasil keluar');
     }
 
 
