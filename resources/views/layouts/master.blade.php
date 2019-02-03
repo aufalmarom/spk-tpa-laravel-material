@@ -219,7 +219,7 @@
                   <i class="material-icons">person</i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="{{route('logout')}}">Log Out</a>
+                    <a href="{{route('logout')}}" class="dropdown-item" >Log Out</a>
                 </div>
               </li>
             </ul>
@@ -233,8 +233,10 @@
         </div>
       </div>
       <div>
+
       <footer class="footer">
         <div class="container-fluid">
+            @yield('footer')
           <nav class="float-left">
             <ul>
               <li>
@@ -264,6 +266,8 @@
             2018 made with <i class="material-icons">favorite</i> by
             Aufal Marom.
           </div>
+
+
         </div>
       </footer>
     </div>
@@ -280,8 +284,6 @@
   <!-- Material Dashboard -->
   <script src="../assets/js/material-dashboard.min.js?v=2.1.0" type="text/javascript"></script>
   <script src="../assets/js/style.js" type="text/javascript"></script>
-
-</script>
 
 </body>
 

@@ -11,18 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts/login');
-});
+// Route::get('/', function () {
+//     return view('layouts/login');
+// });
 
 
 // Administrator
 //create
-Route::post('/data/insert','DataKelerenganController@create')->name('insertdatakelerengan.admin');
+// Route::post('/data/insert','DataKelerenganController@create')->name('insertdatakelerengan.admin');
 
 //read
 //administrator
-Route::get('/administrator/dashboard','DashboardController@index')->name('dashboard.admin');
+Route::get('/administrator/dashboard','DashboardController@index')->name('dashboard.admin')->middleware(['role', 'auth']);
+
 Route::get('/administrator/datakelerengan','DataController@MaosKelerengan')->name('datakelerengan.admin');
 Route::get('/administrator/datapenggunaanlahan','DataController@MaosPenggunaanLahan')->name('datapenggunaanlahan.admin');
 Route::get('/administrator/datarawanbencanalongsor','DataController@MaosRawanBencanaLongsor')->name('datarawanbencanalongsor.admin');
@@ -42,17 +43,26 @@ Route::get('/administrator/user','UserController@index')->name('user.admin');
 
 //general
 
-
 //update
-Route::get('/administrator/data/{id}','DataKelerenganController@updatepage')->name('updatedatakelerengan.admin');
+// Route::get('/administrator/data/{id}','DataKelerenganController@updatepage')->name('updatedatakelerengan.admin');
 
 //delete
-Route::get('/data/delete/{id}', 'DataKelerenganController@delete')->name('deletedatakelerengan.admin');
+// Route::get('/data/delete/{id}', 'DataKelerenganController@delete')->name('deletedatakelerengan.admin');
 
 //login
-Route::post('/login','ActorController@login')->name('login');
+// Route::post('/login','ActorController@login')->name('login');
 
 //logout
 Route::get('/logout','ActorController@logout')->name('logout');
 
+Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/manager', function () {
+    return 'Halaman Manger';
+})->name('manager.dashboard')->middleware(['role', 'auth']);
+
+Route::get('/operator', function () {
+    return 'Halaman Operator';
+})->name('manager.dashboard');

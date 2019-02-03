@@ -45,8 +45,6 @@ class ActorController extends Controller
         );
         $hancur = session()->flush();
         // dd($hancur);
-        return redirect('/bukanwp-admin')->with('sukses','Anda berhasil keluar');
+        return redirect('/')->with('sukses','Anda berhasil keluar');
     }
-
-
 }
