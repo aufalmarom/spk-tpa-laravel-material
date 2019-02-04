@@ -8,7 +8,7 @@ class DashboardController extends Controller
 {
     public function index(){
         $title = 'Dashboard';
-        return view('layouts/administrator/dashboard', [
+        return view('/layouts/dashboard/dashboard', [
             'title'=> $title
         ]);
     }

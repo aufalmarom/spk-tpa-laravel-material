@@ -8,7 +8,7 @@ class MapsController extends Controller
 {
     public function index(){
         $title = 'Maps';
-        return view('layouts/administrator/maps', [
+        return view('layouts/maps/maps', [
             'title' => $title
         ]);
     }

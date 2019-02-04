@@ -28,10 +28,10 @@
   <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
       <div class="logo">
-        <a href="{{route('dashboard.admin')}}" class="simple-text logo-mini">
+        <a href="{{route('dashboard.read')}}" class="simple-text logo-mini">
           ST
         </a>
-        <a href="{{route('dashboard.admin')}}" class="simple-text logo-normal text-left">
+        <a href="{{route('dashboard.read')}}" class="simple-text logo-normal text-left">
           SIG-TPA
         </a>
       </div>
@@ -50,7 +50,7 @@
                 <div class="collapse" id="user" style>
                     <ul class="nav">
                         <li class="nav-item">
-                            <a href="{{route('profile.admin')}}" class="nav-link">
+                            <a href="{{route('profile.read')}}" class="nav-link">
                                 <span class="sidebar-mini">MP</span>
                                 <span class="sidebar-normal">My Profile</span>
                             </a>
@@ -62,7 +62,7 @@
 
         <ul class="nav">
         <li class="nav-item">
-            <a class="nav-link" href="{{route('dashboard.admin')}}">
+            <a class="nav-link" href="{{route('dashboard.read')}}">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
@@ -80,43 +80,43 @@
             <div class="collapse" id="data" style>
                 <ul class="nav">
                         <li class="nav-item">
-                                <a class="nav-link " href="{{route('datakelerengan.admin')}}">
+                                <a class="nav-link " href="{{route('datakelerengan.read')}}">
                                     <span class="sidebar-mini">DK</span>
                                     <span class="sidebar-normal">Data Kelerengan</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('datapenggunaanlahan.admin')}}">
+                                <a class="nav-link" href="{{route('datapenggunaanlahan.read')}}">
                                     <span class="sidebar-mini">DPL</span>
                                     <span class="sidebar-normal">Data Penggunaan Lahan</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('datarawanbencanalongsor.admin')}}">
+                                <a class="nav-link" href="{{route('datarawanbencanalongsor.read')}}">
                                     <span class="sidebar-mini">DRBL</span>
                                     <span class="sidebar-normal">Data Rawan Bencana Longsor</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('datacurahhujan.admin')}}">
+                                <a class="nav-link" href="{{route('datacurahhujan.read')}}">
                                     <span class="sidebar-mini">DCH</span>
                                     <span class="sidebar-normal">Data Curah Hujan</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('datahidrogeologi.admin')}}">
+                                <a class="nav-link" href="{{route('datahidrogeologi.read')}}">
                                     <span class="sidebar-mini">DH</span>
                                     <span class="sidebar-normal">Data Hidrogeologi</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('datajenistanah.admin')}}">
+                                <a class="nav-link" href="{{route('datajenistanah.read')}}">
                                     <span class="sidebar-mini">DJT</span>
                                     <span class="sidebar-normal">Data Jenis Tanah</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('datarawanbencanabanjir.admin')}}">
+                                <a class="nav-link" href="{{route('datarawanbencanabanjir.read')}}">
                                     <span class="sidebar-mini">DBB</span>
                                     <span class="sidebar-normal">Data Rawan Bencana Banjir</span>
                                 </a>
@@ -136,37 +136,37 @@
                 <div class="collapse" id="smart" style>
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('parameterdata.admin')}}">
+                            <a class="nav-link" href="{{route('parameterdata.read')}}">
                                 <span class="sidebar-mini">PD</span>
                                 <span class="sidebar-normal">Parameter dan Data</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('bobotparameter.admin')}}">
+                            <a class="nav-link" href="{{route('bobotparameter.read')}}">
                                 <span class="sidebar-mini">BP</span>
                                 <span class="sidebar-normal">Bobot Parameter</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('bobotrelatif.admin')}}">
+                            <a class="nav-link" href="{{route('bobotrelatif.read')}}">
                                 <span class="sidebar-mini">BR</span>
                                 <span class="sidebar-normal">Bobot Relatif</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('faktorevaluasi.admin')}}">
+                            <a class="nav-link" href="{{route('faktorevaluasi.read')}}">
                                 <span class="sidebar-mini">FE</span>
                                 <span class="sidebar-normal">Faktor Evaluasi</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('bobotevaluasi.admin')}}">
+                            <a class="nav-link" href="{{route('bobotevaluasi.read')}}">
                                 <span class="sidebar-mini">BE</span>
                                 <span class="sidebar-normal">Bobot Evaluasi</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('ranking.admin')}}">
+                            <a class="nav-link" href="{{route('ranking.read')}}">
                                 <span class="sidebar-mini">DCH</span>
                                 <span class="sidebar-normal">Ranking</span>
                             </a>
@@ -176,17 +176,21 @@
                 </div>
             </li>
           <li class="nav-item ">
-            <a class="nav-link" href="{{route('maps.admin')}}">
+            <a class="nav-link" href="{{route('maps')}}">
               <i class="material-icons">location_ons</i>
               <p>Maps</p>
             </a>
           </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('user.admin')}}">
-                    <i class="material-icons">people</i>
-                    <p>Users</p>
-                </a>
-            </li>
+            <?php
+            if (Auth::user()->role != "operator"){
+            ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('user.read')}}">
+                        <i class="material-icons">people</i>
+                        <p>Users</p>
+                    </a>
+                </li>
+            <?php } ?>
         </ul>
       </div>
     </div>

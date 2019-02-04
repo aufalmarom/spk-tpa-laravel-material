@@ -1,4 +1,4 @@
-@extends('layouts/master')
+@extends('templates.master')
 
 @section('content')
 
@@ -52,7 +52,7 @@
                         <i class="material-icons">perm_identity</i>
 
                     </div>
-                    <h4 class="card-title">Data Jenis Tanah</h4>
+                    <h4 class="card-title">Data Rawan Bencana Banjir</h4>
                 </div>
                 <div class="card-body">
                     <table class="table table-hover">
@@ -69,12 +69,12 @@
                             @php
                                 $no = 1;
                             @endphp
-                            @foreach ($data_jt as $jt_view)
+                            @foreach ($data_rbb as $rbb_view)
                                 <tr>
                                     <td class="text-center">{{$no++}}</td>
-                                    <td>{{$jt_view->daerah}}</td>
-                                    <td class="text-center">{{$jt_view->nilai_klasifikasi}}</td>
-                                    <td class="text-center">{{$jt_view->nilai_parameter}}</td>
+                                    <td>{{$rbb_view->daerah}}</td>
+                                    <td class="text-center">{{$rbb_view->nilai_klasifikasi}}</td>
+                                    <td class="text-center">{{$rbb_view->nilai_parameter}}</td>
                                     {{-- <td class="td-actions text-right">
                                         <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">info</i>
@@ -108,6 +108,9 @@
                                     </td> --}}
                                 </tr>
                             @endforeach
+
+
+
                         </tbody>
                     </table>
                 </div>

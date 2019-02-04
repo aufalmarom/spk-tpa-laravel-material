@@ -1,4 +1,4 @@
-@extends('layouts/master')
+@extends('templates.master')
 
 @section('content')
 
@@ -17,6 +17,5 @@
             </div>
         </div>
     </div>
-
 
 @endsection

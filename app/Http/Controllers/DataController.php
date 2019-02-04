@@ -31,7 +31,7 @@ class DataController extends Controller
             'bobot_parameter' => $db
         ];
 
-        return view('layouts/administrator/bobotparameter', $data);
+        return view('/layouts/smart/bobotparameter', $data);
     }
     public function MaosBobotRelatif(){
 
@@ -47,7 +47,7 @@ class DataController extends Controller
             'bobot_parameter' => $db
         ];
 
-        return view('layouts/administrator/bobotrelatif', $data);
+        return view('/layouts/smart/bobotrelatif', $data);
     }
 
 
@@ -66,7 +66,7 @@ class DataController extends Controller
             'data_kelerengans' => $db
         ];
 
-        return view('layouts/administrator/datakelerengan', $data);
+        return view('/layouts/data/datakelerengan', $data);
     }
 
     public function MaosPenggunaanLahan(){
@@ -80,7 +80,7 @@ class DataController extends Controller
             'data_penggunaan_lahans' => $db
         ];
 
-        return view('layouts/administrator/datapenggunaanlahan', $data);
+        return view('/layouts/data/datapenggunaanlahan', $data);
     }
 
     public function MaosRawanBencanaLongsor(){
@@ -97,7 +97,7 @@ class DataController extends Controller
             'data_rbl' => $db
         ];
 
-        return view('layouts/administrator/datarawanbencanalongsor', $data);
+        return view('/layouts/data/datarawanbencanalongsor', $data);
     }
 
     public function MaosCurahHujan(){
@@ -114,7 +114,7 @@ class DataController extends Controller
             'data_ch' => $db
         ];
 
-        return view('layouts/administrator/datacurahhujan', $data);
+        return view('/layouts/data/datacurahhujan', $data);
     }
 
     public function MaosHidrogeologi(){
@@ -131,7 +131,7 @@ class DataController extends Controller
             'data_h' => $db
         ];
 
-        return view('layouts/administrator/datahidrogeologi', $data);
+        return view('/layouts/data/datahidrogeologi', $data);
     }
 
     public function MaosJenisTanah(){
@@ -148,7 +148,7 @@ class DataController extends Controller
             'data_jt' => $db
         ];
 
-        return view('layouts/administrator/datajenistanah', $data);
+        return view('/layouts/data/datajenistanah', $data);
     }
 
     public function MaosRawanBencanaBanjir(){
@@ -165,7 +165,7 @@ class DataController extends Controller
             'data_rbb' => $db
         ];
 
-        return view('layouts/administrator/datarawanbencanabanjir', $data);
+        return view('/layouts/data/datarawanbencanabanjir', $data);
     }
 
 
@@ -203,7 +203,7 @@ class DataController extends Controller
 
     // public function updatepage($id)
     // {
-    //     return view('layouts/administrator/updatedata');
+    //     return view('/updatedata');
     // }
 
 }

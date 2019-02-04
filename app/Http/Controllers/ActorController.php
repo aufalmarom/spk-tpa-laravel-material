@@ -45,6 +45,6 @@ class ActorController extends Controller
         );
         $hancur = session()->flush();
         // dd($hancur);
-        return redirect('/')->with('sukses','Anda berhasil keluar');
+        return redirect('/login')->with('sukses','Anda berhasil keluar');
     }
 }

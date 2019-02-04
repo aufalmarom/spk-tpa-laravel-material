@@ -1,4 +1,4 @@
-@extends('layouts/master')
+@extends('templates.master')
 
 @section('content')
 
@@ -13,9 +13,11 @@
 
     <div class="col">
         <div class="row">
-            <button class="btn btn-rose" type="button" data-toggle="collapse" data-target="#create-user" aria-expanded="false" aria-controls="collapseExample">
-                create user
-            </button>
+                @if(Auth::user()->role == "admin")
+                <button class="btn btn-rose" type="button" data-toggle="collapse" data-target="#create-user" aria-expanded="false" aria-controls="collapseExample">
+                    create user
+                </button>
+                @endif
         </div>
 
         <div class="row">

@@ -8,7 +8,7 @@ class ProfileController extends Controller
 {
     public function index(){
         $title = 'Profile';
-        return view('layouts/administrator/profile', [
+        return view('/layouts/profile/profile', [
             'title'=> $title
         ]);
     }
