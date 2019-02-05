@@ -51,7 +51,7 @@
                     <div class="card-icon">
                         <i class="material-icons">perm_identity</i>
                     </div>
-                    <h4 class="card-title">Data Rawan Bencana Longsor</h4>
+                    <h4 class="card-title">Bobot Parameter</h4>
                 </div>
                 <div class="card-body">
                     <table class="table table-hover">
@@ -67,7 +67,7 @@
                             @php
                                 $no = 1;
                             @endphp
-                            @foreach ($bobot_parameter as $bp_view)
+                            @foreach ($db as $bp_view)
                                 <tr>
                                     <td class="text-center">{{$no++}}</td>
                                     <td>{{$bp_view->parameter}}</td>
@@ -113,5 +113,5 @@
                 </div>
             </div>
         </div>
-    </div>
+
 @endsection

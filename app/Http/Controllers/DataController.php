@@ -3,169 +3,61 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\BobotParameter;
-use App\BobotRelatif;
-use App\DataKelerengan;
-use App\DataPenggunaanLahan;
-use App\DataRawanBencanaLongsor;
-use App\DataCurahHujan;
-use App\DataHidrogeologi;
-use App\DataJenisTanah;
-use App\DataRawanBencanaBanjir;
-
+use App\Kecamatan;
+use App\Data;
 
 class DataController extends Controller
 {
-    //Maos(re:Read)
-    public function MaosBobotParameter(){
-
-        //Query Builder
-        // $db = DB::table('atributs')->get();
-
-        //Eloquent ORM
-        $db = BobotParameter::get();
-
-        $data =[
-            'data' => 'iki data',
-            'title' => 'Data',
-            'bobot_parameter' => $db
-        ];
-
-        return view('/layouts/smart/bobotparameter', $data);
-    }
-    public function MaosBobotRelatif(){
-
-        //Query Builder
-        // $db = DB::table('atributs')->get();
-
-        //Eloquent ORM
-        $db = BobotParameter::get();
-
-        $data =[
-            'data' => 'iki data',
-            'title' => 'Data',
-            'bobot_parameter' => $db
-        ];
-
-        return view('/layouts/smart/bobotrelatif', $data);
-    }
-
-
-
     public function MaosKelerengan(){
-
         //Query Builder
         // $db = DB::table('atributs')->get();
-
         //Eloquent ORM
-        $db = DataKelerengan::get();
+        $db = Data::get();
+        $db1 = Kecamatan::get();
 
-        $data =[
-            'data' => 'iki data',
-            'title' => 'Data',
-            'data_kelerengans' => $db
-        ];
-
-        return view('/layouts/data/datakelerengan', $data);
+        return view('/layouts/data/datakelerengan', compact('db', 'db1'));
     }
 
     public function MaosPenggunaanLahan(){
+        $db = Data::get();
+        $db1 = Kecamatan::get();
 
-
-        $db = DataPenggunaanLahan::get();
-
-        $data =[
-            'data' => 'iki data',
-            'title' => 'Data',
-            'data_penggunaan_lahans' => $db
-        ];
-
-        return view('/layouts/data/datapenggunaanlahan', $data);
+        return view('/layouts/data/datapenggunaanlahan', compact('db', 'db1'));
     }
 
     public function MaosRawanBencanaLongsor(){
+        $db = Data::get();
+        $db1 = Kecamatan::get();
 
-        //Query Builder
-        // $db = DB::table('atributs')->get();
-
-        //Eloquent ORM
-        $db = DataRawanBencanaLongsor::get();
-
-        $data =[
-            'data' => 'iki data',
-            'title' => 'Data',
-            'data_rbl' => $db
-        ];
-
-        return view('/layouts/data/datarawanbencanalongsor', $data);
+        return view('/layouts/data/datarawanbencanalongsor', compact('db', 'db1'));
     }
 
     public function MaosCurahHujan(){
+        $db = Data::get();
+        $db1 = Kecamatan::get();
 
-        //Query Builder
-        // $db = DB::table('atributs')->get();
-
-        //Eloquent ORM
-        $db = DataCurahHujan::get();
-
-        $data =[
-            'data' => 'iki data',
-            'title' => 'Data',
-            'data_ch' => $db
-        ];
-
-        return view('/layouts/data/datacurahhujan', $data);
+        return view('/layouts/data/datacurahhujan', compact('db', 'db1'));
     }
 
     public function MaosHidrogeologi(){
+        $db = Data::get();
+        $db1 = Kecamatan::get();
 
-        //Query Builder
-        // $db = DB::table('atributs')->get();
-
-        //Eloquent ORM
-        $db = DataHidrogeologi::get();
-
-        $data =[
-            'data' => 'iki data',
-            'title' => 'Data',
-            'data_h' => $db
-        ];
-
-        return view('/layouts/data/datahidrogeologi', $data);
+        return view('/layouts/data/datahidrogeologi', compact('db', 'db1'));
     }
 
     public function MaosJenisTanah(){
+        $db = Data::get();
+        $db1 = Kecamatan::get();
 
-        //Query Builder
-        // $db = DB::table('atributs')->get();
-
-        //Eloquent ORM
-        $db = DataJenisTanah::get();
-
-        $data =[
-            'data' => 'iki data',
-            'title' => 'Data',
-            'data_jt' => $db
-        ];
-
-        return view('/layouts/data/datajenistanah', $data);
+        return view('/layouts/data/datajenistanah', compact('db', 'db1'));
     }
 
     public function MaosRawanBencanaBanjir(){
+        $db = Data::get();
+        $db1 = Kecamatan::get();
 
-        //Query Builder
-        // $db = DB::table('atributs')->get();
-
-        //Eloquent ORM
-        $db = DataRawanBencanaBanjir::get();
-
-        $data =[
-            'data' => 'iki data',
-            'title' => 'Data',
-            'data_rbb' => $db
-        ];
-
-        return view('/layouts/data/datarawanbencanabanjir', $data);
+        return view('/layouts/data/datarawanbencanabanjir', compact('db', 'db1'));
     }
 
 

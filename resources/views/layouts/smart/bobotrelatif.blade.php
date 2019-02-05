@@ -51,7 +51,7 @@
                     <div class="card-icon">
                         <i class="material-icons">perm_identity</i>
                     </div>
-                    <h4 class="card-title">Data Rawan Bencana Longsor</h4>
+                    <h4 class="card-title">Bobot Relatif</h4>
                 </div>
                 <div class="card-body">
                     <table class="table table-hover">
@@ -67,16 +67,13 @@
                         <tbody>
                             @php
                                 $no = 1;
-                                $total_bobot = 100;
                             @endphp
-                            @foreach ($bobot_parameter as $br_view)
+                            @foreach ($db as $br_view)
                                 <tr>
                                     <td class="text-center">{{$no++}}</td>
                                     <td>{{$br_view->parameter}}</td>
-                                    <td class="text-center">{{$br_view->bobot}}/100</td>
-                                    <td class="text-center">
-                                        {{$br_view->bobot}}/@php$total_bobot;
-                                    @endphp</td>
+                                    <td class="text-center">{{$br_view->bobot}}/{{$db1}}</td>
+                                    <td class="text-center">{{$br_view->bobot/$db1}}</td>
                                     {{-- <td class="td-actions text-right">
                                         <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">info</i>
@@ -118,5 +115,5 @@
                 </div>
             </div>
         </div>
-    </div>
+
 @endsection

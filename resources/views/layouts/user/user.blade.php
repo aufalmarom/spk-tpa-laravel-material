@@ -13,11 +13,11 @@
 
     <div class="col">
         <div class="row">
-                @if(Auth::user()->role == "admin")
-                <button class="btn btn-rose" type="button" data-toggle="collapse" data-target="#create-user" aria-expanded="false" aria-controls="collapseExample">
-                    create user
-                </button>
-                @endif
+            @if(Auth::user()->role == "administrator")
+            <button class="btn btn-rose" type="button" data-toggle="collapse" data-target="#create-user" aria-expanded="false" aria-controls="collapseExample">
+                create user
+            </button>
+            @endif
         </div>
 
         <div class="row">

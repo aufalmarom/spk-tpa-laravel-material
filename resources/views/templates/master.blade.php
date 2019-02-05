@@ -43,7 +43,7 @@
             <div class="user-info">
                 <a href="#user" data-toggle="collapse" class="username">
                     <span>
-                        {{ Auth::user()->name }}
+                         {{ Auth::user()->name }}
                         <b class="caret"></b>
                     </span>
                 </a>
@@ -116,7 +116,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('datarawanbencanabanjir.read')}}">
-                                    <span class="sidebar-mini">DBB</span>
+                                    <span class="sidebar-mini">DRBB</span>
                                     <span class="sidebar-normal">Data Rawan Bencana Banjir</span>
                                 </a>
                             </li>
@@ -135,9 +135,9 @@
                 <div class="collapse" id="smart" style>
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('parameterdata.read')}}">
+                            <a class="nav-link" href="{{route('parameternilai.read')}}">
                                 <span class="sidebar-mini">PD</span>
-                                <span class="sidebar-normal">Parameter dan Data</span>
+                                <span class="sidebar-normal">Parameter & Nilai</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -146,6 +146,12 @@
                                 <span class="sidebar-normal">Bobot Parameter</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{route('parameternilaibobot.read')}}">
+                                    <span class="sidebar-mini">HP</span>
+                                    <span class="sidebar-normal">Parameter & Nilai Bobot</span>
+                                </a>
+                            </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('bobotrelatif.read')}}">
                                 <span class="sidebar-mini">BR</span>
@@ -183,12 +189,12 @@
             <?php
             if (Auth::user()->role != "operator"){
             ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('user.read')}}">
-                        <i class="material-icons">people</i>
-                        <p>Users</p>
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('user.read')}}">
+                    <i class="material-icons">people</i>
+                    <p>Users</p>
+                </a>
+            </li>
             <?php } ?>
         </ul>
       </div>
@@ -252,7 +258,7 @@
                   About Us
                 </a>
               </li>
-              <li>
+              {{-- <li>
                 <a href="#">
                   Blog
                 </a>
@@ -261,7 +267,7 @@
                 <a href="#">
                   Licenses
                 </a>
-              </li>
+              </li> --}}
             </ul>
           </nav>
           <div class="copyright float-right">

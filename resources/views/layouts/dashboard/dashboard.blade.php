@@ -10,7 +10,7 @@
                         <i class="material-icons">assessment</i>
 
                     </div>
-                    <h4 class="card-title">Result Ranking of SMART Method</h4>
+                    <h4 class="card-title">Hasil Ranking dari Metode SMART</h4>
 
                 </div>
                 <div class="card-body">

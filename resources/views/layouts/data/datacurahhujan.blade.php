@@ -69,12 +69,12 @@
                             @php
                                 $no = 1;
                             @endphp
-                            @foreach ($data_ch as $ch_view)
+                            @foreach ($db as $ch_view)
                                 <tr>
                                     <td class="text-center">{{$no++}}</td>
-                                    <td>{{$ch_view->daerah}}</td>
-                                    <td class="text-center">{{$ch_view->nilai_klasifikasi}}</td>
-                                    <td class="text-center">{{$ch_view->nilai_parameter}}</td>
+                                    <td>{{$ch_view->kecamatan->daerah}}</td>
+                                    <td class="text-center">{{$ch_view->nilai_klasifikasi_curah_hujan}}</td>
+                                    <td class="text-center">{{$ch_view->nilai_parameter_curah_hujan}}</td>
                                     {{-- <td class="td-actions text-right">
                                         <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">info</i>

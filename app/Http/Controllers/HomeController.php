@@ -27,6 +27,17 @@ class HomeController extends Controller
         return view('layouts/dashboard/dashboard');
     }
 
+    public function logout()
+    {
+        $session = array(
+            'nama'  => session('nama'),
+            'user'  => session('user'),
+        );
+        $hancur = session()->flush();
+        // dd($hancur);
+        return redirect('/');
+    }
+
 
 
 }

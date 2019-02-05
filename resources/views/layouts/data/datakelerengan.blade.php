@@ -70,12 +70,12 @@
                             @php
                                 $no = 1;
                             @endphp
-                            @foreach ($data_kelerengans as $data_kelerengan_view)
+                            @foreach ($db as $dk_view)
                                 <tr>
                                     <td class="text-center">{{$no++}}</td>
-                                    <td>{{$data_kelerengan_view->daerah}}</td>
-                                    <td class="text-center">{{$data_kelerengan_view->nilai_klasifikasi}}</td>
-                                    <td class="text-center">{{$data_kelerengan_view->nilai_parameter}}</td>
+                                    <td>{{$dk_view->kecamatan->daerah}}</td>
+                                    <td class="text-center">{{$dk_view->nilai_klasifikasi_kelerengan}}</td>
+                                    <td class="text-center">{{$dk_view->nilai_parameter_kelerengan}}</td>
                                     {{-- <td class="td-actions text-right">
                                         <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">info</i>

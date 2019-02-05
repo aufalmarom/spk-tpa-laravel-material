@@ -6,6 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class BobotParameter extends Model
 {
-    public $timestamps = false;
-    protected $guarded=['id'];
+    public $table = 'bobot_parameters';
 }

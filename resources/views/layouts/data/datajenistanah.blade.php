@@ -69,12 +69,12 @@
                             @php
                                 $no = 1;
                             @endphp
-                            @foreach ($data_jt as $jt_view)
+                            @foreach ($db as $djt_view)
                                 <tr>
                                     <td class="text-center">{{$no++}}</td>
-                                    <td>{{$jt_view->daerah}}</td>
-                                    <td class="text-center">{{$jt_view->nilai_klasifikasi}}</td>
-                                    <td class="text-center">{{$jt_view->nilai_parameter}}</td>
+                                    <td>{{$djt_view->kecamatan->daerah}}</td>
+                                    <td class="text-center">{{$djt_view->nilai_klasifikasi_jenis_tanah}}</td>
+                                    <td class="text-center">{{$djt_view->nilai_parameter_jenis_tanah}}</td>
                                     {{-- <td class="td-actions text-right">
                                         <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">info</i>

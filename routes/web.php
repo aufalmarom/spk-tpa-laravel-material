@@ -11,18 +11,21 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('layouts/login');
-// });
+//auth, login, reset
+Auth::routes();
+//homepage
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', function () {
+    return view('/layouts/home');
+});
+//logout
+Route::get('/logout','HomeController@logout')->name('logout');
 
+//profile
+Route::get('/profile','ProfileController@index')->name('profile.read');
 
-// Administrator
-//create
-// Route::post('/data/insert','DataKelerenganController@create')->name('datakelerengan');
-
-//read
 //dashboard
-Route::get('dashboard','DashboardController@index')->name('dashboard.read');
+Route::get('/dashboard','DashboardController@index')->name('dashboard.read');
 //data
 Route::get('/datakelerengan','DataController@MaosKelerengan')->name('datakelerengan.read');
 Route::get('/datapenggunaanlahan','DataController@MaosPenggunaanLahan')->name('datapenggunaanlahan.read');
@@ -31,35 +34,17 @@ Route::get('/datacurahhujan','DataController@MaosCurahHujan')->name('datacurahhu
 Route::get('/datahidrogeologi','DataController@MaosHidrogeologi')->name('datahidrogeologi.read');
 Route::get('/datajenistanah','DataController@MaosJenisTanah')->name('datajenistanah.read');
 Route::get('/datarawanbencanabanjir','DataController@MaosRawanBencanaBanjir')->name('datarawanbencanabanjir.read');
-// //smart
-Route::get('/bobotparameter','DataController@MaosBobotParameter')->name('bobotparameter.read');
-Route::get('/parameterdata','ParameterDataController@index')->name('parameterdata.read');
-Route::get('/bobotrelatif','DataController@MaosBobotRelatif')->name('bobotrelatif.read');
-Route::get('/faktorevaluasi','FaktorEvaluasiController@index')->name('faktorevaluasi.read');
-Route::get('/bobotevaluasi','BobotEvaluasiController@index')->name('bobotevaluasi.read');
-Route::get('/ranking','RankingController@index')->name('ranking.read');
+//smart
+Route::get('/parameternilai','SMARTController@MaosParameterNilai')->name('parameternilai.read');
+Route::get('/bobotparameter','SMARTController@MaosBobotParameter')->name('bobotparameter.read');
+Route::get('/parameternilaibobot','SMARTController@MaosParameterNilaiBobot')->name('parameternilaibobot.read');
+Route::get('/bobotrelatif','SMARTController@MaosBobotRelatif')->name('bobotrelatif.read');
+
+Route::get('/faktorevaluasi','SMARTController@MaosFaktorEvaluasi')->name('faktorevaluasi.read');
+Route::get('/bobotevaluasi','SMARTController@MaosBobotEvaluasi')->name('bobotevaluasi.read');
+Route::get('/ranking','SMARTController@MaosRanking')->name('ranking.read');
+//maps
 Route::get('/maps','MapsController@index')->name('maps');
-Route::get('/profile','ProfileController@index')->name('profile.read');
+//user
 Route::get('/user','UserController@index')->name('user.read');
 
-//general
-
-//update
-// Route::get('/data/{id}','DataKelerenganController@updatepage')->name('updatedatakelerengan');
-
-//delete
-// Route::get('/data/delete/{id}', 'DataKelerenganController@delete')->name('deletedatakelerengan.admin');
-
-//login
-// Route::post('/login','ActorController@login')->name('login');
-
-//logout
-Route::get('/logout','ActorController@logout')->name('logout');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/', function () {
-    return view('/templates/login');
-});

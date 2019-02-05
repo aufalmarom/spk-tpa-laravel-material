@@ -69,12 +69,12 @@
                             @php
                                 $no = 1;
                             @endphp
-                            @foreach ($data_rbb as $rbb_view)
+                            @foreach ($db as $drbb_view)
                                 <tr>
                                     <td class="text-center">{{$no++}}</td>
-                                    <td>{{$rbb_view->daerah}}</td>
-                                    <td class="text-center">{{$rbb_view->nilai_klasifikasi}}</td>
-                                    <td class="text-center">{{$rbb_view->nilai_parameter}}</td>
+                                    <td>{{$drbb_view->kecamatan->daerah}}</td>
+                                    <td class="text-center">{{$drbb_view->nilai_klasifikasi_rawan_bencana_banjir}}</td>
+                                    <td class="text-center">{{$drbb_view->nilai_parameter_rawan_bencana_banjir}}</td>
                                     {{-- <td class="td-actions text-right">
                                         <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">info</i>

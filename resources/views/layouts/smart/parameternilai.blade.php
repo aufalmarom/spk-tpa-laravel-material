@@ -52,7 +52,7 @@
                         <i class="material-icons">perm_identity</i>
 
                     </div>
-                    <h4 class="card-title">Parameter Data</h4>
+                    <h4 class="card-title">Parameter dan Nilai</h4>
                 </div>
                 <div class="card-body">
                     <table class="table table-hover">
@@ -60,7 +60,13 @@
                             <tr>
                                 <th class="text-center">No.</th>
                                 <th>Daerah</th>
-                                <th>Parameter</th>
+                                <th class="text-center">Kelerengan</th>
+                                <th class="text-center">Penggunaan Lahan</th>
+                                <th class="text-center">Rawan Bencana Longsor</th>
+                                <th class="text-center">Curah Hujan</th>
+                                <th class="text-center">Hidrogeologi</th>
+                                <th class="text-center">Jenis Tanah</th>
+                                <th class="text-center">Rawan Bencana Banjir</th>
                                 {{-- <th class="text-right">Actions</th> --}}
                             </tr>
                         </thead>
@@ -68,11 +74,17 @@
                             @php
                                 $no = 1;
                             @endphp
-                            @foreach ($bobot_parameter as $bp_view)
+                            @foreach ($db as $pd_view)
                                 <tr>
                                     <td class="text-center">{{$no++}}</td>
-                                    <td>{{$bp_view->parameter}}</td>
-                                    <td>{{$bp_view->bobot}}</td>
+                                    <td>{{$pd_view->kecamatan->daerah}}</td>
+                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_kelerengan}}</td>
+                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_penggunaan_lahan}}</td>
+                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_rawan_bencana_longsor}}</td>
+                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_curah_hujan}}</td>
+                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_hidrogeologi}}</td>
+                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_jenis_tanah}}</td>
+                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_rawan_bencana_banjir}}</td>
                                     {{-- <td class="td-actions text-right">
                                         <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">info</i>
@@ -114,5 +126,5 @@
                 </div>
             </div>
         </div>
-    </div>
+
 @endsection

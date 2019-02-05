@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDataRawanBencanaBanjirsTable extends Migration
+class CreateKecamatan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateDataRawanBencanaBanjirsTable extends Migration
      */
     public function up()
     {
-        Schema::create('data_rawan_bencana_banjirs', function (Blueprint $table) {
+        Schema::create('kecamatans', function (Blueprint $table) {
             $table->increments('id');
             $table->String('daerah');
-            $table->unsignedInteger('nilai_klasifikasi');
-            $table->String('nilai_parameter');
         });
     }
 
@@ -28,6 +26,6 @@ class CreateDataRawanBencanaBanjirsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_rawan_bencana_banjirs');
+        Schema::dropIfExists('kecamatans');
     }
 }

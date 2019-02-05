@@ -46,13 +46,13 @@
         </div> --}}
 
         <div class="row">
-            <div class="col-sm-8 card">
+            <div class="card">
                 <div class="card-header card-header-icon card-header-rose">
                     <div class="card-icon">
                         <i class="material-icons">perm_identity</i>
 
                     </div>
-                    <h4 class="card-title">Data Hidrogeologi</h4>
+                    <h4 class="card-title">Parameter & Nilai Bobot</h4>
                 </div>
                 <div class="card-body">
                     <table class="table table-hover">
@@ -60,8 +60,13 @@
                             <tr>
                                 <th class="text-center">No.</th>
                                 <th>Daerah</th>
-                                <th class="text-center">Nilai Klasifikasi</th>
-                                <th class="text-center">Nilai Parameter</th>
+                                <th class="text-center">Kelerengan</th>
+                                <th class="text-center">Penggunaan Lahan</th>
+                                <th class="text-center">Rawan Bencana Longsor</th>
+                                <th class="text-center">Curah Hujan</th>
+                                <th class="text-center">Hidrogeologi</th>
+                                <th class="text-center">Jenis Tanah</th>
+                                <th class="text-center">Rawan Bencana Banjir</th>
                                 {{-- <th class="text-right">Actions</th> --}}
                             </tr>
                         </thead>
@@ -69,12 +74,17 @@
                             @php
                                 $no = 1;
                             @endphp
-                            @foreach ($db as $h_view)
+                            @foreach ($db1 as $pd_view)
                                 <tr>
                                     <td class="text-center">{{$no++}}</td>
-                                    <td>{{$h_view->kecamatan->daerah}}</td>
-                                    <td class="text-center">{{$h_view->nilai_klasifikasi_hidrogeologi}}</td>
-                                    <td class="text-center">{{$h_view->nilai_parameter_hidrogeologi}}</td>
+                                    <td>{{$pd_view->kecamatan->daerah}}</td>
+                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_kelerengan*$db2[0]->bobot}}</td>
+                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_penggunaan_lahan*$db2[1]->bobot}}</td>
+                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_rawan_bencana_longsor*$db2[2]->bobot}}</td>
+                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_curah_hujan*$db2[3]->bobot}}</td>
+                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_hidrogeologi*$db2[4]->bobot}}</td>
+                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_jenis_tanah*$db2[5]->bobot}}</td>
+                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_rawan_bencana_banjir*$db2[6]->bobot}}</td>
                                     {{-- <td class="td-actions text-right">
                                         <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">info</i>

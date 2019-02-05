@@ -70,12 +70,12 @@
                             @php
                                 $no = 1;
                             @endphp
-                            @foreach ($data_penggunaan_lahans as $dpl_view)
+                            @foreach ($db as $dpl_view)
                                 <tr>
                                     <td class="text-center">{{$no++}}</td>
-                                    <td >{{$dpl_view->daerah}}</td>
-                                    <td class="text-center">{{$dpl_view->nilai_klasifikasi}}</td>
-                                    <td class="text-center">{{$dpl_view->nilai_parameter}}</td>
+                                    <td >{{$dpl_view->kecamatan->daerah}}</td>
+                                    <td class="text-center">{{$dpl_view->nilai_klasifikasi_penggunaan_lahan}}</td>
+                                    <td class="text-center">{{$dpl_view->nilai_parameter_penggunaan_lahan}}</td>
                                     {{-- <td class="td-actions text-right">
                                         <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">info</i>
