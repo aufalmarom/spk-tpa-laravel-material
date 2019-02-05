@@ -17,13 +17,23 @@ class DatabaseSeeder extends Seeder
 
         //Query Builder
         //for actors
-        $dataactors=[
-            ['username' => "aufal", 'password' => bcrypt("asikasikjos"), 'fullname' => "Aufal Marom", 'access_level' => "Administrator"],
-            ['username' => "yudi", 'password' => bcrypt("ekowindarto"), 'fullname' => "Yudi Eko", 'access_level' => "Manager"],
-            ['username' => "cahyo", 'password' => bcrypt("dwinugroho"), 'fullname' => "Dwi Cahyo", 'access_level' => "User"]
+        // $dataactors=[
+        //     ['username' => "aufal", 'password' => bcrypt("asikasikjos"), 'fullname' => "Aufal Marom", 'access_level' => "Administrator"],
+        //     ['username' => "yudi", 'password' => bcrypt("ekowindarto"), 'fullname' => "Yudi Eko", 'access_level' => "Manager"],
+        //     ['username' => "cahyo", 'password' => bcrypt("dwinugroho"), 'fullname' => "Dwi Cahyo", 'access_level' => "User"]
+        // ];
+
+        // DB::table('actors')->insert($dataactors);
+
+        //Query Builder
+        //for users
+        $datausers=[
+            ['name' => "Aufal Marom", 'email' => 'admin@sigtpa.com' , 'password' => bcrypt("admin123"), 'role' => "administrator"],
+            ['name' => "Yudi Eko W", 'email'=> 'manager@sigtpa.com' , 'password' => bcrypt("manager123"), 'role' => "manager"],
+            ['name' => "Cahyo Ndut",'email'=> 'operator@sigtpa.com' ,  'password' => bcrypt("operator123"), 'role' => "operator",]
         ];
 
-        DB::table('actors')->insert($dataactors);
+        DB::table('users')->insert($datausers);
 
         //Eloquent ORM
         // Atribut::created([
@@ -188,9 +198,9 @@ class DatabaseSeeder extends Seeder
         DB::table('data_rawan_bencana_banjirs')->insert($datarawanbencanabanjirs);
 
         //create view parameter data
-        Schema::create('parameter_data_view', function (Blueprint $table) {
-            DB::statement("create view parameter_data_view as select `lab_baru`.`peminjams`.`id` AS `id`,`lab_baru`.`pinjam_alats`.`status` AS `status`,`lab_baru`.`peminjams`.`username` AS `nim`,`lab_baru`.`peminjams`.`nama` AS `nama`,`lab_baru`.`pinjam_alats`.`tgl_pinjam` AS `tgl_pinjam`,`lab_baru`.`pinjam_alats`.`tgl_kembali` AS `tgl_kembali`,`lab_baru`.`pinjam_alats`.`keterangan` AS `keterangan`,`lab_baru`.`pinjam_alats`.`nama_alat` AS `nama_alat`,`lab_baru`.`pinjam_alats`.`kegunaan` AS `kegunaan`,`lab_baru`.`pinjam_alats`.`jumlah` AS `jumlah`,`lab_baru`.`peminjams`.`no_hp` AS `no_hp`,`lab_baru`.`peminjams`.`alamat` AS `alamat` from (`lab_baru`.`peminjams` join `lab_baru`.`pinjam_alats` on((`lab_baru`.`peminjams`.`id` = `lab_baru`.`pinjam_alats`.`id_peminjam`)))");
-        });
+        // Schema::create('parameter_data_view', function (Blueprint $table) {
+        //     DB::statement("create view parameter_data_view as select `lab_baru`.`peminjams`.`id` AS `id`,`lab_baru`.`pinjam_alats`.`status` AS `status`,`lab_baru`.`peminjams`.`username` AS `nim`,`lab_baru`.`peminjams`.`nama` AS `nama`,`lab_baru`.`pinjam_alats`.`tgl_pinjam` AS `tgl_pinjam`,`lab_baru`.`pinjam_alats`.`tgl_kembali` AS `tgl_kembali`,`lab_baru`.`pinjam_alats`.`keterangan` AS `keterangan`,`lab_baru`.`pinjam_alats`.`nama_alat` AS `nama_alat`,`lab_baru`.`pinjam_alats`.`kegunaan` AS `kegunaan`,`lab_baru`.`pinjam_alats`.`jumlah` AS `jumlah`,`lab_baru`.`peminjams`.`no_hp` AS `no_hp`,`lab_baru`.`peminjams`.`alamat` AS `alamat` from (`lab_baru`.`peminjams` join `lab_baru`.`pinjam_alats` on((`lab_baru`.`peminjams`.`id` = `lab_baru`.`pinjam_alats`.`id_peminjam`)))");
+        // });
 
 
     }

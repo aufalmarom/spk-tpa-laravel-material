@@ -77,10 +77,10 @@
                         <thead>
                             <tr>
                                 <th class="text-center">No.</th>
-                                <th>Username</th>
+                                <th>Nama</th>
+                                <th>E-Mail</th>
                                 <th>Password</th>
-                                <th>Full Name</th>
-                                <th>Level Akses</th>
+                                <th>Role</th>
                                 <th class="text-right">Actions</th>
                             </tr>
                         </thead>
@@ -91,10 +91,10 @@
                             @foreach ($user as $u_view)
                                 <tr>
                                     <td class="text-center">{{$no++}}</td>
-                                    <td>{{$u_view->username}}</td>
+                                    <td>{{$u_view->name}}</td>
+                                    <td>{{$u_view->email}}</td>
                                     <td>{{$u_view->password}}</td>
-                                    <td>{{$u_view->fullname}}</td>
-                                    <td>{{$u_view->access_level}}</td>
+                                    <td>{{$u_view->role}}</td>
                                     <td class="td-actions text-right">
                                         <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">info</i>

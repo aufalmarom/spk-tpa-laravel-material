@@ -43,7 +43,7 @@
             <div class="user-info">
                 <a href="#user" data-toggle="collapse" class="username">
                     <span>
-                        Aufal Marom
+                        {{ Auth::user()->name }}
                         <b class="caret"></b>
                     </span>
                 </a>
@@ -67,7 +67,6 @@
               <p>Dashboard</p>
             </a>
           </li>
-
         </li>
 
         <li class="nav-item">

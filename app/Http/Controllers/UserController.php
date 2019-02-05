@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Actor;
+use App\User;
 
 class UserController extends Controller
 {
@@ -15,9 +15,9 @@ class UserController extends Controller
     public function index(){
 
 
-        if(Auth::user()->role != "operator"){
+        if(Auth::user()-> role != "operator"){
             //Eloquent ORM
-            $db = Actor::get();
+            $db = User::get();
 
             $data =[
                 'data' => 'iki data',

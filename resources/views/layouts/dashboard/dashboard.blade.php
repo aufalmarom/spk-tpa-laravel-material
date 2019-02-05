@@ -77,7 +77,7 @@
         </div>
     </div>
 
-    <div class="row">
+    {{-- <div class="row">
         <div class="col">
             <div class="card card-chart" data-count="15">
                 <div class="card-header card-header-rose" data-header-animation="true">
@@ -161,6 +161,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 @endsection

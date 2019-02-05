@@ -31,7 +31,7 @@ Route::get('/datacurahhujan','DataController@MaosCurahHujan')->name('datacurahhu
 Route::get('/datahidrogeologi','DataController@MaosHidrogeologi')->name('datahidrogeologi.read');
 Route::get('/datajenistanah','DataController@MaosJenisTanah')->name('datajenistanah.read');
 Route::get('/datarawanbencanabanjir','DataController@MaosRawanBencanaBanjir')->name('datarawanbencanabanjir.read');
-//smart
+// //smart
 Route::get('/bobotparameter','DataController@MaosBobotParameter')->name('bobotparameter.read');
 Route::get('/parameterdata','ParameterDataController@index')->name('parameterdata.read');
 Route::get('/bobotrelatif','DataController@MaosBobotRelatif')->name('bobotrelatif.read');
@@ -59,3 +59,7 @@ Route::get('/logout','ActorController@logout')->name('logout');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', function () {
+    return view('/templates/login');
+});
