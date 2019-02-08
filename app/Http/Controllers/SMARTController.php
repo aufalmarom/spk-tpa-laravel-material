@@ -40,7 +40,10 @@ class SMARTController extends Controller
 
     public function MaosFaktorEvaluasi()
     {
+        $db1 = Data::get();
+        $db2 = BobotParameter::get();
 
+        return view('/layouts/smart/faktorevaluasi', compact('db1', 'db2'));
     }
 
     public function MaosBobotEvaluasi()
