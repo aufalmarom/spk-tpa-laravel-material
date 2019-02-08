@@ -48,12 +48,16 @@ class SMARTController extends Controller
 
     public function MaosBobotEvaluasi()
     {
+        $datas1 = Data::where("id_kecamatan",1)->first();
+        $datas2 = BobotParameter::get();
 
+        return view('/layouts/smart/bobotevaluasi', compact('datas1', 'datas2'));
     }
 
     public function MaosRanking()
     {
 
+        return view('/layouts/smart/ranking');
     }
 
 

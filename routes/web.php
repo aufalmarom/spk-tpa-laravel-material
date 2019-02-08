@@ -40,7 +40,6 @@ Route::get('/bobotparameter','SMARTController@MaosBobotParameter')->name('bobotp
 Route::get('/parameternilaibobot','SMARTController@MaosParameterNilaiBobot')->name('parameternilaibobot.read');
 Route::get('/bobotrelatif','SMARTController@MaosBobotRelatif')->name('bobotrelatif.read');
 Route::get('/faktorevaluasi','SMARTController@MaosFaktorEvaluasi')->name('faktorevaluasi.read');
-
 Route::get('/bobotevaluasi','SMARTController@MaosBobotEvaluasi')->name('bobotevaluasi.read');
 Route::get('/ranking','SMARTController@MaosRanking')->name('ranking.read');
 //maps
