@@ -79,17 +79,17 @@
                                 <tr>
                                     <td class="text-center">{{$no++}}</td>
                                     <td>{{$pd_view->kecamatan->daerah}}</td>
-                                    <td class="text-center">{{ round(FaktorEvaluasi($pd_view->id_kecamatan,$pd_view->nilai_klasifikasi_kelerengan,"Kelerengan"), 2)}}</td>
-                                    <td class="text-center">{{ round(FaktorEvaluasi($pd_view->id_kecamatan,$pd_view->nilai_klasifikasi_penggunaan_lahan,"PenggunaanLahan"), 2)}}</td>
-                                    <td class="text-center">{{ FaktorEvaluasi($pd_view->id_kecamatan,$pd_view->nilai_klasifikasi_rawan_bencana_longsor,"RawanBencanaLongsor")}}</td>
-                                    <td class="text-center">{{ FaktorEvaluasi($pd_view->id_kecamatan,$pd_view->nilai_klasifikasi_curah_hujan,"CurahHujan")}}</td>
-                                    <td class="text-center">{{ FaktorEvaluasi($pd_view->id_kecamatan,$pd_view->nilai_klasifikasi_hidrogeologi,"Hidrogeologi")}}</td>
-                                    <td class="text-center">{{ round(FaktorEvaluasi($pd_view->id_kecamatan,$pd_view->nilai_klasifikasi_jenis_tanah,"JenisTanah"), 2)}}
+                                    <td class="text-center">{{ round(FaktorEvaluasi($pd_view->id_kecamatan,$pd_view->nilai_klasifikasi_kelerengan,1), 2)}}</td>
+                                    <td class="text-center">{{ round(FaktorEvaluasi($pd_view->id_kecamatan,$pd_view->nilai_klasifikasi_penggunaan_lahan,2), 2)}}</td>
+                                    <td class="text-center">{{ FaktorEvaluasi($pd_view->id_kecamatan,$pd_view->nilai_klasifikasi_rawan_bencana_longsor,3)}}</td>
+                                    <td class="text-center">{{ FaktorEvaluasi($pd_view->id_kecamatan,$pd_view->nilai_klasifikasi_curah_hujan,4)}}</td>
+                                    <td class="text-center">{{ FaktorEvaluasi($pd_view->id_kecamatan,$pd_view->nilai_klasifikasi_hidrogeologi,5)}}</td>
+                                    <td class="text-center">{{ round(FaktorEvaluasi($pd_view->id_kecamatan,$pd_view->nilai_klasifikasi_jenis_tanah,6), 2)}}
                                     <td class="text-center">
-                                        @if (MaxNilaiParameter("RawanBencanaBanjir")-MinDaerah($pd_view->id_kecamatan) == 0)
+                                        @if (MaxNilaiParameter(7)-MinDaerah($pd_view->id_kecamatan) == 0)
                                             {{0}}
                                         @else
-                                        {{ FaktorEvaluasi($pd_view->id_kecamatan,$pd_view->nilai_klasifikasi_rawan_bencana_banjir,"RawanBencanaBanjir")}}
+                                        {{ FaktorEvaluasi($pd_view->id_kecamatan,$pd_view->nilai_klasifikasi_rawan_bencana_banjir,7)}}
                                         @endif
 
                                     </td>
