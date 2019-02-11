@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Data;
 use App\BobotParameter;
+use App\Kecamatan;
 
 class SMARTController extends Controller
 {
@@ -56,11 +57,16 @@ class SMARTController extends Controller
 
     public function MaosRanking()
     {
-
-        return view('/layouts/smart/ranking');
+        $datas = Kecamatan::get();
+        $kecamatan = array();
+        $data = array();
+        foreach ($datas as $data1){
+            $kecamatan[] = $data1->daerah;
+            $data[] = BobotEvaluasi($data1->id);
+        }
+        $result = array_combine($kecamatan,$data);
+        arsort($result);
+        return view('/layouts/smart/ranking', compact('result'));
     }
-
-
-
 
 }

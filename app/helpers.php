@@ -74,18 +74,28 @@
             return $nilai;
         }
         else{
-            $nilai = (MaxNilaiParameter($parameter)-$nilai*NilaiBobot($parameter))/(MaxNilaiParameter($parameter)-MinDaerah($id)) ;
+            $nilai = (MaxNilaiParameter($parameter)-$nilai*NilaiBobot($parameter))/(MaxNilaiParameter($parameter)-MinDaerah($id));
             return round($nilai, 2);
         }
     }
 
-    function BobotRelatif($id_parameter,$bobot){
+    function BobotRelatif($id_parameter, $bobot){
         $datas_sum = DB::table('bobot_parameters')->sum('bobot');
 
         $nilai = $bobot/$datas_sum;
         return $nilai;
     }
 
-
+    function BobotEvaluasi($id){
+        $datas = Data::where('id_kecamatan', $id)->first();
+        $nilai = FaktorEvaluasi($id,$datas->nilai_klasifikasi_kelerengan,1)*BobotRelatif(1,NilaiBobot(1))
+        +FaktorEvaluasi($id,$datas->nilai_klasifikasi_penggunaan_lahan,2)*BobotRelatif(2,NilaiBobot(2))
+        +FaktorEvaluasi($id,$datas->nilai_klasifikasi_rawan_bencana_longsor,3)*BobotRelatif(3,NilaiBobot(3))
+        +FaktorEvaluasi($id,$datas->nilai_klasifikasi_curah_hujan,4)*BobotRelatif(4,NilaiBobot(4))
+        +FaktorEvaluasi($id,$datas->nilai_klasifikasi_hidrogeologi,5)*BobotRelatif(5,NilaiBobot(5))
+        +FaktorEvaluasi($id,$datas->nilai_klasifikasi_jenis_tanah,6)*BobotRelatif(6,NilaiBobot(6))
+        +FaktorEvaluasi($id,$datas->nilai_klasifikasi_rawan_bencana_banjir,7)*BobotRelatif(7,NilaiBobot(7));
+        return $nilai;
+    }
 
 ?>

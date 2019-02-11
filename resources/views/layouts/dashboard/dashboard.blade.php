@@ -18,49 +18,35 @@
                         <div class="col-md-4">
                             <div class="table-responsive table-sales">
                                 <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">No.</th>
+                                            <th class="text-center">Daerah</th>
+                                            <th class="text-center">Bobot Evaluasi</th>
+                                            <th class="text-center">Flag</th>
+                                            {{-- <th class="text-right">Actions</th> --}}
+                                        </tr>
+                                    </thead>
                                     <tbody>
-                                        <tr class="text-center">
-                                            <td>1</td>
-                                            <td>abang</td>
-                                            <td>Semarang</td>
-                                            <td>90</td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td>2</td>
-                                            <td>ijo</td>
-                                            <td>Lasem</td>
-                                            <td>80</td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td>3</td>
-                                            <td>biru</td>
-                                            <td>Leran</td>
-                                            <td>70</td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td>4</td>
-                                            <td>kuneng</td>
-                                            <td>Gondang</td>
-                                            <td>60</td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td>5</td>
-                                            <td>abang</td>
-                                            <td>Ngesrep</td>
-                                            <td>50</td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td>6</td>
-                                            <td>ijo</td>
-                                            <td>Lasem</td>
-                                            <td>40</td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td>7</td>
-                                            <td>biru</td>
-                                            <td>Leran</td>
-                                            <td>35</td>
-                                        </tr>
+                                        <?php
+                                            $no = 1;
+                                        foreach($result as $x => $x_value){
+                                        ?>
+                                            <tr>
+                                                <td class="text-center">{{$no}}</td>
+                                                <td class="text-center">{{$x}}</td>
+                                                <td class="text-center">{{$x_value}}</td>
+                                                <td class="text-center">
+
+                                                </td>
+                                            </tr>
+                                        <?php
+                                            if($no == 7){
+                                                break;
+                                            }
+                                            $no++;
+                                        }
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
