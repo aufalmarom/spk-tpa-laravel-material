@@ -45,14 +45,26 @@ class DatabaseSeeder extends Seeder
         // factory(App\Atribut::Class, 50)-> create();
 
         //for bobot_parameters
+        // $bobotparamaters=[
+        //     ['parameter' => "Kelerengan", 'bobot' => 10],
+        //     ['parameter' => "Penggunaan Lahan", 'bobot' => 20],
+        //     ['parameter' => "Rawan Bencana Longsor", 'bobot' => 15],
+        //     ['parameter' => "Curah Hujan", 'bobot' => 15],
+        //     ['parameter' => "Hidrogeologi", 'bobot' => 20],
+        //     ['parameter' => "Jenis Tanah", 'bobot' => 10],
+        //     ['parameter' => "Rawan Bencana Banjir", 'bobot' => 10],
+        // ];
+
+        // DB::table('bobot_parameters')->insert($bobotparamaters);
+
         $bobotparamaters=[
-            ['parameter' => "Kelerengan", 'bobot' => 10],
-            ['parameter' => "Penggunaan Lahan", 'bobot' => 20],
-            ['parameter' => "Rawan Bencana Longsor", 'bobot' => 15],
-            ['parameter' => "Curah Hujan", 'bobot' => 15],
-            ['parameter' => "Hidrogeologi", 'bobot' => 20],
-            ['parameter' => "Jenis Tanah", 'bobot' => 10],
-            ['parameter' => "Rawan Bencana Banjir", 'bobot' => 10],
+            ['parameter' => "Kelerengan", 'bobot' => 10, 'created_by' => 1],
+            ['parameter' => "Penggunaan Lahan", 'bobot' => 20, 'created_by' => 1],
+            ['parameter' => "Rawan Bencana Longsor", 'bobot' => 15, 'created_by' => 1],
+            ['parameter' => "Curah Hujan", 'bobot' => 15, 'created_by' => 1],
+            ['parameter' => "Hidrogeologi", 'bobot' => 20, 'created_by' => 1],
+            ['parameter' => "Jenis Tanah", 'bobot' => 10, 'created_by' => 1],
+            ['parameter' => "Rawan Bencana Banjir", 'bobot' => 10, 'created_by' => 1],
         ];
 
         DB::table('bobot_parameters')->insert($bobotparamaters);
@@ -77,7 +89,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('kecamatans')->insert($kecamatans);
 
-        //for data_tpas
+        //for data_tpas horizontal
         $data_tpa=[
             ['id_kecamatan' => 1, 'nilai_klasifikasi_kelerengan' => 4, 'nilai_parameter_kelerengan' => "0-8%", 'nilai_klasifikasi_penggunaan_lahan' => 4, 'nilai_parameter_penggunaan_lahan' => "Industri", 'nilai_klasifikasi_rawan_bencana_longsor' => 2, 'nilai_parameter_rawan_bencana_longsor' => "Rendah", 'nilai_klasifikasi_curah_hujan' => 2, 'nilai_parameter_curah_hujan' => "1500-2750", 'nilai_klasifikasi_hidrogeologi' => 0, 'nilai_parameter_hidrogeologi' => "Akuiver Produktif", 'nilai_klasifikasi_jenis_tanah' => 3, 'nilai_parameter_jenis_tanah' => "Alluvial", 'nilai_klasifikasi_rawan_bencana_banjir' => 0, 'nilai_parameter_rawan_bencana_banjir' => "Rawan Banjir"],
             ['id_kecamatan' => 2, 'nilai_klasifikasi_kelerengan' => 3, 'nilai_parameter_kelerengan' => "8-15%", 'nilai_klasifikasi_penggunaan_lahan' => 0, 'nilai_parameter_penggunaan_lahan' => "Hutan", 'nilai_klasifikasi_rawan_bencana_longsor' => 1, 'nilai_parameter_rawan_bencana_longsor' => "Sedang", 'nilai_klasifikasi_curah_hujan' => 1, 'nilai_parameter_curah_hujan' => "2750-4000", 'nilai_klasifikasi_hidrogeologi' => 2, 'nilai_parameter_hidrogeologi' => "Air Tanah Langka", 'nilai_klasifikasi_jenis_tanah' => 1, 'nilai_parameter_jenis_tanah' => "Latosol", 'nilai_klasifikasi_rawan_bencana_banjir' => 1, 'nilai_parameter_rawan_bencana_banjir' => "Tidak Rawan Banjir"],

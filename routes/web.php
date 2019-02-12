@@ -34,9 +34,18 @@ Route::get('/datacurahhujan','DataController@MaosCurahHujan')->name('datacurahhu
 Route::get('/datahidrogeologi','DataController@MaosHidrogeologi')->name('datahidrogeologi.read');
 Route::get('/datajenistanah','DataController@MaosJenisTanah')->name('datajenistanah.read');
 Route::get('/datarawanbencanabanjir','DataController@MaosRawanBencanaBanjir')->name('datarawanbencanabanjir.read');
+//nilaiklasifikasi
+Route::get('/nilaiklasifikasi','NilaiKlasifikasiController@MaosNilaiKlasifikasi')->name('nilaiklasifikasi.read');
 //smart
+//bobot parameter
+Route::get('/parameter','SMARTController@MaosParameter')->name('parameter.read');
+//
 Route::get('/parameternilai','SMARTController@MaosParameterNilai')->name('parameternilai.read');
+//bobot parameter
 Route::get('/bobotparameter','SMARTController@MaosBobotParameter')->name('bobotparameter.read');
+Route::post('/bobotparameter/ndamel','SMARTController@NdamelBobotParameter')->name('bobotparameter.create');
+Route::post('/bobotparameter/hapus','SMARTController@HapusBobotParameter')->name('bobotparameter.delete');
+
 Route::get('/parameternilaibobot','SMARTController@MaosParameterNilaiBobot')->name('parameternilaibobot.read');
 Route::get('/bobotrelatif','SMARTController@MaosBobotRelatif')->name('bobotrelatif.read');
 Route::get('/faktorevaluasi','SMARTController@MaosFaktorEvaluasi')->name('faktorevaluasi.read');

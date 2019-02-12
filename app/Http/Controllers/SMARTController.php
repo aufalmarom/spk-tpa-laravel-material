@@ -4,24 +4,61 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Data;
+use App\NilaiKlasifikasiKriteria;
+use App\NilaiKlasifikasiKategori;
 use App\BobotParameter;
 use App\Kecamatan;
 
 class SMARTController extends Controller
 {
+    public function MaosParameter(){
+
+        $datas1 = NilaiKlasifikasiKriteria::get();
+        $datas1 = NilaiKlasifikasiKategori::get();
+
+        return view('/layouts/smart/parameter', compact('datas1', 'datas2'));
+    }
+
+
     public function MaosParameterNilai(){
 
-        $db = Data::get();
+        $datas= Data::get();
 
-        return view('/layouts/smart/parameternilai', compact('db'));
+        return view('/layouts/smart/parameternilai', compact('datas'));
     }
 
     public function MaosBobotParameter(){
-        $db = BobotParameter::get();
+        $datas = BobotParameter::get();
 
-        return view('/layouts/smart/bobotparameter', compact('db'));
+        return view('/layouts/smart/bobotparameter', compact('datas'));
     }
+
+    public function NdamelBobotParameter(Request $request){
+        $post = $request->request->all();
+        if($post['id'] == null){
+            $simpan = new BobotParameter();
+        }
+        else {
+            $simpan = BobotParameter::find($post['id']);
+        }
+        $simpan->parameter = $post['parameter'];
+        $simpan->bobot = $post['bobot'];
+        $simpan->created_by = Auth::user()->id;
+        $simpan->save();
+
+        return back()->with('success', 'Data Berhasil Disimpan');
+    }
+
+    public function HapusBobotParameter(Request $request){
+        $post = $request->request->all();
+        $model = BobotParameter::find($post['id']);
+        $model->delete();
+
+        return back()->with('danger', 'Data Berhasil Dihapus');
+    }
+
 
     public function MaosParameterNilaiBobot()
     {

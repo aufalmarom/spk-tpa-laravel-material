@@ -78,7 +78,13 @@
         </a>
             <div class="collapse" id="data" style>
                 <ul class="nav">
-                        <li class="nav-item">
+                            <li class="nav-item">
+                                <a class="nav-link " href="{{route('nilaiklasifikasi.read')}}">
+                                    <span class="sidebar-mini">NK</span>
+                                    <span class="sidebar-normal">Nilai Klasifikasi</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link " href="{{route('datakelerengan.read')}}">
                                     <span class="sidebar-mini">DK</span>
                                     <span class="sidebar-normal">Data Kelerengan</span>
@@ -134,6 +140,12 @@
             </a>
                 <div class="collapse" id="smart" style>
                     <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('parameter.read')}}">
+                                <span class="sidebar-mini">DP</span>
+                                <span class="sidebar-normal">Data Parameter</span>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('parameternilai.read')}}">
                                 <span class="sidebar-mini">PD</span>

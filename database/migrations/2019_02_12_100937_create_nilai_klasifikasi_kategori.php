@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBobotParametersTable extends Migration
+class CreateNilaiKlasifikasiKategori extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateBobotParametersTable extends Migration
      */
     public function up()
     {
-        Schema::create('bobot_parameters', function (Blueprint $table) {
+        Schema::create('nilai_klasifikasi_kategoris', function (Blueprint $table) {
             $table->increments('id');
-            $table->String('parameter');
-            $table->unsignedInteger('bobot');
-            $table->unsignedInteger('created_by');
+            $table->integer('id_parameter')->unsigned();
+            $table->integer('kategori');
+            $table->integer('nilai');
+            $table->integer('created_by')->unsigned();
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateBobotParametersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bobot_parameters');
+        Schema::dropIfExists('nilai_klasifikasi_kategoris');
     }
 }
