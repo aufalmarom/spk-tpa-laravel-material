@@ -2,20 +2,27 @@
 
 @section('content')
 
-@if ($message = Session::get('success'))
+    @if ($message = Session::get('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>{{$message}}</strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+                <span aria-hidden="true">&times;</span>
             </button>
-          </div>
+        </div>
+    @elseif($message = Session::get('danger'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{$message}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     @endif
 
     <div class="col">
         <div class="row">
             @if(Auth::user()->role == "administrator")
             <button class="btn btn-rose" type="button" data-toggle="collapse" data-target="#create-user" aria-expanded="false" aria-controls="collapseExample">
-                create user
+                    tambah user baru
             </button>
             @endif
         </div>
@@ -24,33 +31,57 @@
             <div class="col-8">
                 <div class="collapse" id="create-user">
                     <div class="card card-body">
-                        <form method="POST" action="">
+                        <form method="POST" action="{{route('user.create')}}">
                             {{csrf_field()}}
                             <div class="form-row">
                                 <div class="form-group col">
-                                    <label for="inputEmail4" class="bmd-label-floating">Username</label>
-                                    <input type="text" name="daerah" class="form-control" required>
+                                    <label class="bmd-label-floating">Nama</label>
+                                    <input type="text" name="name" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col">
-                                    <label for="inputEmail4" class="bmd-label-floating">Password</label>
-                                    <input type="password" name="daerah" class="form-control" required>
+                                    <label class="bmd-label-floating">E-Mail</label>
+                                    <input type="email" name="email" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="form-group col">
-                                    <label for="inputEmail4" class="bmd-label-floating">Full Name</label>
-                                    <input type="text" name="daerah" class="form-control" required>
+                                    <label class="bmd-label-floating">Password</label>
+                                    <input type="password" name="password" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col">
-                                    <label for="inputEmail4" class="bmd-label-floating">ID Card(KTP/SIM)</label>
-                                    <input type="number" name="daerah" class="form-control" required>
+                                <label>Role</label>
+                                <div class="form-group">
+                                        <div class="form-check form-check-radio form-check-inline">
+                                                <label class="form-check-label">
+                                                  <input class="form-check-input" type="radio" name="role" id="inlineRadio1" value="administrator"> Administrator
+                                                  <span class="circle">
+                                                      <span class="check"></span>
+                                                  </span>
+                                                </label>
+                                              </div>
+                                              <div class="form-check form-check-radio form-check-inline">
+                                                <label class="form-check-label">
+                                                  <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="manager"> Manager
+                                                  <span class="circle">
+                                                      <span class="check"></span>
+                                                  </span>
+                                                </label>
+                                              </div>
+                                              <div class="form-check form-check-radio form-check-inline">
+                                                <label class="form-check-label">
+                                                  <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="operator"> Operator
+                                                  <span class="circle">
+                                                      <span class="check"></span>
+                                                  </span>
+                                                </label>
+                                              </div>
+
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-rose">CREATE</button>
+                            <button type="submit" class="btn btn-rose">tambah</button>
                         </form>
                     </div>
                 </div>
@@ -102,11 +133,35 @@
                                         <button type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">edit</i>
                                         </button>
-                                        <button  rel="tooltip" type="button" title="Remove" class="btn btn-rose btn-link btn-sm">
-                                            <i class="material-icons">clear</i>
-                                        </button>
+                                        <button rel="tooltip" type="button" title="Remove" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-delete{{$u_view->id}}">
+                                                <i class="material-icons">clear</i>
+                                                <div class="ripple-container"></div>
+                                                </button>
 
-                                        {{-- href="{{route('deletedata.admin', $u_view->id)}}" --}}
+                                                <div class="modal fade modal-mini modal-rose" id="modal-delete{{$u_view->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+                                                    <div class="modal-dialog modal-small">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                            <p>Apakah anda akan menghapus data {{$u_view->name}}</p>
+                                                            </div>
+
+                                                            <form method="POST" action="{{route('user.delete')}}">
+                                                                    {{csrf_field()}}
+                                                                <div class="modal-footer justify-content-center">
+                                                                <div style="display:none">
+                                                                    <input  type="text" name="id" value="{{$u_view->id}}">
+                                                                </div>
+                                                                    <button class="btn btn-primary" data-dismiss="modal">Tidak</button>
+                                                                    <button type="submit" class="btn btn-danger"> Iya</button>
+                                                                    <div class="ripple-container"></div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
                                     </td>
                                 </tr>

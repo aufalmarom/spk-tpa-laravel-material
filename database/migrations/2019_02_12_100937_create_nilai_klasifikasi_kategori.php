@@ -16,9 +16,9 @@ class CreateNilaiKlasifikasiKategori extends Migration
         Schema::create('nilai_klasifikasi_kategoris', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_parameter')->unsigned();
-            $table->integer('kategori');
+            $table->String('kategori');
             $table->integer('nilai');
-            $table->integer('created_by')->unsigned();
+            $table->integer('created_by')->unsigned()->nullable();
             $table->timestamps();
         });
     }

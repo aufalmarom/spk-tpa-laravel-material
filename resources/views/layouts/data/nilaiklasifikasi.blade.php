@@ -52,7 +52,7 @@
                         <div class="card-icon">
                             <i class="material-icons">perm_identity</i>
                         </div>
-                    <h4 class="card-title">Nilai Klasifikasi {{$data->parameter}}</h4>
+                    <h4 class="card-title">Nilai Klasifikasi {{$datas2->parameter}}</h4>
                     </div>
                     <div class="card-body">
                         <table class="table table-hover">

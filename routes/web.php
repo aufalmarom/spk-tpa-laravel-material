@@ -37,9 +37,7 @@ Route::get('/datarawanbencanabanjir','DataController@MaosRawanBencanaBanjir')->n
 //nilaiklasifikasi
 Route::get('/nilaiklasifikasi','NilaiKlasifikasiController@MaosNilaiKlasifikasi')->name('nilaiklasifikasi.read');
 //smart
-//bobot parameter
-Route::get('/parameter','SMARTController@MaosParameter')->name('parameter.read');
-//
+//parameter_nilai
 Route::get('/parameternilai','SMARTController@MaosParameterNilai')->name('parameternilai.read');
 //bobot parameter
 Route::get('/bobotparameter','SMARTController@MaosBobotParameter')->name('bobotparameter.read');
@@ -54,5 +52,7 @@ Route::get('/ranking','SMARTController@MaosRanking')->name('ranking.read');
 //maps
 Route::get('/maps','MapsController@index')->name('maps');
 //user
-Route::get('/user','UserController@index')->name('user.read');
+Route::get('/user','UserController@MaosUser')->name('user.read');
+Route::post('/user/create','UserController@NdamelUser')->name('user.create');
+Route::post('/user/hapus','UserController@HapusUser')->name('user.delete');
 

@@ -89,6 +89,42 @@ class DatabaseSeeder extends Seeder
 
         DB::table('kecamatans')->insert($kecamatans);
 
+        //nilai_klasifikasi_kriterias
+        $nilai_klasifikasi_kriterias=[
+            ['id_parameter' => 1, 'batas_bawah' => 40, 'batas_atas'=> 100, 'nilai' => 0],
+            ['id_parameter' => 1, 'batas_bawah' => 25, 'batas_atas'=> 40, 'nilai' => 1],
+            ['id_parameter' => 1, 'batas_bawah' => 15, 'batas_atas'=> 25, 'nilai' => 2],
+            ['id_parameter' => 1, 'batas_bawah' => 8, 'batas_atas'=> 15, 'nilai' => 3],
+            ['id_parameter' => 1, 'batas_bawah' => 0, 'batas_atas'=> 8, 'nilai' => 4],
+            ['id_parameter' => 4, 'batas_bawah' => 4000, 'batas_atas'=> 10000, 'nilai' => 0],
+            ['id_parameter' => 4, 'batas_bawah' => 2750, 'batas_atas'=> 4000, 'nilai' => 1],
+            ['id_parameter' => 4, 'batas_bawah' => 1500, 'batas_atas'=> 4000, 'nilai' => 2]
+        ];
+
+        DB::table('nilai_klasifikasi_kriterias')->insert($nilai_klasifikasi_kriterias);
+
+        //nilai_klasifikasi_kategoris
+        $nilai_klasifikasi_kategoris=[
+            ['id_parameter' => 2, 'kategori' => 'Hutan', 'nilai' => 0],
+            ['id_parameter' => 2, 'kategori' => 'Pemukiman', 'nilai' => 1],
+            ['id_parameter' => 2, 'kategori' => 'Sawah', 'nilai' => 2],
+            ['id_parameter' => 2, 'kategori' => 'Kebun/Lapangan', 'nilai' => 3],
+            ['id_parameter' => 2, 'kategori' => 'Industri', 'nilai' => 4],
+            ['id_parameter' => 3, 'kategori' => 'Tinggi', 'nilai' => 0],
+            ['id_parameter' => 3, 'kategori' => 'Sedang', 'nilai' => 1],
+            ['id_parameter' => 3, 'kategori' => 'Rendah', 'nilai' => 2],
+            ['id_parameter' => 5, 'kategori' => 'Akuiver Produktif', 'nilai' => 0],
+            ['id_parameter' => 5, 'kategori' => 'Air Tanah Langka', 'nilai' => 2],
+            ['id_parameter' => 6, 'kategori' => 'Gromosol', 'nilai' => 0],
+            ['id_parameter' => 6, 'kategori' => 'Latosol', 'nilai' => 1],
+            ['id_parameter' => 6, 'kategori' => 'Regosol', 'nilai' => 2],
+            ['id_parameter' => 6, 'kategori' => 'Alluvial', 'nilai' => 3],
+            ['id_parameter' => 7, 'kategori' => 'Rawan Banjir', 'nilai' => 0],
+            ['id_parameter' => 7, 'kategori' => 'Tidak Rawan Banjir', 'nilai' => 1]
+        ];
+
+        DB::table('nilai_klasifikasi_kategoris')->insert($nilai_klasifikasi_kategoris);
+
         //for data_tpas horizontal
         $data_tpa=[
             ['id_kecamatan' => 1, 'nilai_klasifikasi_kelerengan' => 4, 'nilai_parameter_kelerengan' => "0-8%", 'nilai_klasifikasi_penggunaan_lahan' => 4, 'nilai_parameter_penggunaan_lahan' => "Industri", 'nilai_klasifikasi_rawan_bencana_longsor' => 2, 'nilai_parameter_rawan_bencana_longsor' => "Rendah", 'nilai_klasifikasi_curah_hujan' => 2, 'nilai_parameter_curah_hujan' => "1500-2750", 'nilai_klasifikasi_hidrogeologi' => 0, 'nilai_parameter_hidrogeologi' => "Akuiver Produktif", 'nilai_klasifikasi_jenis_tanah' => 3, 'nilai_parameter_jenis_tanah' => "Alluvial", 'nilai_klasifikasi_rawan_bencana_banjir' => 0, 'nilai_parameter_rawan_bencana_banjir' => "Rawan Banjir"],
