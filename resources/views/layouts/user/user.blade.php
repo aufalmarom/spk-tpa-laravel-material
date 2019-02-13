@@ -53,32 +53,31 @@
                             </div>
                             <div class="form-row">
                                 <label>Role</label>
-                                <div class="form-group">
-                                        <div class="form-check form-check-radio form-check-inline">
-                                                <label class="form-check-label">
-                                                  <input class="form-check-input" type="radio" name="role" id="inlineRadio1" value="administrator"> Administrator
-                                                  <span class="circle">
-                                                      <span class="check"></span>
-                                                  </span>
-                                                </label>
-                                              </div>
-                                              <div class="form-check form-check-radio form-check-inline">
-                                                <label class="form-check-label">
-                                                  <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="manager"> Manager
-                                                  <span class="circle">
-                                                      <span class="check"></span>
-                                                  </span>
-                                                </label>
-                                              </div>
-                                              <div class="form-check form-check-radio form-check-inline">
-                                                <label class="form-check-label">
-                                                  <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="operator"> Operator
-                                                  <span class="circle">
-                                                      <span class="check"></span>
-                                                  </span>
-                                                </label>
-                                              </div>
-
+                                <div class="form-group col">
+                                    <div class="form-check form-check-radio form-check-inline">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="role" id="inlineRadio1" value="administrator"> Administrator
+                                                <span class="circle">
+                                                    <span class="check"></span>
+                                                </span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-radio form-check-inline">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="manager"> Manager
+                                                <span class="circle">
+                                                    <span class="check"></span>
+                                                </span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-radio form-check-inline">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="operator"> Operator
+                                                <span class="circle">
+                                                    <span class="check"></span>
+                                                </span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-rose">tambah</button>
@@ -88,20 +87,13 @@
             </div>
         </div>
 
-
-
-
-
         <div class="row">
             <div class="card">
                 <div class="card-header card-header-icon card-header-rose">
                     <div class="card-icon">
                         <i class="material-icons">perm_identity</i>
-
                     </div>
-                    <h4 class="card-title">Data User
-                    </h4>
-
+                    <h4 class="card-title">Data User</h4>
                 </div>
                 <div class="card-body">
                     <table class="table table-hover">
@@ -130,9 +122,72 @@
                                         <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">info</i>
                                         </button>
-                                        <button type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm">
-                                            <i class="material-icons">edit</i>
+                                        
+                                        <button type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-edit{{$u_view->id}}">
+                                        <i class="material-icons">edit</i>
                                         </button>
+
+                                        <div class="modal fade modal-mini modal-rose" id="modal-edit{{$u_view->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+                                            <div class="modal-dialog modal-xl">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h3>Edit Data Parameter</h3>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+                                                    </div>
+                                                    <div class="modal-body">
+
+                                                        <form method="POST" action="{{route('user.create')}}">
+                                                            {{csrf_field()}}
+                                                            <div class="form-col">
+                                                                <div class="form-group col">
+                                                                    <label for="inputEmail4" class="bmd-label-floating">Nama</label>
+                                                                <input type="text" name="parameter" class="form-control" value="{{$u_view->name}}" required>
+                                                                <input type="hidden" name="id" value="{{$u_view->id}}" required>
+                                                                </div>
+                                                                <div class="form-group col">
+                                                                    <label for="inputPassword4"class="bmd-label-floating">E-Mail</label>
+                                                                    <input type="text" name="bobot" class="form-control" value="{{$u_view->email}}" required>
+                                                                </div>
+                                                                <div class="form-group col">
+                                                                    <label for="inputPassword4"class="bmd-label-floating">Password</label>
+                                                                    <input type="text" name="bobot" class="form-control" value="{{$u_view->password}}" required>
+                                                                </div>
+                                                                <div class="form-group col">
+                                                                    <label for="inputPassword4"class="bmd-label-floating">Role</label>
+                                                                    <div class="form-check form-check-radio form-check-inline">
+                                                                        <label class="form-check-label">
+                                                                            <input class="form-check-input" type="radio" name="role" id="inlineRadio1" value="administrator"> Administrator
+                                                                                <span class="circle">
+                                                                                    <span class="check"></span>
+                                                                                </span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check form-check-radio form-check-inline">
+                                                                        <label class="form-check-label">
+                                                                            <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="manager"> Manager
+                                                                                <span class="circle">
+                                                                                    <span class="check"></span>
+                                                                                </span>
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check form-check-radio form-check-inline">
+                                                                        <label class="form-check-label">
+                                                                            <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="operator"> Operator
+                                                                                <span class="circle">
+                                                                                    <span class="check"></span>
+                                                                                </span>
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <button type="submit" class="btn btn-xl btn-rose text-right">simpan</button>
+                                                        </form>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <button rel="tooltip" type="button" title="Remove" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-delete{{$u_view->id}}">
                                                 <i class="material-icons">clear</i>
                                                 <div class="ripple-container"></div>
@@ -195,6 +250,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
 

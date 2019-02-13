@@ -38,8 +38,13 @@ class UserController extends Controller
 
     public function NdamelUser(Request $request)
     {
-        $post = $request->request->all();
-
+       $post = $request->request->all();
+        if($post['id'] == null){
+            $simpan = new User();
+        }
+        else {
+            $simpan = User::find($post['id']);
+        }
         $simpan = new User();
         $simpan->name = $post['name'];
         $simpan->email = $post['email'];

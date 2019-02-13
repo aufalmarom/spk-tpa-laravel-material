@@ -74,7 +74,7 @@
                             @php
                                 $no = 1;
                             @endphp
-                            @foreach ($db as $pd_view)
+                            @foreach ($datas as $pd_view)
                                 <tr>
                                     <td class="text-center">{{$no++}}</td>
                                     <td>{{$pd_view->kecamatan->daerah}}</td>
