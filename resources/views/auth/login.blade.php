@@ -41,7 +41,7 @@
                 <input type="password" class="form-control" placeholder="Password..." name="password" required>
               </div>
 
-              <p class="description text-center"><a href="{{ route('password.request') }}">Lupa Password?</a></p>
+              {{-- <p class="description text-center"><a href="{{ route('password.request') }}">Lupa Password?</a></p> --}}
 
             </div>
 

@@ -22,7 +22,8 @@ Route::get('/', function () {
 Route::get('/logout','HomeController@logout')->name('logout');
 
 //profile
-Route::get('/profile','ProfileController@index')->name('profile.read');
+Route::get('/profile/{id}','ProfileController@index')->name('profile.read');
+Route::get('/profile/{id}','ProfileController@index')->name('profile.read');
 
 //dashboard
 Route::get('/dashboard','DashboardController@index')->name('dashboard.read');
@@ -34,8 +35,6 @@ Route::get('/datacurahhujan','DataController@MaosCurahHujan')->name('datacurahhu
 Route::get('/datahidrogeologi','DataController@MaosHidrogeologi')->name('datahidrogeologi.read');
 Route::get('/datajenistanah','DataController@MaosJenisTanah')->name('datajenistanah.read');
 Route::get('/datarawanbencanabanjir','DataController@MaosRawanBencanaBanjir')->name('datarawanbencanabanjir.read');
-//nilaiklasifikasi
-Route::get('/nilaiklasifikasi','NilaiKlasifikasiController@MaosNilaiKlasifikasi')->name('nilaiklasifikasi.read');
 //smart
 //parameter_nilai
 Route::get('/parameternilai','SMARTController@MaosParameterNilai')->name('parameternilai.read');
@@ -55,4 +54,5 @@ Route::get('/maps','MapsController@index')->name('maps');
 Route::get('/user','UserController@MaosUser')->name('user.read');
 Route::post('/user/create','UserController@NdamelUser')->name('user.create');
 Route::post('/user/hapus','UserController@HapusUser')->name('user.delete');
+
 

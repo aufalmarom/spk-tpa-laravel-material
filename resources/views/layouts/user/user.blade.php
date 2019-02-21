@@ -37,6 +37,7 @@
                                 <div class="form-group col">
                                     <label class="bmd-label-floating">Nama</label>
                                     <input type="text" name="name" class="form-control" required>
+                                    <input type="hidden" name="id">
                                 </div>
                             </div>
                             <div class="form-row">
@@ -110,7 +111,6 @@
                                 <th class="text-center">No.</th>
                                 <th>Nama</th>
                                 <th>E-Mail</th>
-                                <th>Password</th>
                                 <th>Role</th>
                                 <th class="text-right">Actions</th>
                             </tr>
@@ -124,15 +124,54 @@
                                     <td class="text-center">{{$no++}}</td>
                                     <td>{{$u_view->name}}</td>
                                     <td>{{$u_view->email}}</td>
-                                    <td>{{$u_view->password}}</td>
                                     <td>{{$u_view->role}}</td>
                                     <td class="td-actions text-right">
                                         <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
                                             <i class="material-icons">info</i>
                                         </button>
-                                        <button type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm">
-                                            <i class="material-icons">edit</i>
+
+
+                                        <button type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-edit{{$u_view->id}}">
+                                        <i class="material-icons">edit</i>
                                         </button>
+
+                                        <div class="modal fade modal-mini modal-rose" id="modal-edit{{$u_view->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+                                            <div class="modal-dialog modal-xl">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h3>Edit Data User</h3>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+                                                    </div>
+                                                    <div class="modal-body">
+
+                                                        <form method="POST" action="{{route('user.create')}}">
+                                                            {{csrf_field()}}
+                                                            <div class="form-row">
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="inputEmail4" class="bmd-label-floating">Nama</label>
+                                                                <input type="text" name="name" class="form-control" value="{{$u_view->name}}" required>
+                                                                <input type="hidden" name="id" value="{{$u_view->id}}" required>
+                                                                </div>
+                                                                <div class="form-group col-md-6">
+                                                                    <label for="inputPassword4" class="bmd-label-floating">E-Mail</label>
+                                                                    <input type="email" name="email" class="form-control" value="{{$u_view->email}}" required>
+                                                                </div>
+                                                            </div>
+                                                            <button type="submit" class="btn btn-xl btn-rose text-right">simpan</button>
+                                                        </form>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+
                                         <button rel="tooltip" type="button" title="Remove" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-delete{{$u_view->id}}">
                                                 <i class="material-icons">clear</i>
                                                 <div class="ripple-container"></div>

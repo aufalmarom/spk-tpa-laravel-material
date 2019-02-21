@@ -26,7 +26,7 @@
 
 <body>
   <div class="wrapper ">
-    <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar-1.jpg">
+    <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/sidebar.jpg">
       <div class="logo">
         <a href="{{route('dashboard.read')}}" class="simple-text logo-mini">
           ST
@@ -38,7 +38,7 @@
       <div class="sidebar-wrapper">
         <div class="user">
             <div class="photo">
-                <img src="../assets/img/faces/marc.jpg">
+                <img src="../assets/img/aufal.jpg">
             </div>
             <div class="user-info">
                 <a href="#user" data-toggle="collapse" class="username">
@@ -50,7 +50,7 @@
                 <div class="collapse" id="user" style>
                     <ul class="nav">
                         <li class="nav-item">
-                            <a href="{{route('profile.read')}}" class="nav-link">
+                            <a href="{{route('profile.read', ['id' => Auth::user()->id])}}" class="nav-link">
                                 <span class="sidebar-mini">MP</span>
                                 <span class="sidebar-normal">My Profile</span>
                             </a>
@@ -78,54 +78,48 @@
         </a>
             <div class="collapse" id="data" style>
                 <ul class="nav">
-                            <li class="nav-item">
-                                <a class="nav-link " href="{{route('nilaiklasifikasi.read')}}">
-                                    <span class="sidebar-mini">NK</span>
-                                    <span class="sidebar-normal">Nilai Klasifikasi</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " href="{{route('datakelerengan.read')}}">
-                                    <span class="sidebar-mini">DK</span>
-                                    <span class="sidebar-normal">Data Kelerengan</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('datapenggunaanlahan.read')}}">
-                                    <span class="sidebar-mini">DPL</span>
-                                    <span class="sidebar-normal">Data Penggunaan Lahan</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('datarawanbencanalongsor.read')}}">
-                                    <span class="sidebar-mini">DRBL</span>
-                                    <span class="sidebar-normal">Data Rawan Bencana Longsor</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('datacurahhujan.read')}}">
-                                    <span class="sidebar-mini">DCH</span>
-                                    <span class="sidebar-normal">Data Curah Hujan</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('datahidrogeologi.read')}}">
-                                    <span class="sidebar-mini">DH</span>
-                                    <span class="sidebar-normal">Data Hidrogeologi</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('datajenistanah.read')}}">
-                                    <span class="sidebar-mini">DJT</span>
-                                    <span class="sidebar-normal">Data Jenis Tanah</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('datarawanbencanabanjir.read')}}">
-                                    <span class="sidebar-mini">DRBB</span>
-                                    <span class="sidebar-normal">Data Rawan Bencana Banjir</span>
-                                </a>
-                            </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{route('datakelerengan.read')}}">
+                            <span class="sidebar-mini">DK</span>
+                            <span class="sidebar-normal">Data Kelerengan</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('datapenggunaanlahan.read')}}">
+                            <span class="sidebar-mini">DPL</span>
+                            <span class="sidebar-normal">Data Penggunaan Lahan</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('datarawanbencanalongsor.read')}}">
+                            <span class="sidebar-mini">DRBL</span>
+                            <span class="sidebar-normal">Data Rawan Bencana Longsor</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('datacurahhujan.read')}}">
+                            <span class="sidebar-mini">DCH</span>
+                            <span class="sidebar-normal">Data Curah Hujan</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('datahidrogeologi.read')}}">
+                            <span class="sidebar-mini">DH</span>
+                            <span class="sidebar-normal">Data Hidrogeologi</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('datajenistanah.read')}}">
+                            <span class="sidebar-mini">DJT</span>
+                            <span class="sidebar-normal">Data Jenis Tanah</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('datarawanbencanabanjir.read')}}">
+                            <span class="sidebar-mini">DRBB</span>
+                            <span class="sidebar-normal">Data Rawan Bencana Banjir</span>
+                        </a>
+                    </li>
                 </ul>
 
             </div>
@@ -207,7 +201,7 @@
     </div>
     <div class="main-panel">
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top bg-rose">
         <div class="container-fluid">
           <div class="navbar-wrapper">
               <div class="navbar-minimize">
@@ -228,7 +222,7 @@
           <div class="collapse navbar-collapse justify-content-end">
 
 
-            <ul class="navbar-nav ">
+            <ul class="navbar-nav">
               <li class=" nav-item dropdown ">
                 <a class="nav-link" data-toggle="dropdown" href="#">
                   <i class="material-icons">person</i>
@@ -255,25 +249,10 @@
           <nav class="float-left">
             <ul>
               <li>
-                <a href="#">
+                <a href="{{url('/dashboard')}}">
                   SIG-TPA
                 </a>
               </li>
-              <li>
-                <a href="#">
-                  About Us
-                </a>
-              </li>
-              {{-- <li>
-                <a href="#">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  Licenses
-                </a>
-              </li> --}}
             </ul>
           </nav>
           <div class="copyright float-right">

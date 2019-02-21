@@ -13,14 +13,6 @@ use App\Kecamatan;
 
 class SMARTController extends Controller
 {
-    public function MaosParameter(){
-
-        $datas1 = NilaiKlasifikasiKriteria::get();
-        $datas1 = NilaiKlasifikasiKategori::get();
-
-        return view('/layouts/smart/parameter', compact('datas1', 'datas2'));
-    }
-
 
     public function MaosParameterNilai(){
 

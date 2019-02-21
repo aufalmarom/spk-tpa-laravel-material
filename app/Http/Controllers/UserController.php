@@ -39,12 +39,20 @@ class UserController extends Controller
     public function NdamelUser(Request $request)
     {
         $post = $request->request->all();
+        if($post['id'] == null){
+            $simpan = new User();
+            $simpan->password = Hash::make($post['password']);
+            $simpan->role = $post['role'];
+        }
+        else {
+            $simpan = User::find($post['id']);
+            $simpan->name = $post['tanggal_lahir'];
+            $simpan->name = $post['alamat'];
+            $simpan->name = $post['bio'];
 
-        $simpan = new User();
+        }
         $simpan->name = $post['name'];
         $simpan->email = $post['email'];
-        $simpan->password = Hash::make($post['password']);
-        $simpan->role = $post['role'];
         $simpan->save();
 
         return back()->with('success', 'Data Berhasil Disimpan');
@@ -58,6 +66,5 @@ class UserController extends Controller
 
         return back()->with('danger', 'Data Berhasil Dihapus');
     }
-
 
 }
