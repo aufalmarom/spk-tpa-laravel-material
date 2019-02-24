@@ -21,7 +21,7 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th class="text-center">No.</th>
+                                            <th class="text-center">Peringkat</th>
                                             <th class="text-center">Daerah</th>
                                             <th class="text-center">Bobot Evaluasi</th>
                                             <th class="text-center">Warna</th>

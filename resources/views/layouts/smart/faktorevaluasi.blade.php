@@ -2,48 +2,26 @@
 
 @section('content')
 
-    {{-- @if ($message = Session::get('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>{{$message}}</strong>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-    @endif
+    <div class="row">
+        <button class="btn btn-rose" type="button" data-toggle="collapse" data-target="#faktorevaluasi" aria-expanded="false" aria-controls="collapseExample">
+            Formula
+        </button>
+    </div>
 
-    <div class="col">
-        <div class="row">
-            <button class="btn btn-rose" type="button" data-toggle="collapse" data-target="#create-data" aria-expanded="false" aria-controls="collapseExample">
-                create data
-            </button>
-        </div>
-
-        <div class="row">
-            <div class="col">
-                <div class="collapse" id="create-data">
-                    <div class="card card-body">
-                        <form method="POST" action="#">
-                            {{csrf_field()}}
-                            <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label for="inputEmail4" class="bmd-label-floating">Daerah</label>
-                                <input type="text" name="daerah" class="form-control" required>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="inputPassword4"class="bmd-label-floating">Nilai Klasifikasi</label>
-                                <input type="number" name="nilai" class="form-control" required>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="inputPassword4"class="bmd-label-floating">Nilai Parameter</label>
-                                <input type="number" name="nilai" class="form-control" required>
-                            </div>
-                            </div>
-                            <button type="submit" class="btn btn-rose">CREATE</button>
-                        </form>
-                    </div>
+    <div class="row">
+        <div class="col-md-7">
+            <div class="collapse" id="faktorevaluasi">
+                <div class="card card-body">
+                    <h3><i>u<sub>ij</sub></i> = <i>Max P<sub>j</sub></i> - <i>A<sub>i</sub></i>  /  <i>Max P<sub>j</sub></i> - <i>Min A<sub>i</sub></i></h3>
+                    <h4>Keterangan :</h4>
+                    <h5>- <i>u<sub>ij</sub></i> : Nilai Faktor Evaluasi</h5>
+                    <h5>- <i>Max P<sub>j</sub></i> : Nilai Maksimal setiap Kolom Parameter </h5>
+                    <h5>- <i>A<sub>i</sub></i> : Nilai Hasil Perkalian Nilai Data Alternatif dengan Bobot Parameternya</h5>
+                    <h5>- <i>Min A<sub>i</sub></i> : Nilai Minimal setiap Baris Data Alternatif</h5>
                 </div>
             </div>
-        </div> --}}
+        </div>
+    </div>
 
         <div class="row">
             <div class="card">

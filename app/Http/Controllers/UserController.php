@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use App\User;
 
 class UserController extends Controller
@@ -36,20 +35,30 @@ class UserController extends Controller
 
     }
 
+    public function MaosProfile($id){
+        $title = 'Profile';
+        $data = User::find($id);
+
+        return view('/layouts/profile/profile', [
+            'title'=> $title
+        ], compact('data'));
+
+    }
+
     public function NdamelUser(Request $request)
     {
         $post = $request->request->all();
+
         if($post['id'] == null){
             $simpan = new User();
-            $simpan->password = Hash::make($post['password']);
+            $simpan->password = bcrypt($post['password']);
             $simpan->role = $post['role'];
         }
         else {
             $simpan = User::find($post['id']);
-            $simpan->name = $post['tanggal_lahir'];
-            $simpan->name = $post['alamat'];
-            $simpan->name = $post['bio'];
-
+            $simpan->tanggal_lahir = $post['tanggal_lahir'];
+            $simpan->alamat = $post['alamat'];
+            $simpan->bio = $post['bio'];
         }
         $simpan->name = $post['name'];
         $simpan->email = $post['email'];
@@ -65,6 +74,32 @@ class UserController extends Controller
         $model->delete();
 
         return back()->with('danger', 'Data Berhasil Dihapus');
+    }
+
+    public function GantosPassword(Request $request)
+    {
+        $post = $request->request->all();
+
+        $simpan = User::find($post['id']);
+
+        $passwordlama = bcrypt($post['password_lama']);
+        $passwordbaru = $post['password_baru'];
+        $konfirmasipassword = $post['konfirmasi_password'];
+        dd($passwordlama);
+
+        if ($passwordlama == $simpan['password']) {
+            if ($passwordbaru == $konfirmasipassword) {
+                $simpan->password = bcrypt($post['password_baru']);
+                $simpan->save();
+            }else {
+                return back()->with('danger', 'Password Baru Tidak Cocok');
+            }
+
+        }else {
+            return back()->with('danger', 'Password Lama Salah');
+        }
+
+        return back()->with('success', 'Password Berhasil Diubah');
     }
 
 }

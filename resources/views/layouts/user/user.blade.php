@@ -55,31 +55,30 @@
                             <div class="form-row">
                                 <label>Role</label>
                                 <div class="form-group">
-                                        <div class="form-check form-check-radio form-check-inline">
-                                                <label class="form-check-label">
-                                                  <input class="form-check-input" type="radio" name="role" id="inlineRadio1" value="administrator"> Administrator
-                                                  <span class="circle">
-                                                      <span class="check"></span>
-                                                  </span>
-                                                </label>
-                                              </div>
-                                              <div class="form-check form-check-radio form-check-inline">
-                                                <label class="form-check-label">
-                                                  <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="manager"> Manager
-                                                  <span class="circle">
-                                                      <span class="check"></span>
-                                                  </span>
-                                                </label>
-                                              </div>
-                                              <div class="form-check form-check-radio form-check-inline">
-                                                <label class="form-check-label">
-                                                  <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="operator"> Operator
-                                                  <span class="circle">
-                                                      <span class="check"></span>
-                                                  </span>
-                                                </label>
-                                              </div>
-
+                                    <div class="form-check form-check-radio form-check-inline">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="role" id="inlineRadio1" value="administrator"> Administrator
+                                            <span class="circle">
+                                                <span class="check"></span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-radio form-check-inline">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="manager"> Manager
+                                            <span class="circle">
+                                                <span class="check"></span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-radio form-check-inline">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="operator"> Operator
+                                            <span class="circle">
+                                                <span class="check"></span>
+                                            </span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-rose">tambah</button>
@@ -88,10 +87,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
 
         <div class="row">
             <div class="card">
@@ -112,7 +107,7 @@
                                 <th>Nama</th>
                                 <th>E-Mail</th>
                                 <th>Role</th>
-                                <th class="text-right">Actions</th>
+                                <th class="text-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -125,25 +120,43 @@
                                     <td>{{$u_view->name}}</td>
                                     <td>{{$u_view->email}}</td>
                                     <td>{{$u_view->role}}</td>
-                                    <td class="td-actions text-right">
-                                        <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
+                                    <td class="td-actions text-center">
+                                        <button type="button" rel="tooltip" title="Detail Informasi" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-info{{$u_view->id}}">
                                             <i class="material-icons">info</i>
                                         </button>
 
+                                        <div class="modal fade modal-rose" id="modal-info{{$u_view->id}}"role="dialog" ">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header justify-content-center">
+                                                        <h3>Detail Informasi Data User</h3>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h5 class="text-center">Nama : {{$u_view->name}} </h5>
+                                                        <h5 class="text-center"> E-Mail : {{$u_view->email}} </h5>
+                                                        <h5 class="text-center"> Role : {{$u_view->role}} </h5>
+                                                        <h5 class="text-center">Tanggal Lahir : {{$u_view->tanggal_lahir}} </h5>
+                                                        <h5 class="text-center"> Alamat : {{$u_view->alamat}} </h5>
+                                                        <h5 class="text-center"> Bio : {{$u_view->bio}} </h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
 
                                         <button type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-edit{{$u_view->id}}">
-                                        <i class="material-icons">edit</i>
+                                            <i class="material-icons">edit</i>
                                         </button>
 
                                         <div class="modal fade modal-mini modal-rose" id="modal-edit{{$u_view->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
                                             <div class="modal-dialog modal-xl">
                                                 <div class="modal-content">
-                                                    <div class="modal-header">
+                                                    <div class="modal-header justify-content-center">
                                                         <h3>Edit Data User</h3>
                                                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
                                                     </div>
                                                     <div class="modal-body">
-
                                                         <form method="POST" action="{{route('user.create')}}">
                                                             {{csrf_field()}}
                                                             <div class="form-row">
@@ -159,49 +172,42 @@
                                                             </div>
                                                             <button type="submit" class="btn btn-xl btn-rose text-right">simpan</button>
                                                         </form>
-
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
 
+                                        <button rel="tooltip" type="button" title="Hapus" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-delete{{$u_view->id}}">
+                                            <i class="material-icons">clear</i>
+                                            <div class="ripple-container"></div>
+                                        </button>
 
-
-
-
-
-
-                                        <button rel="tooltip" type="button" title="Remove" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-delete{{$u_view->id}}">
-                                                <i class="material-icons">clear</i>
-                                                <div class="ripple-container"></div>
-                                                </button>
-
-                                                <div class="modal fade modal-mini modal-rose" id="modal-delete{{$u_view->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
-                                                    <div class="modal-dialog modal-small">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                            <p>Apakah anda akan menghapus data {{$u_view->name}}</p>
-                                                            </div>
-
-                                                            <form method="POST" action="{{route('user.delete')}}">
-                                                                    {{csrf_field()}}
-                                                                <div class="modal-footer justify-content-center">
-                                                                <div style="display:none">
-                                                                    <input  type="text" name="id" value="{{$u_view->id}}">
-                                                                </div>
-                                                                    <button class="btn btn-primary" data-dismiss="modal">Tidak</button>
-                                                                    <button type="submit" class="btn btn-danger"> Iya</button>
-                                                                    <div class="ripple-container"></div>
-                                                                </div>
-                                                            </form>
-                                                        </div>
+                                        <div class="modal fade modal-rose" id="modal-delete{{$u_view->id}}"role="dialog" ">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header justify-content-center">
+                                                        <h3>Hapus Data User</h3>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
                                                     </div>
-                                                </div>
+                                                    <div class="modal-body">
+                                                        <p class="text-center">Apakah anda akan menghapus {{$u_view->name}} ?</p>
+                                                    </div>
 
+                                                    <form method="POST" action="{{route('user.delete')}}">
+                                                            {{csrf_field()}}
+                                                        <div class="modal-footer justify-content-center">
+                                                        <div style="display:none">
+                                                            <input  type="text" name="id" value="{{$u_view->id}}">
+                                                        </div>
+                                                            <button class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                                                            <button type="submit" class="btn btn-danger"> Iya</button>
+                                                            <div class="ripple-container"></div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
@@ -228,13 +234,11 @@
                                     </div>
                                 </div>
                             </div>
-
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-
 
 @endsection

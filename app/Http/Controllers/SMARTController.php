@@ -97,5 +97,4 @@ class SMARTController extends Controller
         arsort($result);
         return view('/layouts/smart/ranking', compact('result'));
     }
-
 }

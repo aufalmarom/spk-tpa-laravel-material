@@ -20,11 +20,6 @@ Route::get('/', function () {
 });
 //logout
 Route::get('/logout','HomeController@logout')->name('logout');
-
-//profile
-Route::get('/profile/{id}','ProfileController@index')->name('profile.read');
-Route::get('/profile/{id}','ProfileController@index')->name('profile.read');
-
 //dashboard
 Route::get('/dashboard','DashboardController@index')->name('dashboard.read');
 //data
@@ -54,5 +49,9 @@ Route::get('/maps','MapsController@index')->name('maps');
 Route::get('/user','UserController@MaosUser')->name('user.read');
 Route::post('/user/create','UserController@NdamelUser')->name('user.create');
 Route::post('/user/hapus','UserController@HapusUser')->name('user.delete');
+//profile
+Route::get('/profile/{id}','UserController@MaosProfile')->name('profile.read');
+//ubahpassword
+Route::post('/ubahpassword','UserController@GantosPassword')->name('profile.changepassword');
 
 
