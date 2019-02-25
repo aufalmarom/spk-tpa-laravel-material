@@ -1,6 +1,9 @@
 <?php
     use App\Data;
     use App\BobotParameter;
+    use App\NilaiKlasifikasiKategori;
+    use App\NilaiKlasifikasiKriteria;
+    use App\DataAlternatif;
 
     function NilaiBobot($parameter){
         $datas = BobotParameter::get();
@@ -96,6 +99,41 @@
         +FaktorEvaluasi($id,$datas->nilai_klasifikasi_jenis_tanah,6)*BobotRelatif(6,NilaiBobot(6))
         +FaktorEvaluasi($id,$datas->nilai_klasifikasi_rawan_bencana_banjir,7)*BobotRelatif(7,NilaiBobot(7));
         return $nilai;
+    }
+
+    function NilaiKlasifikasi($id){
+        $datas = NilaiKlasifikasiKategori::where('id_parameter', $id)->get();
+        if ($datas->first() == NULL) {
+            $datas = NilaiKlasifikasiKriteria::where('id_parameter', $id)->get();
+        }
+        return $datas;
+    }
+
+    function MunculinNilaiKlasifikasi($parameter, $kecamatan)
+    {
+        $datas = NilaiKlasifikasiKriteria::where('id_parameter', $parameter)->first();
+        $nilai = DataAlternatif::where('id_parameter',$parameter)->where('id_kecamatan',$kecamatan)->first();
+        if ($datas == NULL) {
+            $array_data = NilaiKlasifikasiKategori::where('id_parameter', $parameter)->get();
+            foreach($array_data as $data){
+                if($nilai->nilai == $data->kategori){
+                    $nilai_return = $data->nilai;
+                    break;
+                }
+            }
+        }else {
+            $array_data = NilaiKlasifikasiKriteria::where('id_parameter', $parameter)->get();
+            foreach($array_data as $data){
+                if($nilai->nilai > $data->batas_bawah  && $nilai->nilai < $data->batas_atas){
+                    $nilai_return = $data->nilai;
+                    break;
+                }
+            }
+        }
+        if ($nilai_return == NULL) {
+            $nilai_return = 0;
+        }
+        return $nilai_return;
     }
 
 ?>

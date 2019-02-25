@@ -43,18 +43,18 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-4">
             <div class="collapse" id="create-data">
                 <div class="card card-body">
                     <form method="POST" action="{{route('bobotparameter.create')}}">
                         {{csrf_field()}}
                         <div class="form-row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-9">
                                 <label for="inputEmail4" class="bmd-label-floating">Parameter</label>
                                 <input type="text" name="parameter" class="form-control" required>
                                 <input type="hidden" name="id" class="form-control" required>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-3">
                                 <label for="inputPassword4"class="bmd-label-floating">Bobot</label>
                                 <input type="text" name="bobot" class="form-control" required>
                             </div>

@@ -13,6 +13,79 @@ use App\Kecamatan;
 
 class SMARTController extends Controller
 {
+    public function MaosNilaiKlasifikasi(){
+
+        $datas = BobotParameter::get();
+
+        return view('/layouts/smart/nilaiklasifikasi', compact('datas'));
+    }
+
+    public function EditNilaiKlasifikasiKategori($id){
+
+        $datas = NilaiKlasifikasiKategori::where('id_parameter', $id)->get();
+
+        return view('/layouts/smart/editnilaiklasifikasikategori', compact('datas'));
+    }
+
+    public function NdamelNilaiKlasifikasiKategori(Request $request){
+        $post = $request->request->all();
+        for($i=0; $i < count($post['id']);$i++){
+            if($post['id'][$i] == null){
+                $simpan = new NilaiKlasifikasiKategori();
+                $simpan->id_parameter = $post['parameter'];
+            }
+            else{
+             $simpan = NilaiKlasifikasiKategori::where('id',$post['id'][$i])->first();
+            }
+            $simpan->nilai = $post['nilai'][$i];
+            $simpan->kategori = $post['kategori'][$i];
+            $simpan->created_by = Auth::user()->id;
+            $simpan->save();
+        }
+        return redirect(route('nilaiklasifikasi.read'));
+    }
+
+    public function HapusKategori(Request $request){
+        $post = $request->request->all();
+        $model = NilaiKlasifikasiKategori::find($post['id']);
+        $model->delete();
+
+        return redirect(route('nilaiklasifikasi.read'));
+    }
+
+    public function EditNilaiKlasifikasiKriteria($id){
+
+        $datas = NilaiKlasifikasiKriteria::where('id_parameter', $id)->get();
+
+        return view('/layouts/smart/editnilaiklasifikasikriteria', compact('datas'));
+    }
+
+    public function NdamelNilaiKlasifikasiKriteria(Request $request){
+        $post = $request->request->all();
+        for($i=0; $i < count($post['id']);$i++){
+            if($post['id'][$i] == null){
+                $simpan = new NilaiKlasifikasiKriteria();
+                $simpan->id_parameter = $post['parameter'];
+            }
+            else{
+                $simpan = NilaiKlasifikasiKriteria::where('id',$post['id'][$i])->first();
+            }
+            $simpan->batas_bawah = $post['batas_bawah'][$i];
+            $simpan->batas_atas = $post['batas_atas'][$i];
+            $simpan->nilai = $post['nilai'][$i];
+            $simpan->created_by = Auth::user()->id;
+            $simpan->save();
+        }
+        return redirect(route('nilaiklasifikasi.read'));
+    }
+
+    public function HapusKriteria(Request $request){
+        $post = $request->request->all();
+        $model = NilaiKlasifikasiKriteria::find($post['id']);
+        $model->delete();
+
+        return redirect(route('nilaiklasifikasi.read'));
+    }
 
     public function MaosParameterNilai(){
 

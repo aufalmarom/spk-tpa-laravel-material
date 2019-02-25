@@ -24,20 +24,36 @@ Route::get('/logout','HomeController@logout')->name('logout');
 Route::get('/dashboard','DashboardController@index')->name('dashboard.read');
 //data
 Route::get('/datakelerengan','DataController@MaosKelerengan')->name('datakelerengan.read');
+Route::get('/tambaheditkelerengan','DataController@MaosTambahEditKelerengan')->name('tambaheditkelerengan.read');
+Route::post('/tambaheditkelerengan/create','DataController@TambahEditKelerengan')->name('tambaheditkelerengan.create');
+
 Route::get('/datapenggunaanlahan','DataController@MaosPenggunaanLahan')->name('datapenggunaanlahan.read');
+Route::get('/tambaheditpenggunaanlahan','DataController@MaosTambahEditPenggunaanLahan')->name('tambaheditpenggunaanlahan.read');
+Route::post('/tambaheditpenggunaanlahan/create','DataController@TambahEditPenggunaanLahan')->name('tambaheditpenggunaanlahan.create');
+
+
 Route::get('/datarawanbencanalongsor','DataController@MaosRawanBencanaLongsor')->name('datarawanbencanalongsor.read');
 Route::get('/datacurahhujan','DataController@MaosCurahHujan')->name('datacurahhujan.read');
 Route::get('/datahidrogeologi','DataController@MaosHidrogeologi')->name('datahidrogeologi.read');
 Route::get('/datajenistanah','DataController@MaosJenisTanah')->name('datajenistanah.read');
 Route::get('/datarawanbencanabanjir','DataController@MaosRawanBencanaBanjir')->name('datarawanbencanabanjir.read');
 //smart
+//nilai klasifikasi
+Route::get('/nilaiklasifikasi','SMARTController@MaosNilaiKlasifikasi')->name('nilaiklasifikasi.read');
+//kategori
+Route::get('/editnilaikategori/{id}','SMARTController@EditNilaiKlasifikasiKategori')->name('editnilaiklasifikasikategori.read');
+Route::post('/editnilaikategori/create','SMARTController@NdamelNilaiKlasifikasiKategori')->name('editnilaiklasifikasikategori.create');
+Route::post('/nilaiklasifikasikategori/hapus','SMARTController@HapusKategori')->name('kategori.delete');
+//kriteria
+Route::get('/editnilaiklasifikasikriteria/{id}','SMARTController@EditNilaiKlasifikasiKriteria')->name('editnilaiklasifikasikriteria.read');
+Route::post('/editnilaiklasifikasikriteria/create','SMARTController@NdamelNilaiKlasifikasiKriteria')->name('editnilaiklasifikasikriteria.create');
+Route::post('/nilaiklasifikasikriteria/hapus','SMARTController@HapusKriteria')->name('kriteria.delete');
 //parameter_nilai
 Route::get('/parameternilai','SMARTController@MaosParameterNilai')->name('parameternilai.read');
 //bobot parameter
 Route::get('/bobotparameter','SMARTController@MaosBobotParameter')->name('bobotparameter.read');
 Route::post('/bobotparameter/ndamel','SMARTController@NdamelBobotParameter')->name('bobotparameter.create');
 Route::post('/bobotparameter/hapus','SMARTController@HapusBobotParameter')->name('bobotparameter.delete');
-
 Route::get('/parameternilaibobot','SMARTController@MaosParameterNilaiBobot')->name('parameternilaibobot.read');
 Route::get('/bobotrelatif','SMARTController@MaosBobotRelatif')->name('bobotrelatif.read');
 Route::get('/faktorevaluasi','SMARTController@MaosFaktorEvaluasi')->name('faktorevaluasi.read');

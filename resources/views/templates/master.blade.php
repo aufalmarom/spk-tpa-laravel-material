@@ -140,6 +140,12 @@
                 <div class="collapse" id="smart" style>
                     <ul class="nav">
                         <li class="nav-item">
+                            <a class="nav-link" href="{{route('nilaiklasifikasi.read')}}">
+                                <span class="sidebar-mini">NK</span>
+                                <span class="sidebar-normal">Nilai Klasifikasi</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{route('parameternilai.read')}}">
                                 <span class="sidebar-mini">PD</span>
                                 <span class="sidebar-normal">Parameter & Nilai</span>

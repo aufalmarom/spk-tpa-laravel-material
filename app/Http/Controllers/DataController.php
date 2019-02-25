@@ -5,24 +5,92 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Kecamatan;
 use App\Data;
+use App\DataAlternatif;
+use App\NilaiKlasifikasiKategori;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DataController extends Controller
 {
+
     public function MaosKelerengan(){
         //Query Builder
-        // $db = DB::table('atributs')->get();
+        //$db = DB::table('atributs')->get();
         //Eloquent ORM
-        $db = Data::get();
-        $db1 = Kecamatan::get();
+        $datas = DataAlternatif::where('id_parameter', 1)->get();
 
-        return view('/layouts/data/datakelerengan', compact('db', 'db1'));
+        return view('/layouts/data/datakelerengan', compact('datas'));
     }
 
-    public function MaosPenggunaanLahan(){
-        $db = Data::get();
-        $db1 = Kecamatan::get();
+    public function MaosTambahEditKelerengan()
+    {
+        $datas = DB::table('kecamatans')->leftjoin('data_alternatifs','kecamatans.id','=','data_alternatifs.id_kecamatan')->where('data_alternatifs.id_parameter',1)->get();
 
-        return view('/layouts/data/datapenggunaanlahan', compact('db', 'db1'));
+        return view('/layouts/data/tambaheditkelerengan', compact('datas'));
+    }
+
+    public function TambahEditKelerengan(Request $request)
+    {
+        $post= $request->request->all();
+
+        for ($i=0; $i < count($post['id']); $i++) {
+
+            if ($post['id'][$i] != NULL) {
+                $simpan = DataAlternatif::find($post['id'][$i]);
+            }else {
+                $simpan = new DataAlternatif();
+                $simpan->id_kecamatan = $post['id_kecamatan'][$i];
+                $simpan->id_parameter = 1;
+            }
+            $simpan->nilai = $post['nilai'][$i];
+            $simpan->created_by = Auth::user()->id;
+            $simpan->save();
+        }
+
+        return redirect(route('datakelerengan.read'));
+
+    }
+
+    public function MaosPenggunaanLahan()
+    {
+        $datas = DataAlternatif::where('id_parameter', 2)->get();
+
+        return view('/layouts/data/datapenggunaanlahan', compact('datas'));
+    }
+
+    public function MaosTambahEditPenggunaanLahan(Request $request)
+    {
+        $check = DataAlternatif::where('id_parameter', 2)->first();
+        $datas1 = NilaiKlasifikasiKategori::where('id_parameter', 2)->get();
+        if ($check == NULL) {
+            $datas = Kecamatan::get();
+        }else {
+        $datas = DB::table('kecamatans')->leftjoin('data_alternatifs','kecamatans.id','=','data_alternatifs.id_kecamatan')->where('data_alternatifs.id_parameter',2)->get();
+        }
+
+        return view('/layouts/data/tambaheditpenggunaanlahan', compact('datas', 'datas1'));
+    }
+
+    public function TambahEditPenggunaanLahan(Request $request)
+    {
+        $post= $request->request->all();
+
+        for ($i=0; $i < count($post['id']); $i++) {
+
+            if ($post['id'][$i] != NULL) {
+                $simpan = DataAlternatif::find($post['id'][$i]);
+            }else {
+                $simpan = new DataAlternatif();
+                $simpan->id_kecamatan = $post['id_kecamatan'][$i];
+                $simpan->id_parameter = 2;
+            }
+            $simpan->nilai = $post['nilai'][$i];
+            $simpan->created_by = Auth::user()->id;
+            $simpan->save();
+        }
+
+        return redirect(route('datapenggunaanlahan.read'));
+
     }
 
     public function MaosRawanBencanaLongsor(){

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="row">
+    <div class="row">
         <button class="btn btn-rose" type="button" data-toggle="collapse" data-target="#ranking" aria-expanded="false" aria-controls="collapseExample">
             Keterangan
         </button>
