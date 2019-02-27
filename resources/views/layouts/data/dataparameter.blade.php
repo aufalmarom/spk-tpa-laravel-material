@@ -2,7 +2,7 @@
 
 @section('content')
 
-     @if ($message = Session::get('success'))
+    @if ($message = Session::get('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>{{$message}}</strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -12,7 +12,7 @@
     @endif
 
     <div class="row">
-        <a href="{{route('tambaheditkelerengan.read')}}"><button class="btn btn-rose" type="button">
+    <a href="{{route('tambaheditdataparameter.read', $parameter->id)}}"><button class="btn btn-rose" type="button">
             Tambah & Edit Data
         </button></a>
     </div>
@@ -24,7 +24,7 @@
                     <i class="material-icons">perm_identity</i>
 
                 </div>
-                <h4 class="card-title">Data Kelerengan</h4>
+                <h4 class="card-title">Data {{$parameter->parameter}}</h4>
 
             </div>
             <div class="card-body">
@@ -46,7 +46,7 @@
                                 <td class="text-center">{{$no++}}</td>
                                 <td>{{$dk_view->kecamatan->daerah}}</td>
                                 <td class="text-center">{{$dk_view->nilai}}</td>
-                                <td class="text-center">{{MunculinNilaiKlasifikasi(1, $dk_view->id_kecamatan)}}</td>
+                                <td class="text-center">{{MunculinNilaiKlasifikasi($parameter->id, $dk_view->id_kecamatan)}}</td>
                             </tr>
                         @endforeach
                     </tbody>

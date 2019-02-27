@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Kecamatan;
 use App\Data;
+use App\BobotParameter;
 use App\DataAlternatif;
 use App\NilaiKlasifikasiKategori;
 use Illuminate\Support\Facades\Auth;
@@ -13,157 +14,95 @@ use Illuminate\Support\Facades\DB;
 class DataController extends Controller
 {
 
-    public function MaosKelerengan(){
-        //Query Builder
-        //$db = DB::table('atributs')->get();
-        //Eloquent ORM
-        $datas = DataAlternatif::where('id_parameter', 1)->get();
+    public function MaosDataKecamatan(){
+        $datas = Kecamatan::get();
 
-        return view('/layouts/data/datakelerengan', compact('datas'));
+        return view('/layouts/data/datakecamatan', compact('datas'));
     }
 
-    public function MaosTambahEditKelerengan()
-    {
-        $datas = DB::table('kecamatans')->leftjoin('data_alternatifs','kecamatans.id','=','data_alternatifs.id_kecamatan')->where('data_alternatifs.id_parameter',1)->get();
-
-        return view('/layouts/data/tambaheditkelerengan', compact('datas'));
-    }
-
-    public function TambahEditKelerengan(Request $request)
-    {
-        $post= $request->request->all();
-
-        for ($i=0; $i < count($post['id']); $i++) {
-
-            if ($post['id'][$i] != NULL) {
-                $simpan = DataAlternatif::find($post['id'][$i]);
-            }else {
-                $simpan = new DataAlternatif();
-                $simpan->id_kecamatan = $post['id_kecamatan'][$i];
-                $simpan->id_parameter = 1;
-            }
-            $simpan->nilai = $post['nilai'][$i];
-            $simpan->created_by = Auth::user()->id;
-            $simpan->save();
+    public function NdamelDataKecamatan(Request $request){
+        $post = $request->request->all();
+        if($post['id'] == null){
+            $simpan = new Kecamatan();
         }
+        else {
+            $simpan = Kecamatan::find($post['id']);
+        }
+        $simpan->daerah = $post['daerah'];
+        $simpan->created_by = Auth::user()->id;
+        $simpan->save();
 
-        return redirect(route('datakelerengan.read'));
-
+        return back()->with('success', 'Data Berhasil Disimpan');
     }
 
-    public function MaosPenggunaanLahan()
-    {
-        $datas = DataAlternatif::where('id_parameter', 2)->get();
-
-        return view('/layouts/data/datapenggunaanlahan', compact('datas'));
+    public function HapusDataKecamatan(Request $request){
+        $post = $request->request->all();
+        $model = Kecamatan::find($post['id']);
+        $model->delete();
+        $dataAlt = DataAlternatif::where('id_kecamatan',$post['id'])->get();
+        foreach ($dataAlt as $item) {
+            $datadel = DataAlternatif::find($item->id);
+            $datadel->delete();
+        }
+        return back()->with('danger', 'Data Berhasil Dihapus');
     }
 
-    public function MaosTambahEditPenggunaanLahan(Request $request)
+    public function MaosDataParameter($id){
+        $parameter = BobotParameter::find($id);
+        $datas = DataAlternatif::where('id_parameter', $id)->get();
+        return view('/layouts/data/dataparameter', compact('datas','parameter'));
+    }
+
+    public function MaosTambahEditDataParameter($id)
     {
-        $check = DataAlternatif::where('id_parameter', 2)->first();
-        $datas1 = NilaiKlasifikasiKategori::where('id_parameter', 2)->get();
+        $parameter = BobotParameter::find($id);
+        $check = DataAlternatif::where('id_parameter', $id)->first();
+        $datas1 = NilaiKlasifikasiKategori::where('id_parameter', $id)->get();
+
         if ($check == NULL) {
             $datas = Kecamatan::get();
         }else {
-        $datas = DB::table('kecamatans')->leftjoin('data_alternatifs','kecamatans.id','=','data_alternatifs.id_kecamatan')->where('data_alternatifs.id_parameter',2)->get();
+            $datas = DB::table('kecamatans')->select('kecamatans.daerah','data_alternatifs.id as id','data_alternatifs.id_kecamatan','data_alternatifs.nilai')->leftjoin('data_alternatifs','kecamatans.id','=','data_alternatifs.id_kecamatan')->where('data_alternatifs.id_parameter', $id)->get();
+            $kecamatan = array();
+            foreach ($datas as $data){
+                $kecamatan[] = $data->id_kecamatan;
+            }
+            $dataAdd = Kecamatan::where(
+                function($query) use ($kecamatan){
+                    $query->whereNotIn('id',$kecamatan);
+                }
+
+            )->get();
         }
 
-        return view('/layouts/data/tambaheditpenggunaanlahan', compact('datas', 'datas1'));
+        $cektabel = CekTabel($id);
+        if ($cektabel == 'kategori') {
+            return view('/layouts/data/tambaheditdataparameterkategori', compact('datas', 'datas1', 'parameter','dataAdd'));
+        }else {
+            return view('/layouts/data/tambaheditdataparameterkriteria', compact('datas', 'datas1', 'parameter','dataAdd'));
+        }
+
     }
 
-    public function TambahEditPenggunaanLahan(Request $request)
+    public function TambahEditDataParameter(Request $request)
     {
-        $post= $request->request->all();
-
-        for ($i=0; $i < count($post['id']); $i++) {
-
-            if ($post['id'][$i] != NULL) {
-                $simpan = DataAlternatif::find($post['id'][$i]);
-            }else {
+        $post = $request->request->all();
+        for ($i=0; $i <count($post['id']) ; $i++) {
+            if($post['id'][$i] == null){
                 $simpan = new DataAlternatif();
-                $simpan->id_kecamatan = $post['id_kecamatan'][$i];
-                $simpan->id_parameter = 2;
             }
+            else {
+                $simpan = DataAlternatif::find($post['id'][$i]);
+            }
+            $simpan->id_parameter = $post['parameter'];
             $simpan->nilai = $post['nilai'][$i];
+            $simpan->id_kecamatan = $post['id_kecamatan'][$i];
             $simpan->created_by = Auth::user()->id;
             $simpan->save();
         }
 
-        return redirect(route('datapenggunaanlahan.read'));
 
+        return redirect(route('dataparameter.read',$post['parameter']));
     }
-
-    public function MaosRawanBencanaLongsor(){
-        $db = Data::get();
-        $db1 = Kecamatan::get();
-
-        return view('/layouts/data/datarawanbencanalongsor', compact('db', 'db1'));
-    }
-
-    public function MaosCurahHujan(){
-        $db = Data::get();
-        $db1 = Kecamatan::get();
-
-        return view('/layouts/data/datacurahhujan', compact('db', 'db1'));
-    }
-
-    public function MaosHidrogeologi(){
-        $db = Data::get();
-        $db1 = Kecamatan::get();
-
-        return view('/layouts/data/datahidrogeologi', compact('db', 'db1'));
-    }
-
-    public function MaosJenisTanah(){
-        $db = Data::get();
-        $db1 = Kecamatan::get();
-
-        return view('/layouts/data/datajenistanah', compact('db', 'db1'));
-    }
-
-    public function MaosRawanBencanaBanjir(){
-        $db = Data::get();
-        $db1 = Kecamatan::get();
-
-        return view('/layouts/data/datarawanbencanabanjir', compact('db', 'db1'));
-    }
-
-
-
-
-    //
-    // public function create(Request $request){
-    //     $data =[
-    //         'daerah' => $request->daerah,
-    //         'nilai' => $request->nilai
-    //     ];
-
-    //     Atribut::create($data);
-
-    //     return redirect()->back()->with('success', 'Data berhasil ditambah');
-    // }
-
-    // public function delete($id){
-    //     Atribut::find($id)->delete();
-
-    //     return redirect()->back()->with('success', 'Data berhasil dihapus');
-    // }
-
-    // public function update(Request $request, $id){
-
-    //     $data =[
-    //         'daerah' => $request->daerah,
-    //         'nilai' => $request->nilai
-    //     ];
-
-    //     Atribut::find($id)->update($data);
-
-    //     return redirect()->back()->with('success', 'Data berhasil diupdate');
-    // }
-
-    // public function updatepage($id)
-    // {
-    //     return view('/updatedata');
-    // }
 
 }

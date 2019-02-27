@@ -54,7 +54,6 @@
                             </div>
                             <div class="form-row">
                                 <label>Role</label>
-<<<<<<< HEAD
                                 <div class="form-group">
                                     <div class="form-check form-check-radio form-check-inline">
                                         <label class="form-check-label">
@@ -62,43 +61,22 @@
                                             <span class="circle">
                                                 <span class="check"></span>
                                             </span>
-=======
-                                <div class="form-group col">
-                                    <div class="form-check form-check-radio form-check-inline">
-                                        <label class="form-check-label">
-                                            <input class="form-check-input" type="radio" name="role" id="inlineRadio1" value="administrator"> Administrator
-                                                <span class="circle">
-                                                    <span class="check"></span>
-                                                </span>
->>>>>>> f917f577cedb2339431a5c30b983e111d3a86af2
                                         </label>
                                     </div>
                                     <div class="form-check form-check-radio form-check-inline">
                                         <label class="form-check-label">
                                             <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="manager"> Manager
-<<<<<<< HEAD
                                             <span class="circle">
                                                 <span class="check"></span>
                                             </span>
-=======
-                                                <span class="circle">
-                                                    <span class="check"></span>
-                                                </span>
->>>>>>> f917f577cedb2339431a5c30b983e111d3a86af2
                                         </label>
                                     </div>
                                     <div class="form-check form-check-radio form-check-inline">
                                         <label class="form-check-label">
                                             <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="operator"> Operator
-<<<<<<< HEAD
                                             <span class="circle">
                                                 <span class="check"></span>
                                             </span>
-=======
-                                                <span class="circle">
-                                                    <span class="check"></span>
-                                                </span>
->>>>>>> f917f577cedb2339431a5c30b983e111d3a86af2
                                         </label>
                                     </div>
                                 </div>
@@ -143,7 +121,6 @@
                                         <button type="button" rel="tooltip" title="Detail Informasi" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-info{{$u_view->id}}">
                                             <i class="material-icons">info</i>
                                         </button>
-<<<<<<< HEAD
 
                                         <div class="modal fade modal-rose" id="modal-info{{$u_view->id}}"role="dialog" ">
                                             <div class="modal-dialog">
@@ -168,88 +145,6 @@
                                         <button type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-edit{{$u_view->id}}">
                                             <i class="material-icons">edit</i>
                                         </button>
-=======
-                                        
-                                        <button type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-edit{{$u_view->id}}">
-                                        <i class="material-icons">edit</i>
-                                        </button>
-
-                                        <div class="modal fade modal-mini modal-rose" id="modal-edit{{$u_view->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
-                                            <div class="modal-dialog modal-xl">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h3>Edit Data Parameter</h3>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
-                                                    </div>
-                                                    <div class="modal-body">
-
-                                                        <form method="POST" action="{{route('user.create')}}">
-                                                            {{csrf_field()}}
-                                                            <div class="form-col">
-                                                                <div class="form-group col">
-                                                                    <label for="inputEmail4" class="bmd-label-floating">Nama</label>
-                                                                <input type="text" name="parameter" class="form-control" value="{{$u_view->name}}" required>
-                                                                <input type="hidden" name="id" value="{{$u_view->id}}" required>
-                                                                </div>
-                                                                <div class="form-group col">
-                                                                    <label for="inputPassword4"class="bmd-label-floating">E-Mail</label>
-                                                                    <input type="text" name="bobot" class="form-control" value="{{$u_view->email}}" required>
-                                                                </div>
-                                                                <div class="form-group col">
-                                                                    <label for="inputPassword4"class="bmd-label-floating">Password</label>
-                                                                    <input type="text" name="bobot" class="form-control" value="{{$u_view->password}}" required>
-                                                                </div>
-                                                                <div class="form-group col">
-                                                                    <label for="inputPassword4"class="bmd-label-floating">Role</label>
-                                                                    <div class="form-check form-check-radio form-check-inline">
-                                                                        <label class="form-check-label">
-                                                                            <input class="form-check-input" type="radio" name="role" id="inlineRadio1" value="administrator"> Administrator
-                                                                                <span class="circle">
-                                                                                    <span class="check"></span>
-                                                                                </span>
-                                                                        </label>
-                                                                    </div>
-                                                                    <div class="form-check form-check-radio form-check-inline">
-                                                                        <label class="form-check-label">
-                                                                            <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="manager"> Manager
-                                                                                <span class="circle">
-                                                                                    <span class="check"></span>
-                                                                                </span>
-                                                                        </label>
-                                                                    </div>
-                                                                    <div class="form-check form-check-radio form-check-inline">
-                                                                        <label class="form-check-label">
-                                                                            <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="operator"> Operator
-                                                                                <span class="circle">
-                                                                                    <span class="check"></span>
-                                                                                </span>
-                                                                        </label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <button type="submit" class="btn btn-xl btn-rose text-right">simpan</button>
-                                                        </form>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <button rel="tooltip" type="button" title="Remove" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-delete{{$u_view->id}}">
-                                                <i class="material-icons">clear</i>
-                                                <div class="ripple-container"></div>
-                                                </button>
-
-                                                <div class="modal fade modal-mini modal-rose" id="modal-delete{{$u_view->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
-                                                    <div class="modal-dialog modal-small">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                            <p>Apakah anda akan menghapus data {{$u_view->name}}</p>
-                                                            </div>
->>>>>>> f917f577cedb2339431a5c30b983e111d3a86af2
 
                                         <div class="modal fade modal-mini modal-rose" id="modal-edit{{$u_view->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
                                             <div class="modal-dialog modal-xl">

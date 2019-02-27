@@ -43,20 +43,28 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-6">
             <div class="collapse" id="create-data">
                 <div class="card card-body">
                     <form method="POST" action="{{route('bobotparameter.create')}}">
                         {{csrf_field()}}
                         <div class="form-row">
-                            <div class="form-group col-md-9">
+                            <div class="form-group col-md-5">
                                 <label for="inputEmail4" class="bmd-label-floating">Parameter</label>
                                 <input type="text" name="parameter" class="form-control" required>
                                 <input type="hidden" name="id" class="form-control" required>
                             </div>
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-2">
                                 <label for="inputPassword4"class="bmd-label-floating">Bobot</label>
                                 <input type="text" name="bobot" class="form-control" required>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                <select name="sistem_klasifikasi" class="form-control" required>
+                                    <option value="kriteria">Kriteria</option>
+                                    <option value="kategori">Kategori</option>
+                                </select>
+                                </div>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-rose">buat</button>
@@ -81,6 +89,7 @@
                             <th class="text-center">No.</th>
                             <th>Parameter</th>
                             <th class="text-center">Bobot</th>
+                            <th class="text-center">Sistem Klasifikasi</th>
                             <th class="text-center">Pembuat</th>
                             @if (Auth::user()->role != "operator")
                                 <th class="text-center">Actions</th>
@@ -95,6 +104,7 @@
                             <tr>
                                 <td class="text-center">{{$no++}}</td>
                                 <td>{{$bp_view->parameter}}</td>
+                                <td class="text-center">{{$bp_view->sistem_klasifikasi}}</td>
                                 <td class="text-center">{{$bp_view->bobot}}</td>
                                 <td class="text-center">{{$bp_view->user->name}}</td>
                                 @if (Auth::user()->role != "operator")
@@ -117,14 +127,26 @@
                                                     <form method="POST" action="{{route('bobotparameter.create')}}">
                                                         {{csrf_field()}}
                                                         <div class="form-row">
-                                                            <div class="form-group col-md-6">
+                                                            <div class="form-group col-md-4">
                                                                 <label for="inputEmail4" class="bmd-label-floating">Parameter</label>
                                                             <input type="text" name="parameter" class="form-control" value="{{$bp_view->parameter}}" required>
                                                             <input type="hidden" name="id" value="{{$bp_view->id}}" required>
                                                             </div>
-                                                            <div class="form-group col-md-6">
+                                                            <div class="form-group col-md-4">
                                                                 <label for="inputPassword4"class="bmd-label-floating">Bobot</label>
                                                                 <input type="text" name="bobot" class="form-control" value="{{$bp_view->bobot}}" required>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                <select name="sistem_klasifikasi" class="form-control" required>
+                                                                    <option value="kriteria" @if ($bp_view->sistem_klasifikasi == 'kriteria')
+                                                                        selected = 'selected' @endif
+                                                                     >Kriteria</option>
+
+                                                                    <option value="kategori" @if ($bp_view->sistem_klasifikasi == 'kategori')
+                                                                            selected = 'selected' @endif>Kategori</option>
+                                                                </select>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <button type="submit" class="btn btn-xl btn-rose text-right">simpan</button>
@@ -134,7 +156,6 @@
                                             </div>
                                         </div>
                                     </div>
-
 
                                     <button rel="tooltip" type="button" title="Remove" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-delete{{$bp_view->id}}">
                                     <i class="material-icons">clear</i>

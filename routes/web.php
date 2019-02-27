@@ -23,20 +23,14 @@ Route::get('/logout','HomeController@logout')->name('logout');
 //dashboard
 Route::get('/dashboard','DashboardController@index')->name('dashboard.read');
 //data
-Route::get('/datakelerengan','DataController@MaosKelerengan')->name('datakelerengan.read');
-Route::get('/tambaheditkelerengan','DataController@MaosTambahEditKelerengan')->name('tambaheditkelerengan.read');
-Route::post('/tambaheditkelerengan/create','DataController@TambahEditKelerengan')->name('tambaheditkelerengan.create');
+Route::get('/dataparameter/{id}','DataController@MaosDataParameter')->name('dataparameter.read');
+Route::get('/tambaheditdataparameter/{id}','DataController@MaosTambahEditDataParameter')->name('tambaheditdataparameter.read');
+Route::post('/tambaheditdataparameter/create','DataController@TambahEditDataParameter')->name('tambaheditdataparameter.create');
 
-Route::get('/datapenggunaanlahan','DataController@MaosPenggunaanLahan')->name('datapenggunaanlahan.read');
-Route::get('/tambaheditpenggunaanlahan','DataController@MaosTambahEditPenggunaanLahan')->name('tambaheditpenggunaanlahan.read');
-Route::post('/tambaheditpenggunaanlahan/create','DataController@TambahEditPenggunaanLahan')->name('tambaheditpenggunaanlahan.create');
+Route::get('/datakecamatan' ,'DataController@MaosDataKecamatan')->name('datakecamatan.read');
+Route::post('/datakecamatan/ndamel','DataController@NdamelDataKecamatan')->name('datakecamatan.create');
+Route::post('/datakecamatan/hapus','DataController@HapusDataKecamatan')->name('datakecamatan.delete');
 
-
-Route::get('/datarawanbencanalongsor','DataController@MaosRawanBencanaLongsor')->name('datarawanbencanalongsor.read');
-Route::get('/datacurahhujan','DataController@MaosCurahHujan')->name('datacurahhujan.read');
-Route::get('/datahidrogeologi','DataController@MaosHidrogeologi')->name('datahidrogeologi.read');
-Route::get('/datajenistanah','DataController@MaosJenisTanah')->name('datajenistanah.read');
-Route::get('/datarawanbencanabanjir','DataController@MaosRawanBencanaBanjir')->name('datarawanbencanabanjir.read');
 //smart
 //nilai klasifikasi
 Route::get('/nilaiklasifikasi','SMARTController@MaosNilaiKlasifikasi')->name('nilaiklasifikasi.read');

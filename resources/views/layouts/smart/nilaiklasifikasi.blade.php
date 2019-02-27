@@ -11,6 +11,15 @@
                         <i class="material-icons">perm_identity</i>
                     </div>
                 <h4 class="card-title">Nilai Klasifikasi {{$data->parameter}}</h4>
+                @if ($data->sistem_klasifikasi == "kriteria")
+                     <a href="{{route('editnilaiklasifikasikriteria.read', $data->id)}}"><button rel="tooltip" type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm">
+                        <i class="material-icons">edit</i>
+                </button></a>
+                @else
+                    <a href="{{route('editnilaiklasifikasikategori.read', $data->id)}}"><button rel="tooltip" type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm">
+                        <i class="material-icons">edit</i>
+                    </button></a>
+                @endif
                 </div>
                 <div class="card-body">
                     <table class="table table-hover">
@@ -34,9 +43,7 @@
                                         <td>{{$nilai->batas_bawah}} - {{$nilai->batas_atas}}</td>
                                         <td class="text-center">{{$nilai->nilai}}</td>
                                         <td>
-                                            <a href="{{route('editnilaiklasifikasikriteria.read', $data->id)}}"><button rel="tooltip" type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm">
-                                                <i class="material-icons">edit</i>
-                                            </button></a>
+
 
                                             <button rel="tooltip" type="button" title="Remove" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-delete-kriteria{{$nilai->id}}">
                                             <i class="material-icons">clear</i>
@@ -76,10 +83,6 @@
                                         <td>{{$nilai->kategori}}</td>
                                         <td class="text-center">{{$nilai->nilai}}</td>
                                         <td>
-                                            <a href="{{route('editnilaiklasifikasikategori.read', $nilai->id_parameter)}}"><button rel="tooltip" type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm">
-                                                <i class="material-icons">edit</i>
-                                            </button></a>
-
                                             <button rel="tooltip" type="button" title="Remove" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-delete-kategori{{$nilai->id}}">
                                                 <i class="material-icons">clear</i>
                                                 <div class="ripple-container"></div>

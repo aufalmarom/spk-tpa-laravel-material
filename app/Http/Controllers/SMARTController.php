@@ -23,8 +23,9 @@ class SMARTController extends Controller
     public function EditNilaiKlasifikasiKategori($id){
 
         $datas = NilaiKlasifikasiKategori::where('id_parameter', $id)->get();
+        $datas1 = BobotParameter::find($id);
 
-        return view('/layouts/smart/editnilaiklasifikasikategori', compact('datas'));
+        return view('/layouts/smart/editnilaiklasifikasikategori', compact('datas','datas1'));
     }
 
     public function NdamelNilaiKlasifikasiKategori(Request $request){
@@ -56,8 +57,8 @@ class SMARTController extends Controller
     public function EditNilaiKlasifikasiKriteria($id){
 
         $datas = NilaiKlasifikasiKriteria::where('id_parameter', $id)->get();
-
-        return view('/layouts/smart/editnilaiklasifikasikriteria', compact('datas'));
+        $datas1 = BobotParameter::find($id);
+        return view('/layouts/smart/editnilaiklasifikasikriteria', compact('datas','datas1'));
     }
 
     public function NdamelNilaiKlasifikasiKriteria(Request $request){
@@ -89,9 +90,9 @@ class SMARTController extends Controller
 
     public function MaosParameterNilai(){
 
-        $datas= Data::get();
-
-        return view('/layouts/smart/parameternilai', compact('datas'));
+        $datas= Kecamatan::get();
+        $datas1 = BobotParameter::get();
+        return view('/layouts/smart/parameternilai', compact('datas','datas1'));
     }
 
     public function MaosBobotParameter(){
@@ -109,6 +110,7 @@ class SMARTController extends Controller
             $simpan = BobotParameter::find($post['id']);
         }
         $simpan->parameter = $post['parameter'];
+        $simpan->sistem_klasifikasi = $post['sistem_klasifikasi'];
         $simpan->bobot = $post['bobot'];
         $simpan->created_by = Auth::user()->id;
         $simpan->save();
@@ -127,10 +129,10 @@ class SMARTController extends Controller
 
     public function MaosParameterNilaiBobot()
     {
-        $db1 = Data::get();
-        $db2 = BobotParameter::get();
+        $datas= Kecamatan::get();
+        $datas1 = BobotParameter::get();
 
-        return view('/layouts/smart/parameternilaibobot', compact('db1', 'db2'));
+        return view('/layouts/smart/parameternilaibobot', compact('datas', 'datas1'));
     }
 
     public function MaosBobotRelatif()
@@ -143,18 +145,18 @@ class SMARTController extends Controller
 
     public function MaosFaktorEvaluasi()
     {
-        $db1 = Data::get();
-        $db2 = BobotParameter::get();
+        $datas= Kecamatan::get();
+        $datas1 = BobotParameter::get();
 
-        return view('/layouts/smart/faktorevaluasi', compact('db1', 'db2'));
+        return view('/layouts/smart/faktorevaluasi', compact('datas', 'datas1'));
     }
 
     public function MaosBobotEvaluasi()
     {
-        $datas2 = BobotParameter::get();
-        $datas = Data::get();
+        $datas= Kecamatan::get();
+        $datas1 = BobotParameter::get();
 
-        return view('/layouts/smart/bobotevaluasi', compact('datas2','datas'));
+        return view('/layouts/smart/bobotevaluasi', compact('datas1','datas'));
     }
 
     public function MaosRanking()

@@ -34,13 +34,10 @@
                         <tr>
                             <th class="text-center">No.</th>
                             <th>Daerah</th>
-                            <th class="text-center">Kelerengan</th>
-                            <th class="text-center">Penggunaan Lahan</th>
-                            <th class="text-center">Rawan Bencana Longsor</th>
-                            <th class="text-center">Curah Hujan</th>
-                            <th class="text-center">Hidrogeologi</th>
-                            <th class="text-center">Jenis Tanah</th>
-                            <th class="text-center">Rawan Bencana Banjir</th>
+                            @foreach ($datas1 as $item)
+                                <th class="text-center">{{$item->parameter}}</th>
+                            @endforeach
+
                             {{-- <th class="text-right">Actions</th> --}}
                         </tr>
                     </thead>
@@ -48,89 +45,14 @@
                         @php
                             $no = 1;
                         @endphp
+
                         @foreach ($datas as $pd_view)
                             <tr>
-<<<<<<< HEAD
                                 <td class="text-center">{{$no++}}</td>
-                                <td>{{$pd_view->kecamatan->daerah}}</td>
-                                <td class="text-center">{{$pd_view->nilai_klasifikasi_kelerengan}}</td>
-                                <td class="text-center">{{$pd_view->nilai_klasifikasi_penggunaan_lahan}}</td>
-                                <td class="text-center">{{$pd_view->nilai_klasifikasi_rawan_bencana_longsor}}</td>
-                                <td class="text-center">{{$pd_view->nilai_klasifikasi_curah_hujan}}</td>
-                                <td class="text-center">{{$pd_view->nilai_klasifikasi_hidrogeologi}}</td>
-                                <td class="text-center">{{$pd_view->nilai_klasifikasi_jenis_tanah}}</td>
-                                <td class="text-center">{{$pd_view->nilai_klasifikasi_rawan_bencana_banjir}}</td>
-                                {{-- <td class="td-actions text-right">
-                                    <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
-                                        <i class="material-icons">info</i>
-                                    </button>
-                                    <button href="{{url('/administrator/datapenggunaanlahan')}}{{"/".$dpl_view->id}}" type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm">
-                                        <i class="material-icons">edit</i>
-                                    </button>
-                                    <button rel="tooltip" type="button" title="Remove" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-delete{{$dpl_view->id}}">
-                                        <i class="material-icons">clear</i>
-                                        <div class="ripple-container"></div>
-                                    </button>
-=======
-                                <th class="text-center">No.</th>
-                                <th>Daerah</th>
-                                <th class="text-center">Kelerengan</th>
-                                <th class="text-center">Penggunaan Lahan</th>
-                                <th class="text-center">Rawan Bencana Longsor</th>
-                                <th class="text-center">Curah Hujan</th>
-                                <th class="text-center">Hidrogeologi</th>
-                                <th class="text-center">Jenis Tanah</th>
-                                <th class="text-center">Rawan Bencana Banjir</th>
-                                {{-- <th class="text-right">Actions</th> --}}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php
-                                $no = 1;
-                            @endphp
-                            @foreach ($datas as $pd_view)
-                                <tr>
-                                    <td class="text-center">{{$no++}}</td>
-                                    <td>{{$pd_view->kecamatan->daerah}}</td>
-                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_kelerengan}}</td>
-                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_penggunaan_lahan}}</td>
-                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_rawan_bencana_longsor}}</td>
-                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_curah_hujan}}</td>
-                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_hidrogeologi}}</td>
-                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_jenis_tanah}}</td>
-                                    <td class="text-center">{{$pd_view->nilai_klasifikasi_rawan_bencana_banjir}}</td>
-                                    {{-- <td class="td-actions text-right">
-                                        <button type="button" rel="tooltip" title="Info" class="btn btn-rose btn-link btn-sm">
-                                            <i class="material-icons">info</i>
-                                        </button>
-                                        <button href="{{url('/administrator/datapenggunaanlahan')}}{{"/".$dpl_view->id}}" type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm">
-                                            <i class="material-icons">edit</i>
-                                        </button>
-                                        <button rel="tooltip" type="button" title="Remove" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-delete{{$dpl_view->id}}">
-                                            <i class="material-icons">clear</i>
-                                            <div class="ripple-container"></div>
-                                        </button>
->>>>>>> f917f577cedb2339431a5c30b983e111d3a86af2
-
-                                    <div class="modal fade modal-mini modal-rose" id="modal-delete{{$dpl_view->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
-                                        <div class="modal-dialog modal-small">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                <p>Apakah anda akan menghapus data {{$$dpl_view->daerah}}</p>
-                                                </div>
-                                                <div class="modal-footer justify-content-center">
-                                                    <button type="button" class="btn btn-link" data-dismiss="modal">Tidak</button>
-                                                    <a href="{{route('deletedatakelerengan.admin', $$dpl_view->id)}}" class="btn btn-success btn-link">Iya
-                                                    <div class="ripple-container"></div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td> --}}
+                                <td>{{$pd_view->daerah}}</td>
+                                @for ($i = 0; $i < count($datas1); $i++)
+                                    <td class="text-center">{{MunculinNilaiKlasifikasi($datas1[$i]['id'], $pd_view->id)}}</td>
+                                @endfor
                             </tr>
                         @endforeach
 

@@ -76,57 +76,36 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" data-toggle="collapse" href="#data" aria-expanded="false">
+                <a class="nav-link collapsed" data-toggle="collapse" href="#data-baru" aria-expanded="false">
                     <i class="material-icons">grid_on</i>
                         <p>Data
                             <b class="caret"></b>
                         </p>
                 </a>
-            <div class="collapse" id="data" style>
+            <div class="collapse" id="data-baru" style>
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link " href="{{route('datakelerengan.read')}}">
+                        <a class="nav-link" href="{{route('datakecamatan.read')}}">
                             <span class="sidebar-mini">DK</span>
-                            <span class="sidebar-normal">Data Kelerengan</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('datapenggunaanlahan.read')}}">
-                            <span class="sidebar-mini">DPL</span>
-                            <span class="sidebar-normal">Data Penggunaan Lahan</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('datarawanbencanalongsor.read')}}">
-                            <span class="sidebar-mini">DRBL</span>
-                            <span class="sidebar-normal">Data Rawan Bencana Longsor</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('datacurahhujan.read')}}">
-                            <span class="sidebar-mini">DCH</span>
-                            <span class="sidebar-normal">Data Curah Hujan</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('datahidrogeologi.read')}}">
-                            <span class="sidebar-mini">DH</span>
-                            <span class="sidebar-normal">Data Hidrogeologi</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('datajenistanah.read')}}">
-                            <span class="sidebar-mini">DJT</span>
-                            <span class="sidebar-normal">Data Jenis Tanah</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('datarawanbencanabanjir.read')}}">
-                            <span class="sidebar-mini">DRBB</span>
-                            <span class="sidebar-normal">Data Rawan Bencana Banjir</span>
+                            <span class="sidebar-normal">Data Kecamatan</span>
                         </a>
                     </li>
                 </ul>
+                @php
+                    $menu = MenuParameter();
+                @endphp
+                @foreach ($menu as $menuitem)
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{route('dataparameter.read', $menuitem->id)}}">
+                            <span class="sidebar-mini">D{{HurufAwal($menuitem->parameter)}}</span>
+                                <span class="sidebar-normal">Data {{$menuitem->parameter}}</span>
+                            </a>
+                    </ul>
+                @endforeach
+
+
+
             </div>
             </li>
 

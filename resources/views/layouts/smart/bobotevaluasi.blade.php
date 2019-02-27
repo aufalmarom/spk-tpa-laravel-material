@@ -33,7 +33,7 @@
                     <div class="card-icon">
                         <i class="material-icons">perm_identity</i>
                     </div>
-                <h4 class="card-title">Bobot Evaluasi {{$data->kecamatan->daerah}} D{{$no_daerah}}</h4>
+                <h4 class="card-title">Bobot Evaluasi {{$data->daerah}} D{{$no_daerah}}</h4>
                 </div>
                 <div class="card-body">
                     <table class="table table-hover">
@@ -48,144 +48,37 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                @php
-                                    $totalFE = 0;
-                                    $totalBR = 0;
-                                    $totalBE = 0;
-                                @endphp
-                                <td class="text-center">1</td>
-                                <td>Kelerengan</td>
-                                <td class="text-center">
-                                    @php
-                                        $totalFE += FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_kelerengan, 1);
-                                    @endphp
-                                    {{FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_kelerengan, 1)}}</td>
-                                <td class="text-center">
-                                    @php
-                                        $totalBR += BobotRelatif($datas2[0]->id, $datas2[0]->bobot);
-                                    @endphp
-                                    {{BobotRelatif($datas2[0]->id, $datas2[0]->bobot)}}</td>
-                                <td class="text-center">
-                                    @php
-                                        $totalBE += FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_kelerengan, 1) * BobotRelatif($datas2[0]->id, $datas2[0]->bobot);
-                                    @endphp
-                                    {{FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_kelerengan, 1) * BobotRelatif($datas2[0]->id, $datas2[0]->bobot)}}</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">2</td>
-                                <td>Penggunaan Lahan</td>
-                                <td class="text-center">
-                                    @php
-                                        $totalFE += FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_penggunaan_lahan, 2);
-                                    @endphp
-                                    {{FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_penggunaan_lahan, 2)}}</td>
-                                <td class="text-center">
-                                    @php
-                                        $totalBR += BobotRelatif($datas2[1]->id, $datas2[1]->bobot);
-                                    @endphp
-                                    {{BobotRelatif($datas2[1]->id, $datas2[1]->bobot)}}</td>
-                                <td class="text-center">
-                                    @php
-                                        $totalBE += FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_penggunaan_lahan, 2) * BobotRelatif($datas2[1]->id, $datas2[1]->bobot);
-                                    @endphp
-                                    {{FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_penggunaan_lahan, 2) * BobotRelatif($datas2[1]->id, $datas2[1]->bobot)}}</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">3</td>
-                                <td>Rawan Bencana Longsor</td>
-                                <td class="text-center">
-                                    @php
-                                        $totalFE += FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_rawan_bencana_longsor, 3);
-                                    @endphp
-                                    {{FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_rawan_bencana_longsor, 3)}}</td>
-                                <td class="text-center">
-                                    @php
-                                        $totalBR += BobotRelatif($datas2[2]->id, $datas2[2]->bobot);
-                                    @endphp
-                                    {{BobotRelatif($datas2[2]->id, $datas2[2]->bobot)}}</td>
-                                <td class="text-center">
-                                    @php
-                                        $totalBE += FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_rawan_bencana_longsor, 3) * BobotRelatif($datas2[2]->id, $datas2[2]->bobot);
-                                    @endphp
-                                    {{FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_rawan_bencana_longsor, 3) * BobotRelatif($datas2[2]->id, $datas2[2]->bobot)}}</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">4</td>
-                                <td>Curah Hujan</td>
-                                <td class="text-center">
-                                    @php
-                                        $totalFE += FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_curah_hujan, 4);
-                                    @endphp
-                                    {{FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_curah_hujan, 4)}}</td>
-                                <td class="text-center">
-                                    @php
-                                        $totalBR += BobotRelatif($datas2[3]->id, $datas2[3]->bobot);
-                                    @endphp
-                                    {{BobotRelatif($datas2[3]->id, $datas2[3]->bobot)}}</td>
-                                <td class="text-center">
-                                    @php
-                                        $totalBE += FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_curah_hujan, 4) * BobotRelatif($datas2[3]->id, $datas2[3]->bobot);
-                                    @endphp
-                                    {{FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_curah_hujan, 4) * BobotRelatif($datas2[3]->id, $datas2[3]->bobot)}}</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">5</td>
-                                <td>Hidrogeologi</td>
-                                <td class="text-center">
-                                    @php
-                                        $totalFE += FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_hidrogeologi, 5);
-                                    @endphp
-                                    {{FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_hidrogeologi, 5)}}</td>
-                                <td class="text-center">
-                                    @php
-                                        $totalBR += BobotRelatif($datas2[4]->id, $datas2[4]->bobot);
-                                    @endphp
-                                    {{BobotRelatif($datas2[4]->id, $datas2[4]->bobot)}}</td>
-                                <td class="text-center">
+                            @php
+                                $totalFE = 0;
+                                $totalBR = 0;
+                                $totalBE = 0;
+                            @endphp
+                            @for ($i = 0; $i < count($datas1); $i++)
+                                <tr>
+                                    <td class="text-center">1</td>
+                                    <td>{{$datas1[$i]['parameter']}}</td>
+                                    <td class="text-center">
                                         @php
-                                        $totalBE += FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_hidrogeologi, 5) * BobotRelatif($datas2[4]->id, $datas2[4]->bobot);
-                                    @endphp
-                                    {{FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_hidrogeologi, 5) * BobotRelatif($datas2[4]->id, $datas2[4]->bobot)}}</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">6</td>
-                                <td>Jenis Tanah</td>
-                                <td class="text-center">
-                                    @php
-                                        $totalFE += FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_jenis_tanah, 6);
-                                    @endphp
-                                    {{FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_jenis_tanah, 6)}}</td>
-                                <td class="text-center">
-                                    @php
-                                        $totalBR += BobotRelatif($datas2[5]->id, $datas2[5]->bobot);
-                                    @endphp
-                                    {{BobotRelatif($datas2[5]->id, $datas2[5]->bobot)}}</td>
-                                <td class="text-center">
-                                    @php
-                                        $totalBE += FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_jenis_tanah, 6) * BobotRelatif($datas2[5]->id, $datas2[5]->bobot);
-                                    @endphp
-                                    {{FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_jenis_tanah, 6) * BobotRelatif($datas2[5]->id, $datas2[5]->bobot)}}</td>
-                            </tr>
-                            <tr>
-                            <td class="text-center">7</td>
-                            <td>Rawan Bencana Banjir</td>
-                            <td class="text-center">
-                                    @php
-                                    $totalFE += FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_rawan_bencana_banjir, 7);
-                                @endphp
-                                {{FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_rawan_bencana_banjir, 7)}}</td>
-                            <td class="text-center">
-                                @php
-                                    $totalBR += BobotRelatif($datas2[6]->id, $datas2[6]->bobot);
-                                @endphp
-                                {{BobotRelatif($datas2[6]->id, $datas2[6]->bobot)}}</td>
-                            <td class="text-center">
-                                    @php
-                                    $totalBE += FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_rawan_bencana_banjir, 7) * BobotRelatif($datas2[6]->id, $datas2[6]->bobot);
-                                @endphp
-                                {{FaktorEvaluasi($data->id_kecamatan, $data->nilai_klasifikasi_rawan_bencana_banjir, 7) * BobotRelatif($datas2[6]->id, $datas2[6]->bobot)}}</td>
-                        </tr>
+                                            $FaktorEvaluasi = FaktorEvaluasi($data->id, $datas1[$i]['id']);
+                                            $totalFE += $FaktorEvaluasi;
+                                        @endphp
+                                        {{$FaktorEvaluasi}}</td>
+                                    <td class="text-center">
+                                            @php
+                                                $BobotRelatif = BobotRelatif($datas1[$i]['id'], $datas1[$i]['bobot']);
+                                                $totalBR += $BobotRelatif;
+                                            @endphp
+                                            {{$BobotRelatif}}</td>
+                                    <td class="text-center">
+                                            @php
+                                                $Total = $FaktorEvaluasi * $BobotRelatif;
+                                                $totalBE += $Total;
+                                            @endphp
+                                            {{$Total}}</td>
+                                </tr>
+                            @endfor
+
+
                             <tr>
                                 <td class="text-center"></td>
                                 <td>Total</td>

@@ -33,7 +33,7 @@
 
             <form method="POST" action="{{route('editnilaiklasifikasikategori.create')}}">
               {{csrf_field()}}
-                <input type="hidden" name="parameter" value="{{$datas->first()->id_parameter}}" required>
+                <input type="hidden" name="parameter" value="{{$datas1->parameter}}" required>
                 @foreach ($datas as $data)
 
                 <div class="row">

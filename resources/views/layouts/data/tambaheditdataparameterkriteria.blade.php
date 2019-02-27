@@ -28,13 +28,14 @@
                 <i class="material-icons">contacts</i>
 
             </div>
-            <h4 class="card-title">Tambah & Edit Data Kelerengan</h4>
+            <h4 class="card-title">Tambah & Edit Data {{$parameter->parameter}}</h4>
         </div>
 
         <div class="card-body">
 
-            <form method="POST" action="{{route('tambaheditkelerengan.create')}}">
+            <form method="POST" action="{{route('tambaheditdataparameter.create')}}">
               {{csrf_field()}}
+                <input type="hidden" name="parameter" value="{{$parameter->id}}">
                 @foreach ($datas as $data)
 
                     <div class="row">
@@ -42,8 +43,14 @@
                             <div class="form-group">
                             <label class="bmd-label-floating">Kecamatan</label>
                             <input type="text" class="form-control" value="{{$data->daerah}}" disabled>
-                            <input type="hidden" name="id[]" value="{{$data->id}}" required>
-                            <input type="hidden" name="id_kecamatan[]" value="{{$data->id}}" required>
+                            <input type="hidden" name="id[]" @if ($data->nilai != NULL)
+                            value="{{$data->id}}" @endif required>
+                            <input type="hidden" name="id_kecamatan[]"
+                            @if ($data->nilai != NULL)
+                                value="{{$data->id_kecamatan}}"
+                            @else
+                                value="{{$data->id}}"
+                            @endif required>
                             </div>
                         </div>
 
@@ -57,6 +64,27 @@
 
                 @endforeach
 
+                @if($dataAdd->first() != null)
+                    @foreach ($dataAdd as $Additem)
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                <label class="bmd-label-floating">Kecamatan</label>
+                                <input type="text" class="form-control" value="{{$Additem->daerah}}" disabled>
+                                <input type="hidden" name="id[]" required>
+                                <input type="hidden" name="id_kecamatan[]" value="{{$Additem->id}}" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                <label class="bmd-label-floating">Nilai</label>
+                                <input type="text" name="nilai[]" class="form-control" value="{{$Additem->nilai}}" required>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
               <button type="submit" class="btn btn-rose pull-right">Update Data TPA</button>
               <div class="clearfix"></div>
             </form>
