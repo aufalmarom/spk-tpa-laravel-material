@@ -34,6 +34,6 @@ class HomeController extends Controller
             'user'  => session('user'),
         );
         $hancur = session()->flush();
-        return redirect('/');
+        return view('/layouts/home');
     }
 }

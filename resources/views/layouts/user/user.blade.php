@@ -118,6 +118,7 @@
                                     <td>{{$u_view->email}}</td>
                                     <td>{{$u_view->role}}</td>
                                     <td class="td-actions text-center">
+
                                         <button type="button" rel="tooltip" title="Detail Informasi" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-info{{$u_view->id}}">
                                             <i class="material-icons">info</i>
                                         </button>
@@ -141,7 +142,7 @@
                                             </div>
                                         </div>
 
-
+                                        @if(Auth::user()->role == "administrator")
                                         <button type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-edit{{$u_view->id}}">
                                             <i class="material-icons">edit</i>
                                         </button>
@@ -205,6 +206,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

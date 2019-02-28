@@ -85,7 +85,6 @@ class UserController extends Controller
         $passwordlama = bcrypt($post['password_lama']);
         $passwordbaru = $post['password_baru'];
         $konfirmasipassword = $post['konfirmasi_password'];
-        dd($passwordlama);
 
         if ($passwordlama == $simpan['password']) {
             if ($passwordbaru == $konfirmasipassword) {

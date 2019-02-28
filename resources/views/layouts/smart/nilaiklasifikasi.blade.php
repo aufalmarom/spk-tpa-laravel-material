@@ -11,14 +11,16 @@
                         <i class="material-icons">perm_identity</i>
                     </div>
                 <h4 class="card-title">Nilai Klasifikasi {{$data->parameter}}</h4>
-                @if ($data->sistem_klasifikasi == "kriteria")
-                     <a href="{{route('editnilaiklasifikasikriteria.read', $data->id)}}"><button rel="tooltip" type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm">
-                        <i class="material-icons">edit</i>
-                </button></a>
-                @else
-                    <a href="{{route('editnilaiklasifikasikategori.read', $data->id)}}"><button rel="tooltip" type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm">
-                        <i class="material-icons">edit</i>
-                    </button></a>
+                @if(Auth::user()->role != "operator")
+                    @if ($data->sistem_klasifikasi == "kriteria")
+                            <a href="{{route('editnilaiklasifikasikriteria.read', $data->id)}}"><button rel="tooltip" type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                        </button></a>
+                        @else
+                            <a href="{{route('editnilaiklasifikasikategori.read', $data->id)}}"><button rel="tooltip" type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm">
+                                <i class="material-icons">edit</i>
+                            </button></a>
+                        @endif
                 @endif
                 </div>
                 <div class="card-body">
@@ -28,7 +30,9 @@
                                 <th class="text-center">No.</th>
                                 <th>Kategori</th>
                                 <th class="text-center">Nilai</th>
+                                @if(Auth::user()->role != "operator")
                                 <th class="text-justify">Actions</th>
+                                @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -42,6 +46,7 @@
                                         <td class="text-center">{{$no}}</td>
                                         <td>{{$nilai->batas_bawah}} - {{$nilai->batas_atas}}</td>
                                         <td class="text-center">{{$nilai->nilai}}</td>
+                                        @if(Auth::user()->role != "operator")
                                         <td>
 
 
@@ -76,12 +81,14 @@
                                             </div>
 
                                         </td>
+                                        @endif
                                     </tr>
                                 @else
                                     <tr>
                                         <td class="text-center">{{$no}}</td>
                                         <td>{{$nilai->kategori}}</td>
                                         <td class="text-center">{{$nilai->nilai}}</td>
+                                        @if(Auth::user()->role != "operator")
                                         <td>
                                             <button rel="tooltip" type="button" title="Remove" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-delete-kategori{{$nilai->id}}">
                                                 <i class="material-icons">clear</i>
@@ -113,8 +120,10 @@
                                                     </div>
                                                 </div>
                                         </td>
+                                        @endif
                                     </tr>
                                 @endif
+
                                 @php
                                     $no++;
                                 @endphp

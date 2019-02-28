@@ -24,7 +24,7 @@
                                             <th class="text-center">Peringkat</th>
                                             <th class="text-center">Daerah</th>
                                             <th class="text-center">Bobot Evaluasi</th>
-                                            <th class="text-center">Warna</th>
+                                            {{-- <th class="text-center">Warna</th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -36,7 +36,7 @@
                                                 <td class="text-center">{{$no}}</td>
                                                 <td class="text-center">{{$x}}</td>
                                                 <td class="text-center">{{$x_value}}</td>
-                                                <td class="text-center"> </td>
+                                                {{-- <td class="text-center"> </td> --}}
                                             </tr>
                                         <?php
                                             if($no == 7){
