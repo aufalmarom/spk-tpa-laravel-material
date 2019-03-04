@@ -31,9 +31,9 @@
         <div class="card">
                 <div class="card-header card-header-icon card-header-rose">
                     <div class="card-icon">
-                        <i class="material-icons">perm_identity</i>
+                        <i class="material-icons">subject</i>
                     </div>
-                <h4 class="card-title">Bobot Evaluasi {{$data->daerah}} D{{$no_daerah}}</h4>
+                <h4 class="card-title">Bobot Evaluasi {{$data->daerah}} (A{{$no_daerah}})</h4>
                 </div>
                 <div class="card-body">
                     <table class="table table-hover">
@@ -41,21 +41,21 @@
                             <tr>
                                 <th class="text-center">No.</th>
                                 <th>Parameter</th>
-                                <th class="text-center">Faktor Evaluasi D{{$no_daerah}}</th>
+                                <th class="text-center">Faktor Evaluasi A{{$no_daerah}}</th>
                                 <th class="text-center">Bobot Relatif </th>
                                 <th class="text-center">Bobot Evaluasi </th>
-                                {{-- <th class="text-right">Actions</th> --}}
                             </tr>
                         </thead>
                         <tbody>
                             @php
+                                $no = 1;
                                 $totalFE = 0;
                                 $totalBR = 0;
                                 $totalBE = 0;
                             @endphp
                             @for ($i = 0; $i < count($datas1); $i++)
                                 <tr>
-                                    <td class="text-center">1</td>
+                                    <td class="text-center">{{$no++}}</td>
                                     <td>{{$datas1[$i]['parameter']}}</td>
                                     <td class="text-center">
                                         @php
@@ -65,7 +65,7 @@
                                         {{$FaktorEvaluasi}}</td>
                                     <td class="text-center">
                                             @php
-                                                $BobotRelatif = BobotRelatif($datas1[$i]['id'], $datas1[$i]['bobot']);
+                                                $BobotRelatif = $datas1[$i]['bobot_relatif'];
                                                 $totalBR += $BobotRelatif;
                                             @endphp
                                             {{$BobotRelatif}}</td>

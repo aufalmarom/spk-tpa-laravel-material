@@ -22,7 +22,7 @@
         <div class="card col-sm-6">
             <div class="card-header card-header-icon card-header-rose">
                 <div class="card-icon">
-                    <i class="material-icons">perm_identity</i>
+                    <i class="material-icons">assessment</i>
                 </div>
                 <h4 class="card-title">Ranking</h4>
             </div>
@@ -33,7 +33,6 @@
                             <th class="text-center">No.</th>
                             <th class="text-center">Daerah</th>
                             <th class="text-center">Bobot Evaluasi</th>
-                            {{-- <th class="text-right">Actions</th> --}}
                         </tr>
                     </thead>
                     <tbody>

@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Data;
-use App\NilaiKlasifikasiKriteria;
-use App\NilaiKlasifikasiKategori;
+use App\DataAlternatif;
+use App\NilaiKlasifikasi;
 use App\BobotParameter;
 use App\Kecamatan;
 
@@ -16,73 +15,74 @@ class SMARTController extends Controller
     public function MaosNilaiKlasifikasi(){
 
         $datas = BobotParameter::get();
-
         return view('/layouts/smart/nilaiklasifikasi', compact('datas'));
     }
 
-    public function EditNilaiKlasifikasiKategori($id){
+    public function EditNilaiKlasifikasi($id){
 
-        $datas = NilaiKlasifikasiKategori::where('id_parameter', $id)->get();
+        $datas = NilaiKlasifikasi::where('id_parameter', $id)->get();
         $datas1 = BobotParameter::find($id);
 
-        return view('/layouts/smart/editnilaiklasifikasikategori', compact('datas','datas1'));
+        return view('/layouts/smart/editnilaiklasifikasi', compact('datas','datas1'));
     }
 
-    public function NdamelNilaiKlasifikasiKategori(Request $request){
+    public function NdamelNilaiKlasifikasi(Request $request){
         $post = $request->request->all();
-        for($i=0; $i < count($post['id']);$i++){
-            if($post['id'][$i] == null){
-                $simpan = new NilaiKlasifikasiKategori();
-                $simpan->id_parameter = $post['parameter'];
+        if (isset($post['id'])) {
+            for($i=0; $i < count($post['id']);$i++){
+                if($post['id'][$i] == null){
+                    $simpan = new NilaiKlasifikasi();
+                    $simpan->id_parameter = $post['parameter'];
+                }
+                else{
+                 $simpan = NilaiKlasifikasi::where('id',$post['id'][$i])->first();
+                    if ($post['nilai_parameter'][$i] != $post['kategorilama'][$i]) {
+                        $dataAlternatif = DataAlternatif::where('id_parameter', $post['parameter'])->where('nilai_parameter', $post['kategorilama'][$i])->get();
+                        if ($dataAlternatif->first() != NULL) {
+                            foreach ($dataAlternatif as $data2) {
+                                $data3 = DataAlternatif::find($data2->id);
+                                $data3->nilai_parameter = $post['nilai_parameter'][$i];
+                                $data3->save();
+                            }
+                        }
+                    }
+                }
+                            
+                
+                $simpan->nilai_klasifikasi = $post['nilai_klasifikasi'][$i];
+                $simpan->nilai_parameter = $post['nilai_parameter'][$i];
+                $simpan->created_by = Auth::user()->id;
+                $simpan->save();
             }
-            else{
-             $simpan = NilaiKlasifikasiKategori::where('id',$post['id'][$i])->first();
+    
+            $dataAlternatifNK = DataAlternatif::where('id_parameter', $post['parameter'])->get();
+            if ($dataAlternatifNK->first() != NULL) {
+                foreach ($dataAlternatifNK as $data) {
+                    $datas = DataAlternatif::find($data->id);
+                    $datas->nilai_klasifikasi = MunculinNilaiKlasifikasi($data->id_parameter, $data->nilai_parameter);
+                    $datas->save(); 
+                }
             }
-            $simpan->nilai = $post['nilai'][$i];
-            $simpan->kategori = $post['kategori'][$i];
-            $simpan->created_by = Auth::user()->id;
-            $simpan->save();
+            
+            return redirect(route('nilaiklasifikasi.read'));
+            
+        }else{
+            return redirect(route('editnilaiklasifikasi.read', $post['parameter']));
         }
-        return redirect(route('nilaiklasifikasi.read'));
+        
     }
 
-    public function HapusKategori(Request $request){
+    public function HapusNilaiKlasifikasi(Request $request){
         $post = $request->request->all();
-        $model = NilaiKlasifikasiKategori::find($post['id']);
-        $model->delete();
-
-        return redirect(route('nilaiklasifikasi.read'));
-    }
-
-    public function EditNilaiKlasifikasiKriteria($id){
-
-        $datas = NilaiKlasifikasiKriteria::where('id_parameter', $id)->get();
-        $datas1 = BobotParameter::find($id);
-        return view('/layouts/smart/editnilaiklasifikasikriteria', compact('datas','datas1'));
-    }
-
-    public function NdamelNilaiKlasifikasiKriteria(Request $request){
-        $post = $request->request->all();
-        for($i=0; $i < count($post['id']);$i++){
-            if($post['id'][$i] == null){
-                $simpan = new NilaiKlasifikasiKriteria();
-                $simpan->id_parameter = $post['parameter'];
+        $model = NilaiKlasifikasi::find($post['id']);        
+        $dataAlternatif = DataAlternatif::where('nilai_parameter', $model->nilai_parameter)->where('id_parameter', $model->id_parameter)->get();
+        if ($dataAlternatif->first() != NULL) {
+            foreach ($dataAlternatif as $data) {
+                $datas = DataAlternatif::find($data->id);
+                $datas->delete();
             }
-            else{
-                $simpan = NilaiKlasifikasiKriteria::where('id',$post['id'][$i])->first();
-            }
-            $simpan->batas_bawah = $post['batas_bawah'][$i];
-            $simpan->batas_atas = $post['batas_atas'][$i];
-            $simpan->nilai = $post['nilai'][$i];
-            $simpan->created_by = Auth::user()->id;
-            $simpan->save();
         }
-        return redirect(route('nilaiklasifikasi.read'));
-    }
-
-    public function HapusKriteria(Request $request){
-        $post = $request->request->all();
-        $model = NilaiKlasifikasiKriteria::find($post['id']);
+        
         $model->delete();
 
         return redirect(route('nilaiklasifikasi.read'));
@@ -110,10 +110,20 @@ class SMARTController extends Controller
             $simpan = BobotParameter::find($post['id']);
         }
         $simpan->parameter = $post['parameter'];
-        $simpan->sistem_klasifikasi = $post['sistem_klasifikasi'];
         $simpan->bobot = $post['bobot'];
         $simpan->created_by = Auth::user()->id;
         $simpan->save();
+
+        $dataAlternatif = DataAlternatif::where('id_parameter', $simpan->id)->get();
+        if ($dataAlternatif->first() != NULL) {
+            foreach ($dataAlternatif as $data) {
+                $baru = DataAlternatif::find($data->id);
+                $baru->nilai_parameter_bobot = $data->nilai_klasifikasi*$post['bobot'];
+                $baru->save();   
+            }
+        }
+            
+        HitungUlangBobotRelatif();
 
         return back()->with('success', 'Data Berhasil Disimpan');
     }
@@ -121,11 +131,26 @@ class SMARTController extends Controller
     public function HapusBobotParameter(Request $request){
         $post = $request->request->all();
         $model = BobotParameter::find($post['id']);
+        $baru = DataAlternatif::where('id_parameter', $post['id'])->get();
+        if ($baru->first() != NULL) {
+            foreach ($baru as $data) {
+                $baru1 = DataAlternatif::find($data->id);
+                $baru1->delete();
+            }
+        }
+        $nilai_klasifikasi = NilaiKlasifikasi::where('id_parameter', $post['id'])->get(); 
+        if ($nilai_klasifikasi->first() != NULL) {
+            foreach ($nilai_klasifikasi as $nilai) {
+                $nilai2 = NilaiKlasifikasi::find($nilai->id);
+                $nilai2->delete();
+            }
+        }
         $model->delete();
+
+        HitungUlangBobotRelatif();
 
         return back()->with('danger', 'Data Berhasil Dihapus');
     }
-
 
     public function MaosParameterNilaiBobot()
     {
@@ -138,9 +163,9 @@ class SMARTController extends Controller
     public function MaosBobotRelatif()
     {
         $db = BobotParameter::get();
-        $db1 = DB::table('bobot_parameters')->sum('bobot');
+        $datas_sum = DB::table('bobot_parameters')->sum('bobot');
 
-        return view('/layouts/smart/bobotrelatif', compact('db', 'db1'));
+        return view('/layouts/smart/bobotrelatif', compact('db', 'datas_sum'));
     }
 
     public function MaosFaktorEvaluasi()
@@ -168,7 +193,7 @@ class SMARTController extends Controller
             $kecamatan[] = $data1->daerah;
             $data[] = BobotEvaluasi($data1->id);
         }
-        $result = array_combine($kecamatan,$data);
+        $result = array_combine($kecamatan, $data);
         arsort($result);
         return view('/layouts/smart/ranking', compact('result'));
     }

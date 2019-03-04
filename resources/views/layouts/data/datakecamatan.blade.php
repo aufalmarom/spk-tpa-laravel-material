@@ -51,7 +51,7 @@
         <div class="col-md-10 card">
             <div class="card-header card-header-icon card-header-rose">
                 <div class="card-icon">
-                    <i class="material-icons">perm_identity</i>
+                    <i class="material-icons">place</i>
                 </div>
                 <h4 class="card-title">Data Kecamatan</h4>
             </div>

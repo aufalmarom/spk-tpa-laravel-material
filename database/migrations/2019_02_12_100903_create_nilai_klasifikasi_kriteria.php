@@ -18,7 +18,7 @@ class CreateNilaiKlasifikasiKriteria extends Migration
             $table->integer('id_parameter')->unsigned();
             $table->integer('batas_bawah');
             $table->integer('batas_atas');
-            $table->integer('nilai');
+            $table->integer('nilai_klasifikasi');
             $table->integer('created_by')->unsigned()->nullable();
             $table->timestamps();
         });

@@ -16,6 +16,6 @@ use Faker\Generator as Faker;
 $factory->define(App\Atribut::class, function (Faker $faker) {
     return [
         'daerah' => $faker->city,
-        'nilai' => $faker->randomNumber(2)
+        'nilai_klasifikasi' => $faker->randomNumber(2)
     ];
 });

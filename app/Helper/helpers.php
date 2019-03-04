@@ -1,148 +1,97 @@
 <?php
     use App\Data;
     use App\BobotParameter;
-    use App\NilaiKlasifikasiKategori;
-    use App\NilaiKlasifikasiKriteria;
+    use App\NilaiKlasifikasi;
     use App\DataAlternatif;
 
     function NilaiBobot($parameter){
-        $datas = BobotParameter::get();
-        foreach( $datas as $data){
-            if($data->id == $parameter){
-                $bobot = $data->bobot;
-            }
-        }
-        return $bobot;
+        $datas = BobotParameter::find($parameter);
+        return $datas->bobot;
+    }
+    
+    function BobotRelatif($parameter){
+        $datas = BobotParameter::find($parameter);
+        return @$datas->bobot_relatif;
     }
 
     function MaxNilaiParameter($parameter){
-        $datas = DataAlternatif::where('id_parameter',$parameter)->get();
-        $array_max = array();
-        foreach ($datas as $data) {
-            $array_max[] = NilaiKlasifikasiParameter($parameter,$data->nilai)*NilaiBobot($parameter);
-        }
-        return max($array_max);
+        $nilai_max = DB::table('data_alternatifs')->where('id_parameter', $parameter)->max('nilai_parameter_bobot');
+        return $nilai_max;
     }
-    function NilaiKlasifikasiParameter($parameter,$nilai){
-        $datas = BobotParameter::where('id',$parameter)->first();
-        if ($datas->sistem_klasifikasi == 'kriteria') {
-            $array_data = NilaiKlasifikasiKriteria::where('id_parameter', $parameter)->get();
-            if($array_data->first() == null){
-                $nilai_return = "Nilai Tidak sesuai";
-            }else{
-                foreach($array_data as $data){
-                    if($nilai > $data->batas_bawah  && $nilai < $data->batas_atas){
-                        $nilai_return = $data->nilai;
-                        break;
-                    }
-                    else{
-                        $nilai_return = "Nilai Tidak sesuai";
-                    }
-                }
-            }
-        }
-        else{
-            $array_data = NilaiKlasifikasiKategori::where('id_parameter', $parameter)->get();
-            if($array_data->first() == null){
-                $nilai_return = "Nilai Tidak sesuai";
-            }else{
-                foreach($array_data as $data){
-                    if($nilai == $data->kategori){
-                        $nilai_return = $data->nilai;
-                        break;
-                    }
-                    else{
-                        $nilai_return = "Nilai Tidak sesuai";
-                    }
-                }
-            }
-        }
-        return $nilai_return;
-    }
+    
     function MinDaerah($id){
-        $datas = DataAlternatif::where('id_kecamatan',$id)->get();
-        $array_min = array();
-        foreach ($datas as $data) {
-            $array_min[]= NilaiKlasifikasiParameter($data->id_parameter,$data->nilai)*NilaiBobot($data->id_parameter);
-        }
-        return min($array_min);
+        $nilai_min = DB::table('data_alternatifs')->where('id_kecamatan', $id)->min('nilai_parameter_bobot');
+        return $nilai_min;
     }
+
     function FaktorEvaluasi($id, $parameter){
         if(MaxNilaiParameter($parameter)-MinDaerah($id) == 0){
             $nilai = 0;
             return $nilai;
         }
         else{
-            $nilaiklasifikasi = MunculinNilaiKlasifikasi($parameter, $id);
-            $nilai = (MaxNilaiParameter($parameter)-$nilaiklasifikasi*NilaiBobot($parameter))/(MaxNilaiParameter($parameter)-MinDaerah($id));
+            $nilai = (MaxNilaiParameter($parameter)-MunculinParameterNilaiBobot($parameter,$id))/(MaxNilaiParameter($parameter)-MinDaerah($id));
             return round($nilai*100, 2);
         }
     }
 
-    function BobotRelatif($id_parameter, $bobot){
+    function HitungUlangBobotRelatif()
+    {
+        $datas = BobotParameter::get();
         $datas_sum = DB::table('bobot_parameters')->sum('bobot');
 
-        $nilai = $bobot/$datas_sum;
-        return $nilai;
+        foreach ($datas as $data) {
+            $bobot_params = BobotParameter::find($data->id);
+            $bobot_params->bobot_relatif = round($data->bobot/$datas_sum, 2);
+            $bobot_params->save();
+        }
+    }
+
+    function MunculinParameterNilai($parameter, $kecamatan)
+    {
+        $datas = DataAlternatif::where('id_parameter', $parameter)->where('id_kecamatan', $kecamatan)->first();
+        return @$datas->nilai_klasifikasi;
+    }
+
+    function MunculinParameterNilaiBobot($parameter, $kecamatan)
+    {
+        $datas = DataAlternatif::where('id_parameter', $parameter)->where('id_kecamatan', $kecamatan)->first();
+        return @$datas->nilai_parameter_bobot;
     }
 
     function BobotEvaluasi($id){
         $datas = DataAlternatif::where('id_kecamatan', $id)->get();
         $nilai = 0;
         foreach($datas as $data){
-            $nilai += FaktorEvaluasi($data->id_kecamatan,$data->id_parameter)*BobotRelatif($data->id_parameter,NilaiBobot($data->id_parameter));
+            $nilai += FaktorEvaluasi($data->id_kecamatan,$data->id_parameter)*BobotRelatif($data->id_parameter);
         }
         return $nilai;
     }
 
-    function NilaiKlasifikasi($id){
-        $datas = BobotParameter::find($id);
-        if ($datas->sistem_klasifikasi == 'kriteria') {
-            $datas = NilaiKlasifikasiKriteria::where('id_parameter', $id)->get();
-        }else{
-            $datas = NilaiKlasifikasiKategori::where('id_parameter', $id)->get();
-        }
+    function NilaiKlasifikasiParameter($id){
+        $datas = NilaiKlasifikasi::where('id_parameter', $id)->get();
 
         return $datas;
     }
 
-    function MunculinNilaiKlasifikasi($parameter, $kecamatan)
+    function MunculinNilaiKlasifikasi($parameter, $nilai)
     {
-        $cek = BobotParameter::find($parameter);
-        $nilai = DataAlternatif::where('id_parameter',$parameter)->where('id_kecamatan',$kecamatan)->first();
-
-        if ($cek->sistem_klasifikasi == 'kategori') {
-            $array_data = NilaiKlasifikasiKategori::where('id_parameter', $parameter)->get();
-            if($array_data->first() == null){
-                $nilai_return = "Nilai Tidak sesuai";
-            }else{
-                foreach($array_data as $data){
-                    if($nilai->nilai == $data->kategori){
-                        $nilai_return = $data->nilai;
-                        break;
-                    }
-                    else{
-                        $nilai_return = "Nilai Tidak sesuai";
-                    }
+        
+        $array_data = NilaiKlasifikasi::where('id_parameter', $parameter)->get();
+        if($array_data->first() == null){
+            $nilai_return = "Nilai Tidak sesuai";
+        }else{
+            foreach($array_data as $data){
+                if($nilai == $data->nilai_parameter){
+                    $nilai_return = $data->nilai_klasifikasi;
+                    break;
                 }
-            }
-
-        }else {
-            $array_data = NilaiKlasifikasiKriteria::where('id_parameter', $parameter)->get();
-            if($array_data->first() == null){
-                $nilai_return = "Nilai Tidak sesuai";
-            }else{
-                foreach($array_data as $data){
-                    if($nilai->nilai > $data->batas_bawah  && $nilai->nilai < $data->batas_atas){
-                        $nilai_return = $data->nilai;
-                        break;
-                    }
-                    else{
-                        $nilai_return = "Nilai Tidak sesuai";
-                    }
+                else{
+                    $nilai_return = "Nilai Tidak sesuai";
                 }
             }
         }
+
         return $nilai_return;
     }
     function MenuParameter(){
@@ -163,7 +112,7 @@
     {
         $data = NilaiKlasifikasiKategori::where('id_parameter', $id)->first();
         if ($data != NULL) {
-            $nilai = 'kategori';
+            $nilai = 'nilai_parameter';
         }else {
             $nilai = 'kriteria';
         }

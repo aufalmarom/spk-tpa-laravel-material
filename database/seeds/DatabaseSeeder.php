@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
         //Eloquent ORM
         // Atribut::created([
         //     'daerah' => "Gondang",
-        //     'nilai' => 60
+        //     'nilai_klasifikasi' => 60
         // ]);
 
         //Seed Faker
@@ -91,36 +91,36 @@ class DatabaseSeeder extends Seeder
 
         //nilai_klasifikasi_kriterias
         $nilai_klasifikasi_kriterias=[
-            ['id_parameter' => 1, 'batas_bawah' => 40, 'batas_atas'=> 100, 'nilai' => 0],
-            ['id_parameter' => 1, 'batas_bawah' => 25, 'batas_atas'=> 40, 'nilai' => 1],
-            ['id_parameter' => 1, 'batas_bawah' => 15, 'batas_atas'=> 25, 'nilai' => 2],
-            ['id_parameter' => 1, 'batas_bawah' => 8, 'batas_atas'=> 15, 'nilai' => 3],
-            ['id_parameter' => 1, 'batas_bawah' => 0, 'batas_atas'=> 8, 'nilai' => 4],
-            ['id_parameter' => 4, 'batas_bawah' => 4000, 'batas_atas'=> 10000, 'nilai' => 0],
-            ['id_parameter' => 4, 'batas_bawah' => 2750, 'batas_atas'=> 4000, 'nilai' => 1],
-            ['id_parameter' => 4, 'batas_bawah' => 1500, 'batas_atas'=> 4000, 'nilai' => 2]
+            ['id_parameter' => 1, 'batas_bawah' => 40, 'batas_atas'=> 100, 'nilai_klasifikasi' => 0],
+            ['id_parameter' => 1, 'batas_bawah' => 25, 'batas_atas'=> 40, 'nilai_klasifikasi' => 1],
+            ['id_parameter' => 1, 'batas_bawah' => 15, 'batas_atas'=> 25, 'nilai_klasifikasi' => 2],
+            ['id_parameter' => 1, 'batas_bawah' => 8, 'batas_atas'=> 15, 'nilai_klasifikasi' => 3],
+            ['id_parameter' => 1, 'batas_bawah' => 0, 'batas_atas'=> 8, 'nilai_klasifikasi' => 4],
+            ['id_parameter' => 4, 'batas_bawah' => 4000, 'batas_atas'=> 10000, 'nilai_klasifikasi' => 0],
+            ['id_parameter' => 4, 'batas_bawah' => 2750, 'batas_atas'=> 4000, 'nilai_klasifikasi' => 1],
+            ['id_parameter' => 4, 'batas_bawah' => 1500, 'batas_atas'=> 4000, 'nilai_klasifikasi' => 2]
         ];
 
         DB::table('nilai_klasifikasi_kriterias')->insert($nilai_klasifikasi_kriterias);
 
         //nilai_klasifikasi_kategoris
         $nilai_klasifikasi_kategoris=[
-            ['id_parameter' => 2, 'kategori' => 'Hutan', 'nilai' => 0],
-            ['id_parameter' => 2, 'kategori' => 'Pemukiman', 'nilai' => 1],
-            ['id_parameter' => 2, 'kategori' => 'Sawah', 'nilai' => 2],
-            ['id_parameter' => 2, 'kategori' => 'Kebun/Lapangan', 'nilai' => 3],
-            ['id_parameter' => 2, 'kategori' => 'Industri', 'nilai' => 4],
-            ['id_parameter' => 3, 'kategori' => 'Tinggi', 'nilai' => 0],
-            ['id_parameter' => 3, 'kategori' => 'Sedang', 'nilai' => 1],
-            ['id_parameter' => 3, 'kategori' => 'Rendah', 'nilai' => 2],
-            ['id_parameter' => 5, 'kategori' => 'Akuiver Produktif', 'nilai' => 0],
-            ['id_parameter' => 5, 'kategori' => 'Air Tanah Langka', 'nilai' => 2],
-            ['id_parameter' => 6, 'kategori' => 'Gromosol', 'nilai' => 0],
-            ['id_parameter' => 6, 'kategori' => 'Latosol', 'nilai' => 1],
-            ['id_parameter' => 6, 'kategori' => 'Regosol', 'nilai' => 2],
-            ['id_parameter' => 6, 'kategori' => 'Alluvial', 'nilai' => 3],
-            ['id_parameter' => 7, 'kategori' => 'Rawan Banjir', 'nilai' => 0],
-            ['id_parameter' => 7, 'kategori' => 'Tidak Rawan Banjir', 'nilai' => 1]
+            ['id_parameter' => 2, 'nilai_parameter' => 'Hutan', 'nilai_klasifikasi' => 0],
+            ['id_parameter' => 2, 'nilai_parameter' => 'Pemukiman', 'nilai_klasifikasi' => 1],
+            ['id_parameter' => 2, 'nilai_parameter' => 'Sawah', 'nilai_klasifikasi' => 2],
+            ['id_parameter' => 2, 'nilai_parameter' => 'Kebun/Lapangan', 'nilai_klasifikasi' => 3],
+            ['id_parameter' => 2, 'nilai_parameter' => 'Industri', 'nilai_klasifikasi' => 4],
+            ['id_parameter' => 3, 'nilai_parameter' => 'Tinggi', 'nilai_klasifikasi' => 0],
+            ['id_parameter' => 3, 'nilai_parameter' => 'Sedang', 'nilai_klasifikasi' => 1],
+            ['id_parameter' => 3, 'nilai_parameter' => 'Rendah', 'nilai_klasifikasi' => 2],
+            ['id_parameter' => 5, 'nilai_parameter' => 'Akuiver Produktif', 'nilai_klasifikasi' => 0],
+            ['id_parameter' => 5, 'nilai_parameter' => 'Air Tanah Langka', 'nilai_klasifikasi' => 2],
+            ['id_parameter' => 6, 'nilai_parameter' => 'Gromosol', 'nilai_klasifikasi' => 0],
+            ['id_parameter' => 6, 'nilai_parameter' => 'Latosol', 'nilai_klasifikasi' => 1],
+            ['id_parameter' => 6, 'nilai_parameter' => 'Regosol', 'nilai_klasifikasi' => 2],
+            ['id_parameter' => 6, 'nilai_parameter' => 'Alluvial', 'nilai_klasifikasi' => 3],
+            ['id_parameter' => 7, 'nilai_parameter' => 'Rawan Banjir', 'nilai_klasifikasi' => 0],
+            ['id_parameter' => 7, 'nilai_parameter' => 'Tidak Rawan Banjir', 'nilai_klasifikasi' => 1]
         ];
 
         DB::table('nilai_klasifikasi_kategoris')->insert($nilai_klasifikasi_kategoris);

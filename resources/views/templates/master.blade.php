@@ -34,7 +34,7 @@
         <div class="sidebar-wrapper">
         <div class="user">
             <div class="photo">
-                <img src="../assets/img/fotoprofil.jpg">
+                <img src="../assets/img/fotoprofilakun.png">
             </div>
             <div class="user-info">
                 <a href="#user" data-toggle="collapse" class="username">
@@ -120,14 +120,8 @@
                     <ul class="nav">
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('nilaiklasifikasi.read')}}">
-                                <span class="sidebar-mini">NK</span>
+                                <span class="sidebar-mini">NK</span> 
                                 <span class="sidebar-normal">Nilai Klasifikasi</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('parameternilai.read')}}">
-                                <span class="sidebar-mini">PD</span>
-                                <span class="sidebar-normal">Parameter & Nilai</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -136,12 +130,20 @@
                                 <span class="sidebar-normal">Bobot Parameter</span>
                             </a>
                         </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('bobotrelatif.read')}}">
                                 <span class="sidebar-mini">BR</span>
                                 <span class="sidebar-normal">Bobot Relatif</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('parameternilai.read')}}">
+                                <span class="sidebar-mini">PD</span>
+                                <span class="sidebar-normal">Parameter & Nilai</span>
+                            </a>
+                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('parameternilaibobot.read')}}">
                                 <span class="sidebar-mini">HP</span>

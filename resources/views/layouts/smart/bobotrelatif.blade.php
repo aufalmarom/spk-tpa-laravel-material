@@ -26,7 +26,7 @@
         <div class="col-sm-6 card">
             <div class="card-header card-header-icon card-header-rose">
                 <div class="card-icon">
-                    <i class="material-icons">perm_identity</i>
+                    <i class="material-icons">subject</i>
                 </div>
                 <h4 class="card-title">Bobot Relatif</h4>
             </div>
@@ -48,8 +48,8 @@
                             <tr>
                                 <td class="text-center">{{$no++}}</td>
                                 <td>{{$br_view->parameter}}</td>
-                                <td class="text-center">{{$br_view->bobot}}/{{$db1}}</td>
-                                <td class="text-center">{{$br_view->bobot/$db1}}</td>
+                                <td class="text-center">{{$br_view->bobot}}/{{$datas_sum}}</td>
+                                <td class="text-center">{{$br_view->bobot_relatif}}</td>
                             </tr>
                         @endforeach
                     </tbody>

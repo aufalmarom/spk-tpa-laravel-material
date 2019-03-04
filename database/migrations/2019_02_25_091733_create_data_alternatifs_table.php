@@ -17,7 +17,7 @@ class CreateDataAlternatifsTable extends Migration
             $table->increments('id');
             $table->integer('id_kecamatan')->unsigned();
             $table->integer('id_parameter')->unsigned();
-            $table->integer('nilai');
+            $table->integer('nilai_klasifikasi');
             $table->integer('created_by')->unsigned()->nullable();
             $table->timestamps();
         });

@@ -19,11 +19,12 @@
         @endif
     </div>
 
+
     <div class="row">
         <div class="col-sm-8 card">
             <div class="card-header card-header-icon card-header-rose">
                 <div class="card-icon">
-                    <i class="material-icons">perm_identity</i>
+                    <i class="material-icons">landscape</i>
 
                 </div>
                 <h4 class="card-title">Data {{$parameter->parameter}}</h4>
@@ -47,8 +48,8 @@
                             <tr>
                                 <td class="text-center">{{$no++}}</td>
                                 <td>{{$dk_view->kecamatan->daerah}}</td>
-                                <td class="text-center">{{$dk_view->nilai}}</td>
-                                <td class="text-center">{{MunculinNilaiKlasifikasi($parameter->id, $dk_view->id_kecamatan)}}</td>
+                                <td class="text-center">{{$dk_view->nilai_parameter}}</td>
+                                <td class="text-center">{{$dk_view->nilai_klasifikasi}}</td>
                             </tr>
                         @endforeach
                     </tbody>

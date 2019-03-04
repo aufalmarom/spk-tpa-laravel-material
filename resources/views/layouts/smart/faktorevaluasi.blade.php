@@ -27,7 +27,7 @@
             <div class="card">
                 <div class="card-header card-header-icon card-header-rose">
                     <div class="card-icon">
-                        <i class="material-icons">perm_identity</i>
+                        <i class="material-icons">subject</i>
 
                     </div>
                     <h4 class="card-title">Faktor Evaluasi</h4>
@@ -57,9 +57,6 @@
                                     @endfor
                                 </tr>
                             @endforeach
-
-
-
                         </tbody>
                     </table>
                 </div>

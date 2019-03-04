@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Hash;
 
 class UserController extends Controller
 {
@@ -51,7 +52,7 @@ class UserController extends Controller
 
         if($post['id'] == null){
             $simpan = new User();
-            $simpan->password = bcrypt($post['password']);
+            $simpan->password = Hash::make($post['password']);
             $simpan->role = $post['role'];
         }
         else {
@@ -79,26 +80,22 @@ class UserController extends Controller
     public function GantosPassword(Request $request)
     {
         $post = $request->request->all();
-
-        $simpan = User::find($post['id']);
-
-        $passwordlama = bcrypt($post['password_lama']);
-        $passwordbaru = $post['password_baru'];
-        $konfirmasipassword = $post['konfirmasi_password'];
-
-        if ($passwordlama == $simpan['password']) {
+        $current_password = Auth::User()->password; 
+        if(Hash::check($post['password_lama'], $current_password)) { 
+            $passwordbaru = $post['password_baru'];
+            $konfirmasipassword = $post['konfirmasi_password'];
             if ($passwordbaru == $konfirmasipassword) {
-                $simpan->password = bcrypt($post['password_baru']);
+                $simpan = User::find($post['id']);
+                $simpan->password = Hash::make($post['password_baru']);
                 $simpan->save();
+                return back()->with('success', 'Password Berhasil Diubah');
             }else {
                 return back()->with('danger', 'Password Baru Tidak Cocok');
             }
-
-        }else {
+        }
+        else{
             return back()->with('danger', 'Password Lama Salah');
         }
-
-        return back()->with('success', 'Password Berhasil Diubah');
     }
 
 }

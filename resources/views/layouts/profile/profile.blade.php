@@ -35,24 +35,18 @@
                                 <label for="inputEmail4" class="bmd-label-floating">Password Lama</label>
                                 <input type="password" name="password_lama" class="form-control" required>
                                 <input type="hidden" name="id" value="{{$data->id}}" required>
-                                {{-- kurang glyphicon --}}
-                                <i class="glyphicon glyphicon-eye-open form-control-feedback"></i>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col">
                                 <label for="inputEmail4" class="bmd-label-floating">Password Baru</label>
                                 <input type="password" name="password_baru" class="form-control" required>
-                                {{-- kurang glyphicon --}}
-                                <i class="glyphicon glyphicon-eye-open form-control-feedback"></i>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col">
                                 <label for="inputEmail4" class="bmd-label-floating">Konfirmasi Password</label>
                                 <input type="password" name="konfirmasi_password" class="form-control" required>
-                                {{-- kurang glyphicon --}}
-                                <i class="glyphicon glyphicon-eye-open form-control-feedback"></i>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-rose">ubah password</button>
