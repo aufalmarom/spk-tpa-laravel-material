@@ -120,7 +120,7 @@
                     <ul class="nav">
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('nilaiklasifikasi.read')}}">
-                                <span class="sidebar-mini">NK</span> 
+                                <span class="sidebar-mini">NK</span>
                                 <span class="sidebar-normal">Nilai Klasifikasi</span>
                             </a>
                         </li>
@@ -130,7 +130,7 @@
                                 <span class="sidebar-normal">Bobot Parameter</span>
                             </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('bobotrelatif.read')}}">
                                 <span class="sidebar-mini">BR</span>
@@ -143,7 +143,7 @@
                                 <span class="sidebar-normal">Parameter & Nilai</span>
                             </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('parameternilaibobot.read')}}">
                                 <span class="sidebar-mini">HP</span>
@@ -220,7 +220,7 @@
                                 <i class="material-icons">person</i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a href="{{route('logout')}}" class="dropdown-item" >Log Out</a>
+                                <a href="{{route('logout')}}" class="dropdown-item" >Keluar</a>
                             </div>
                         </li>
                     </ul>
