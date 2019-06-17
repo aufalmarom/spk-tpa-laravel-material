@@ -6,7 +6,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>Sistem Informasi Geografis - TPA</title>
+  <title>Sistem Pendukung Keputusan - TPA</title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -21,7 +21,7 @@
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="{{url('/')}}">
-          SIG - TPA </a>
+          SPK - TPA </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
@@ -55,7 +55,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8">
-          <h1 class="title">Sistem Informasi Geografis Tempat Pembuangan Akhir</h1>
+          <h1 class="title">Sistem Pendukung Keputusan Tempat Pembuangan Akhir</h1>
           <h4>Dirancang untuk menentukan lokasi terbaik dibangunnya sebuah Tempat Pembuangan Akhir di suatu daerah demi membuat lingkungan persampahan yang lebih terkelola.</h4>
           <br>
           <br>
@@ -72,7 +72,7 @@
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto">
             <h2 class="title">MARI BICARA PRODUK</h2>
-            <h5 class="description">Sistem Informasi Geografis ini dapat menghandle fungsi-fungsi CRUD(Create, Read, Update & Delete), pengolahan menggunakan metode SMART(Simple Multi Attribute Rating Technique) dan juga akan menampilkan hasil olahan tersebut pada Carto Map</h5>
+            <h5 class="description">Sistem Informasi ini dapat menghandle fungsi-fungsi CRUD(Create, Read, Update & Delete), pengolahan menggunakan metode SMART(Simple Multi Attribute Rating Technique) dan juga akan menampilkan hasil olahan tersebut pada Carto Map</h5>
           </div>
         </div>
         <div class="features">
@@ -115,7 +115,7 @@
         <ul>
           <li>
             <a href="{{url('/')}}">
-              SIG-TPA
+              SPK-TPA
             </a>
           </li>
         </ul>

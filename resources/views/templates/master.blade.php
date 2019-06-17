@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <title>
-    Sistem Informasi Geografis - TPA
+    Sistem Pendukung Keputusan  - TPA
     </title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -28,7 +28,7 @@
             ST
         </a>
         <a href="{{route('dashboard.read')}}" class="simple-text logo-normal text-left">
-            SIG-TPA
+            SPK-TPA
         </a>
         </div>
         <div class="sidebar-wrapper">
@@ -242,7 +242,7 @@
             <ul>
                 <li>
                 <a href="{{url('/dashboard')}}">
-                    SIG-TPA
+                    SPK-TPA
                 </a>
                 </li>
             </ul>

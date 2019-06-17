@@ -6,7 +6,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>Sistem Informasi Geografis - TPA</title>
+  <title>Sistem Pendukung Keputusan - TPA</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -21,7 +21,7 @@
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="{{url('/')}}">
-            Sistem Informasi Geografis - TPA </a>
+            Sistem Pendukung Keputusan - TPA </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
