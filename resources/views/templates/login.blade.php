@@ -21,7 +21,7 @@
     <div class="container">
       <div class="navbar-translate">
         <a class="navbar-brand" href="{{url('/')}}">
-            Sistem Pendukung Keputusan - TPA </a>
+          SPK - TPA </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
