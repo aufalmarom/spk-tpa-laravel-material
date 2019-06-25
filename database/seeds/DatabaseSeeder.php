@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
         $datausers=[
             ['name' => "Aufal Marom", 'email' => 'admin@sigtpa.com' , 'password' => bcrypt("admin123"), 'role' => "administrator"],
             ['name' => "Yudi Eko W", 'email'=> 'manager@sigtpa.com' , 'password' => bcrypt("manager123"), 'role' => "manager"],
-            ['name' => "Cahyo Ndut",'email'=> 'operator@sigtpa.com' ,  'password' => bcrypt("operator123"), 'role' => "operator",]
+            ['name' => "Cahyo Ndut",'email'=> 'client@sigtpa.com' ,  'password' => bcrypt("client123"), 'role' => "client",]
         ];
 
         DB::table('users')->insert($datausers);

@@ -12,7 +12,7 @@
     @endif
 
     <div class="row">
-        @if(Auth::user()->role != "operator")
+        @if(Auth::user()->role != "client")
         <a href="{{route('tambaheditdataparameter.read', $parameter->id)}}"><button class="btn btn-rose" type="button">
             Tambah & Edit Data
         </button></a>

@@ -73,7 +73,7 @@
                                     </div>
                                     <div class="form-check form-check-radio form-check-inline">
                                         <label class="form-check-label">
-                                            <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="operator"> Operator
+                                            <input class="form-check-input" type="radio" name="role" id="inlineRadio2" value="client"> Client
                                             <span class="circle">
                                                 <span class="check"></span>
                                             </span>

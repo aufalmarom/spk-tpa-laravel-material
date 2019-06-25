@@ -306,7 +306,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `tanggal_lahir`, `alamat`, `bio`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Aufal Marom', 'admin@sigtpa.com', '$2y$10$qaHkUhMocFKeqi4MhkSHhuErEF8eKdvtGxrWoMOzAO.vtitXs51SS', 'administrator', '1997-11-25', 'Jl. Timoho. Timur 1A No. 2', 'a longlife-learner.', NULL, NULL, '2019-03-03 09:40:15'),
 (2, 'Yudi Eko W', 'manager@sigtpa.com', '$2y$10$9ESBb/FKEb53Yqxxp.y1TOB8v06cC1TmUuM10LsLNs85unUpk3WvW', 'manager', NULL, NULL, NULL, NULL, NULL, '2019-03-03 10:28:20'),
-(3, 'Cahyo Ndut', 'operator@sigtpa.com', '$2y$10$F/dfn9cjsj8DQbC04sBb2uWP1O22/yNXLNL5ywZ0KRqlow6jmMxla', 'operator', NULL, NULL, NULL, NULL, NULL, '2019-03-03 10:31:23');
+(3, 'Cahyo Ndut', 'client@sigtpa.com', '$2y$10$F/dfn9cjsj8DQbC04sBb2uWP1O22/yNXLNL5ywZ0KRqlow6jmMxla', 'client', NULL, NULL, NULL, NULL, NULL, '2019-03-03 10:31:23');
 
 --
 -- Indexes for dumped tables

@@ -20,7 +20,7 @@
 
 
     <div class="row">
-        @if(Auth::user()->role != "operator")
+        @if(Auth::user()->role != "client")
         <button class="btn btn-rose" type="button" data-toggle="collapse" data-target="#create-daerah" aria-expanded="false" aria-controls="collapseExample">
             tambah kecamatan
         </button>
@@ -62,7 +62,7 @@
                             <th class="text-center">No.</th>
                             <th>Kecamatan</th>
                             <th class="text-center">Pembuat</th>
-                            @if (Auth::user()->role != "operator")
+                            @if (Auth::user()->role != "client")
                             <th class="text-center">Actions</th>
                         @endif
                         </tr>
@@ -77,7 +77,7 @@
                                 <td>{{$data->daerah}}</td>
                                 <td class="text-center">{{$data->user->name}}</td>
 
-                                @if (Auth::user()->role != "operator")
+                                @if (Auth::user()->role != "client")
 
 
                                 <td class="td-actions text-center">

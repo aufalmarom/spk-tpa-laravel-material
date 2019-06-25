@@ -16,7 +16,7 @@ class UserController extends Controller
     public function MaosUser(){
 
 
-        if(Auth::user()-> role != "operator"){
+        if(Auth::user()-> role != "client"){
             //Eloquent ORM
             $db = User::get();
 

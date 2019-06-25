@@ -37,7 +37,7 @@
     </div>
 
     <div class="row">
-        @if(Auth::user()->role != "operator")
+        @if(Auth::user()->role != "client")
         <button class="btn btn-rose" type="button" data-toggle="collapse" data-target="#create-data" aria-expanded="false" aria-controls="collapseExample">
             tambah parameter baru
         </button>
@@ -84,7 +84,7 @@
                             <th>Parameter</th>
                             <th class="text-center">Bobot</th>
                             <th class="text-center">Pembuat</th>
-                            @if (Auth::user()->role != "operator")
+                            @if (Auth::user()->role != "client")
                                 <th class="text-center">Actions</th>
                             @endif
                         </tr>
@@ -99,7 +99,7 @@
                                 <td>{{$bp_view->parameter}}</td>
                                 <td class="text-center">{{$bp_view->bobot}}</td>
                                 <td class="text-center">{{$bp_view->user->name}}</td>
-                                @if (Auth::user()->role != "operator")
+                                @if (Auth::user()->role != "client")
 
 
                                 <td class="td-actions text-center">

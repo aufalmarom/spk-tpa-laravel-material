@@ -11,7 +11,7 @@
                         <i class="material-icons">landscape</i>
                     </div>
                 <h4 class="card-title">Nilai Klasifikasi {{$data->parameter}}</h4>
-                @if(Auth::user()->role != "operator")
+                @if(Auth::user()->role != "client")
                    
                             <a href="{{route('editnilaiklasifikasi.read', $data->id)}}"><button rel="tooltip" type="button" rel="tooltip" title="Edit" class="btn btn-rose btn-link btn-sm">
                                 <i class="material-icons">edit</i>
@@ -26,7 +26,7 @@
                                 <th class="text-center">No.</th>
                                 <th>Nilai Parameter</th>
                                 <th class="text-center">Nilai Klasifikasi</th>
-                                @if(Auth::user()->role != "operator")
+                                @if(Auth::user()->role != "client")
                                 <th class="text-justify">Actions</th>
                                 @endif
                             </tr>
@@ -41,7 +41,7 @@
                                 <td class="text-center">{{$no}}</td>
                                 <td>{{$nilai->nilai_parameter}}</td>
                                 <td class="text-center">{{$nilai->nilai_klasifikasi}}</td>
-                                @if(Auth::user()->role != "operator")
+                                @if(Auth::user()->role != "client")
                                 <td>
                                     <button rel="tooltip" type="button" title="Remove" class="btn btn-rose btn-link btn-sm" data-toggle="modal" data-target="#modal-delete-kategori{{$nilai->id}}">
                                         <i class="material-icons">clear</i>

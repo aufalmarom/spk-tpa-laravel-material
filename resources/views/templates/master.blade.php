@@ -179,7 +179,7 @@
             </a>
             </li>
             <?php
-            if (Auth::user()->role != "operator"){
+            if (Auth::user()->role != "client"){
             ?>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('user.read')}}">

@@ -59,5 +59,3 @@ Route::post('/user/hapus','UserController@HapusUser')->name('user.delete');
 Route::get('/profile/{id}','UserController@MaosProfile')->name('profile.read');
 //ubahpassword
 Route::post('/ubahpassword','UserController@GantosPassword')->name('profile.changepassword');
-
-
