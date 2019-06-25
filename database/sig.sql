@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.6.6deb5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 04, 2019 at 02:00 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.8
+-- Host: localhost:3306
+-- Generation Time: Jun 25, 2019 at 10:24 PM
+-- Server version: 5.7.26-0ubuntu0.18.04.1
+-- PHP Version: 7.2.19-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -43,13 +41,13 @@ CREATE TABLE `bobot_parameters` (
 --
 
 INSERT INTO `bobot_parameters` (`id`, `parameter`, `bobot`, `bobot_relatif`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, 'Kelerengan', 10, '0.1', 1, NULL, '2019-03-03 01:54:48'),
-(2, 'Penggunaan Lahan', 20, '0.2', 1, NULL, '2019-03-03 01:54:48'),
-(3, 'Rawan Bencana Longsor', 15, '0.15', 1, NULL, '2019-03-03 01:54:48'),
-(4, 'Curah Hujan', 15, '0.15', 1, NULL, '2019-03-03 01:54:48'),
-(5, 'Hidrogeologi', 20, '0.2', 1, NULL, '2019-03-03 01:54:48'),
-(6, 'Jenis Tanah', 10, '0.1', 1, NULL, '2019-03-03 01:54:48'),
-(7, 'Rawan Bencana Banjir', 10, '0.1', 1, NULL, '2019-03-03 01:54:48');
+(1, 'Kelerengan', 10, '0.1', 1, NULL, '2019-03-14 19:13:52'),
+(2, 'Penggunaan Lahan', 20, '0.2', 1, NULL, '2019-03-14 19:13:52'),
+(3, 'Rawan Bencana Longsor', 15, '0.15', 1, NULL, '2019-03-14 19:13:52'),
+(4, 'Curah Hujan', 15, '0.15', 1, NULL, '2019-03-14 19:13:52'),
+(5, 'Hidrogeologi', 20, '0.2', 1, NULL, '2019-03-14 19:13:52'),
+(6, 'Jenis Tanah', 10, '0.1', 1, NULL, '2019-03-14 19:13:52'),
+(7, 'Rawan Bencana Banjir', 10, '0.1', 1, NULL, '2019-03-14 19:13:52');
 
 -- --------------------------------------------------------
 
@@ -74,19 +72,19 @@ CREATE TABLE `data_alternatifs` (
 --
 
 INSERT INTO `data_alternatifs` (`id`, `id_kecamatan`, `id_parameter`, `nilai_parameter`, `nilai_klasifikasi`, `nilai_parameter_bobot`, `created_by`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, '0-8%', '4', '40', 1, '2019-02-25 08:58:23', '2019-03-03 00:53:16'),
-(2, 2, 1, '8-15%', '3', '30', 1, '2019-02-25 08:58:23', '2019-03-03 00:53:16'),
-(3, 3, 1, '8-15%', '3', '30', 1, '2019-02-25 08:58:23', '2019-03-03 00:53:16'),
-(4, 4, 1, '8-15%', '3', '30', 1, '2019-02-25 08:58:23', '2019-03-03 00:53:16'),
-(5, 5, 1, '0-8%', '4', '40', 1, '2019-02-25 08:58:23', '2019-03-03 00:53:16'),
-(6, 6, 1, '8-15%', '3', '30', 1, '2019-02-25 08:58:23', '2019-03-03 00:53:16'),
-(7, 7, 1, '0-8%', '4', '40', 1, '2019-02-25 08:58:23', '2019-03-03 00:53:16'),
-(8, 8, 1, '0-8%', '4', '40', 1, '2019-02-25 08:58:23', '2019-03-03 00:53:16'),
-(9, 9, 1, '25-40%', '1', '10', 1, '2019-02-25 08:58:23', '2019-03-03 00:53:16'),
-(10, 10, 1, '15-25%', '2', '20', 1, '2019-02-25 08:58:23', '2019-03-03 00:53:16'),
-(11, 11, 1, '0-8%', '4', '40', 1, '2019-02-25 08:58:23', '2019-03-03 00:53:16'),
-(12, 12, 1, '0-8%', '4', '40', 1, '2019-02-25 08:58:23', '2019-03-03 00:53:16'),
-(13, 13, 1, '8-15%', '3', '30', 1, '2019-02-25 08:58:23', '2019-03-03 00:53:16'),
+(1, 1, 1, '0-8%', '4', '40', 1, '2019-02-25 08:58:23', '2019-03-09 07:15:16'),
+(2, 2, 1, '8-15%', '3', '30', 1, '2019-02-25 08:58:23', '2019-03-09 07:15:16'),
+(3, 3, 1, '8-15%', '3', '30', 1, '2019-02-25 08:58:23', '2019-03-09 07:15:16'),
+(4, 4, 1, '8-15%', '3', '30', 1, '2019-02-25 08:58:23', '2019-03-09 07:15:16'),
+(5, 5, 1, '0-8%', '4', '40', 1, '2019-02-25 08:58:23', '2019-03-09 07:15:16'),
+(6, 6, 1, '8-15%', '3', '30', 1, '2019-02-25 08:58:23', '2019-03-09 07:15:16'),
+(7, 7, 1, '0-8%', '4', '40', 1, '2019-02-25 08:58:23', '2019-03-09 07:15:16'),
+(8, 8, 1, '0-8%', '4', '40', 1, '2019-02-25 08:58:23', '2019-03-09 07:15:16'),
+(9, 9, 1, '25-40%', '1', '10', 1, '2019-02-25 08:58:23', '2019-03-09 07:15:16'),
+(10, 10, 1, '15-25%', '2', '20', 1, '2019-02-25 08:58:23', '2019-03-09 07:15:16'),
+(11, 11, 1, '0-8%', '4', '40', 1, '2019-02-25 08:58:23', '2019-03-09 07:15:16'),
+(12, 12, 1, '0-8%', '4', '40', 1, '2019-02-25 08:58:23', '2019-03-09 07:15:16'),
+(13, 13, 1, '8-15%', '3', '30', 1, '2019-02-25 08:58:23', '2019-03-09 07:15:16'),
 (15, 1, 2, 'Industri', '4', '80', 1, '2019-02-25 10:01:37', '2019-03-03 00:35:25'),
 (16, 2, 2, 'Hutan', '0', '0', 1, '2019-02-25 10:01:37', '2019-03-03 00:35:25'),
 (17, 3, 2, 'Hutan', '0', '0', 1, '2019-02-25 10:01:37', '2019-03-03 00:35:25'),
@@ -304,9 +302,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `tanggal_lahir`, `alamat`, `bio`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Aufal Marom', 'admin@sigtpa.com', '$2y$10$qaHkUhMocFKeqi4MhkSHhuErEF8eKdvtGxrWoMOzAO.vtitXs51SS', 'administrator', '1997-11-25', 'Jl. Timoho. Timur 1A No. 2', 'a longlife-learner.', NULL, NULL, '2019-03-03 09:40:15'),
-(2, 'Yudi Eko W', 'manager@sigtpa.com', '$2y$10$9ESBb/FKEb53Yqxxp.y1TOB8v06cC1TmUuM10LsLNs85unUpk3WvW', 'manager', NULL, NULL, NULL, NULL, NULL, '2019-03-03 10:28:20'),
-(3, 'Cahyo Ndut', 'client@sigtpa.com', '$2y$10$F/dfn9cjsj8DQbC04sBb2uWP1O22/yNXLNL5ywZ0KRqlow6jmMxla', 'client', NULL, NULL, NULL, NULL, NULL, '2019-03-03 10:31:23');
+(1, 'Aufal Marom', 'admin@sigtpa.com', '$2y$10$eAWxX7EorRYmugn.gf4.uOQab5scUm25JKawcEw4Zd.77e76AgXD2', 'administrator', '1997-11-25', 'Jl. Timoho. Timur 1A No. 2', 'a lifelong-learner.', NULL, NULL, '2019-06-25 08:11:07'),
+(2, 'Yudi Eko W', 'manager@sigtpa.com', '$2y$10$PrVD9qnjLrJvOtO.jqFUF.GQazYUQ56OR198IoC60FbAAh7evPWG.', 'manager', NULL, NULL, NULL, NULL, NULL, '2019-06-25 04:30:10'),
+(3, 'Cahyo', 'client@sigtpa.com', '$2y$10$u8.0etDsoWvwkpQeszul9ekSQdnymay/S1LepVOGqrwxV9VFemyT.', 'client', '1997-10-08', 'Jl. Sipodang', 'stay foolish stay hungry.', NULL, NULL, '2019-06-25 04:39:14');
 
 --
 -- Indexes for dumped tables
@@ -364,37 +362,31 @@ ALTER TABLE `users`
 --
 ALTER TABLE `bobot_parameters`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT for table `data_alternatifs`
 --
 ALTER TABLE `data_alternatifs`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
-
 --
 -- AUTO_INCREMENT for table `kecamatans`
 --
 ALTER TABLE `kecamatans`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
 --
 -- AUTO_INCREMENT for table `nilai_klasifikasi`
 --
 ALTER TABLE `nilai_klasifikasi`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Constraints for dumped tables
 --
@@ -427,7 +419,6 @@ ALTER TABLE `nilai_klasifikasi`
   ADD CONSTRAINT `FK_nilai_klasifikasi_id_parameter` FOREIGN KEY (`id_parameter`) REFERENCES `bobot_parameters` (`id`),
   ADD CONSTRAINT `nilai_klasifikasi_ibfk_1` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`),
   ADD CONSTRAINT `nilai_klasifikasi_ibfk_2` FOREIGN KEY (`id_parameter`) REFERENCES `bobot_parameters` (`id`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
