@@ -23,4 +23,14 @@ class DashboardController extends Controller
             'title'=> $title
         ], compact('result'));
     }
+
+    public function logout()
+    {
+        $session = array(
+            'nama'  => session('nama'),
+            'user'  => session('user'),
+        );
+        $hancur = session()->flush();
+        return view('/layouts/home');
+    }
 }

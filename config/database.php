@@ -44,7 +44,7 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => 'sig',
+            'database' => 'spk-tpa-laravel-material',
             'username' => 'phpmyadmin',
             'password' => 'admin123',
             'unix_socket' => env('DB_SOCKET', ''),

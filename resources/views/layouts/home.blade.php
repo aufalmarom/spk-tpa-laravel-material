@@ -56,7 +56,7 @@
       <div class="row">
         <div class="col-md-8">
           <h1 class="title">Sistem Pendukung Keputusan Tempat Pembuangan Akhir</h1>
-          <h4>Dirancang untuk menentukan lokasi terbaik dibangunnya sebuah Tempat Pembuangan Akhir di suatu daerah demi membuat lingkungan persampahan yang lebih terkelola.</h4>
+          <h4>Dirancang untuk menentukan lokasi terbaik dibangunnya sebuah Tempat Pembuangan Akhir di Kabupaten Pemalang demi membuat lingkungan persampahan yang lebih terkelola.</h4>
           <br>
           <br>
             <a href="{{ url('/login')}}" class="btn btn-danger btn-raised btn-lg">

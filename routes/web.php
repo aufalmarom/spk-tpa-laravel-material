@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('/layouts/home');
 });
 //logout
-Route::get('/logout','HomeController@logout')->name('logout');
+Route::get('/logout','DashboardController@logout')->name('logout');
 //dashboard
 Route::get('/dashboard','DashboardController@index')->name('dashboard.read');
 //data
